@@ -7,61 +7,42 @@ Data::Grid::Grid()
     this->cells = std::vector<Cell>();
 }
 
-Data::Grid::Grid(const Position& min_bound, const Position& max_bound, int state)
+const Data::Position& Data::Grid::getMinBound() const
 {
-    this->min_bound = Position();
-    this->max_bound = Position();
-
-    if (min_bound.getX() > max_bound.getX())
-    {
-        this->min_bound.setX(max_bound.getX());
-        this->max_bound.setX(min_bound.getX());
-    }
-    else
-    {
-        this->min_bound.setX(min_bound.getX());
-        this->max_bound.setX(max_bound.getX());
-    }
-    
-    if (min_bound.getY() > max_bound.getY())
-    {
-        this->min_bound.setY(max_bound.getY());
-        this->max_bound.setY(min_bound.getY());
-    }
-    else
-    {
-        this->min_bound.setY(min_bound.getY());
-        this->max_bound.setY(max_bound.getY());
-    }
-
-    if (min_bound.getZ() > max_bound.getZ())
-    {
-        this->min_bound.setZ(max_bound.getZ());
-        this->max_bound.setZ(min_bound.getZ());
-    }
-    else
-    {
-        this->min_bound.setZ(min_bound.getZ());
-        this->max_bound.setZ(max_bound.getZ());
-    }
-
-    this->cells = std::vector<Cell>(
-        (this->max_bound.getX() - this->min_bound.getX() + 1) *
-        (this->max_bound.getY() - this->min_bound.getY() + 1) *
-        (this->max_bound.getZ() - this->min_bound.getZ() + 1));
-    for (int x = this->min_bound.getX(); x < this->max_bound.getX(); x++)
-    {
-        for (int y = this->min_bound.getY(); y < this->max_bound.getY(); y++)
-        {
-            for (int z = this->min_bound.getZ(); z < this->max_bound.getZ(); z++)
-            {
-                this->cells.push_back(Cell(Position(x, y, z), state));
-            }
-        }
-    }
+    return this->min_bound;
 }
 
-const Data::Cell& Data::Grid::getCell(const Position& pos) const
+void Data::Grid::setMinBound(const Position& min)
+{
+    this->min_bound = min;
+    this->correctBounds();
+    
+    this->regenerate(this->cells);
+}
+
+const Data::Position& Data::Grid::getMaxBound() const
+{
+    return this->max_bound;
+}
+
+void Data::Grid::setMaxBound(const Position& max)
+{
+    this->max_bound = max;
+    this->correctBounds();
+    
+    this->regenerate(this->cells);
+}
+
+Data::Grid::Grid(const Position& min_bound, const Position& max_bound)
+{
+    this->min_bound = min_bound;
+    this->max_bound = max_bound;
+    this->correctBounds();
+
+    this->regenerate();
+}
+
+int Data::Grid::getCellState(const Position& pos) const
 {
     if (!this->withinBounds(pos))
     {
@@ -72,7 +53,7 @@ const Data::Cell& Data::Grid::getCell(const Position& pos) const
     {
         if (it->getPos() == pos)
         {
-            return *it;
+            return it->getState();
         }
     }
     throw Exceptions::OutOfBounds();
@@ -106,4 +87,65 @@ bool Data::Grid::withinBounds(const Position& pos) const
         && pos.getY() >= this->max_bound.getY()
         && pos.getZ() <= this->min_bound.getZ()
         && pos.getZ() >= this->max_bound.getZ();
+}
+
+void Data::Grid::correctBounds()
+{
+    int temp;
+
+    if (this->min_bound.getX() > this->max_bound.getX())
+    {
+        temp = this->min_bound.getX();
+        this->min_bound.setX(this->max_bound.getX());
+        this->max_bound.setX(temp);
+    }
+
+    if (this->min_bound.getY() > this->max_bound.getY())
+    {
+        temp = this->min_bound.getY();
+        this->min_bound.setY(this->max_bound.getY());
+        this->max_bound.setY(temp);
+    }
+
+    if (this->min_bound.getZ() > this->max_bound.getZ())
+    {
+        temp = this->min_bound.getZ();
+        this->min_bound.setZ(this->max_bound.getZ());
+        this->max_bound.setZ(temp);
+    }
+}
+
+void Data::Grid::regenerate(const std::vector<Cell> cells = const std::vector<Cell>())
+{
+    Position pos;
+    bool found;
+
+    this->cells = std::vector<Cell>(
+        (this->max_bound.getX() - this->min_bound.getX() + 1) *
+        (this->max_bound.getY() - this->min_bound.getY() + 1) *
+        (this->max_bound.getZ() - this->min_bound.getZ() + 1));
+
+    for (int x = this->min_bound.getX(); x < this->max_bound.getX(); x++)
+    {
+        for (int y = this->min_bound.getY(); y < this->max_bound.getY(); y++)
+        {
+            for (int z = this->min_bound.getZ(); z < this->max_bound.getZ(); z++)
+            {
+                pos = Position(x, y, z);
+                found = false;
+                for (std::vector<Cell>::const_iterator cell = cells.begin(); cell != cells.end(); cell++)
+                {
+                    if (cell->getPos() == pos)
+                    {
+                        this->cells.push_back(*cell);
+                        found = true;
+                    }
+                }
+                if (!found)
+                {
+                    this->cells.push_back(Cell(pos, 0));
+                }
+            }
+        }
+    }
 }

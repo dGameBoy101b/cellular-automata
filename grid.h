@@ -18,19 +18,44 @@ namespace Data
 		/**
 		 * @brief Construct a new Grid object with the given bounds and the given initial states.
 		 *
-		 * @param min_bound The minimum bounds of this Grid.
-		 * @param max_bound The maximum bounds of this Grid.
-		 * @param state The initial state of every Cell.
+		 * @param min_bound The minimum bound of this Grid.
+		 * @param max_bound The maximum bound of this Grid.
 		 */
-		Grid(const Position& min_bound, const Position& max_bound, int state);
+		Grid(const Position& min_bound, const Position& max_bound);
 		/**
-		 * @brief Get a singular Cell located at the given position.
+		 * @brief Get the minimum bounds of this Grid.
+		 * 
+		 * @return The minimum bounds of this Grid as a Position.
+		 */
+		const Position& getMinBound() const;
+		/**
+		 * @brief Set the minimum bounds of this Grid.
+		 * 
+		 * @param min The Position of the new minimum bound of this Grid.
+		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
+		 */
+		void setMinBound(const Position& min);
+		/**
+		 * @brief Get the maximum bounds of this Grid.
+		 * 
+		 * @return The maximum bounds of this Grid as a Position.
+		 */
+		const Position& getMaxBound() const;
+		/**
+		 * @brief Set the maximum bounds of this Grid.
+		 * 
+		 * @param max The Position of the new maximum bound of this Grid.
+		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
+		 */
+		void setMaxBound(const Position& max);
+		/**
+		 * @brief Get the state of a singular Cell located at the given Position.
 		 *
-		 * @param pos The position of the Cell to get.
-		 * @return The Cell located at the given position.
+		 * @param pos The Position of the Cell whose state to get.
+		 * @return The state of the Cell located at the given Position.
 		 * @throw OutOfBounds The given coordinates are not within the bounds of this Grid.
 		 */
-		const Cell& getCell(const Position& pos) const;
+		int getCellState(const Position& pos) const;
 		/**
 		 * @brief Set the state of the Cell located at the given coordinates to the given state.
 		 *
@@ -68,5 +93,17 @@ namespace Data
 		 *
 		 */
 		Position max_bound;
+		/**
+		 * @brief Ensure each component of the minimum bound is lesser than the corresponding component of the maximum bound.
+		 * 
+		 */
+		void correctBounds();
+		/**
+		 * @brief Discard the cells of this Grid and generate new cells for each position in this Grid, including any given cells within bounds.
+		 * 
+		 * @param cells The cells to try and add to the new set of cells in this Grid.
+		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
+		 */
+		void regenerate(const std::vector<Cell> cells);
 	};
 }
