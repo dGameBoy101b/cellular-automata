@@ -115,7 +115,7 @@ void Data::Grid::correctBounds()
     }
 }
 
-void Data::Grid::regenerate(const std::vector<Cell> cells = const std::vector<Cell>())
+void Data::Grid::regenerate(const std::vector<Cell> cells)
 {
     Position pos;
     bool found;

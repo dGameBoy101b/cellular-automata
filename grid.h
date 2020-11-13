@@ -104,6 +104,6 @@ namespace Data
 		 * @param cells The cells to try and add to the new set of cells in this Grid.
 		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
 		 */
-		void regenerate(const std::vector<Cell> cells);
+		void regenerate(const std::vector<Cell> cells = std::vector<Cell>());
 	};
 }
