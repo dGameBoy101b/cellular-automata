@@ -81,12 +81,12 @@ void Data::Grid::updateAllCells()
 
 bool Data::Grid::withinBounds(const Position& pos) const
 {
-    return pos.getX() <= this->min_bound.getX()
-        && pos.getX() >= this->max_bound.getX()
-        && pos.getY() <= this->min_bound.getY()
-        && pos.getY() >= this->max_bound.getY()
-        && pos.getZ() <= this->min_bound.getZ()
-        && pos.getZ() >= this->max_bound.getZ();
+    return pos.getX() >= this->min_bound.getX()
+        && pos.getX() <= this->max_bound.getX()
+        && pos.getY() >= this->min_bound.getY()
+        && pos.getY() <= this->max_bound.getY()
+        && pos.getZ() >= this->min_bound.getZ()
+        && pos.getZ() <= this->max_bound.getZ();
 }
 
 void Data::Grid::correctBounds()
@@ -120,16 +120,17 @@ void Data::Grid::regenerate(const std::vector<Cell> cells)
     Position pos;
     bool found;
 
-    this->cells = std::vector<Cell>(
+    this->cells = std::vector<Cell>();
+    this->cells.reserve(
         (this->max_bound.getX() - this->min_bound.getX() + 1) *
         (this->max_bound.getY() - this->min_bound.getY() + 1) *
         (this->max_bound.getZ() - this->min_bound.getZ() + 1));
 
-    for (int x = this->min_bound.getX(); x < this->max_bound.getX(); x++)
+    for (int x = this->min_bound.getX(); x <= this->max_bound.getX(); x++)
     {
-        for (int y = this->min_bound.getY(); y < this->max_bound.getY(); y++)
+        for (int y = this->min_bound.getY(); y <= this->max_bound.getY(); y++)
         {
-            for (int z = this->min_bound.getZ(); z < this->max_bound.getZ(); z++)
+            for (int z = this->min_bound.getZ(); z <= this->max_bound.getZ(); z++)
             {
                 pos = Position(x, y, z);
                 found = false;
@@ -143,7 +144,7 @@ void Data::Grid::regenerate(const std::vector<Cell> cells)
                 }
                 if (!found)
                 {
-                    this->cells.push_back(Cell(pos, 0));
+                    this->cells.push_back(Data::Cell(pos, 0));
                 }
             }
         }
