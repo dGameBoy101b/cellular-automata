@@ -3,8 +3,9 @@
 #include <vector>
 #include <stdexcept>
 #include <cmath>
-#include "too_few_vertices_in_face.h"
 #include "position.h"
+#include "too_few_vertices_in_face.h"
+#include "vertex_index_out_of_range.h"
 
 namespace Data
 {
@@ -38,6 +39,8 @@ namespace Data
 		 * @brief Add a face to this Model.
 		 * 
 		 * @param face The list of vertex indicies that comprise the additional face.
+		 * @throw TooFewVerticesInFace Only 2 or less vertices are refernced in the new face.
+		 * @throw VertexIndexOutOfRange An index does not refer to a valid vertex.
 		 */
 		void addFace(const std::vector<std::vector<Position<float>>::size_type>& face);
 		/**

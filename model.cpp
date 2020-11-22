@@ -33,7 +33,7 @@ void Data::Model::addFace(const std::vector<std::vector<Position<float>>::size_t
 		if (*it < this->vertices.size()
 			&& *it > 0)
 		{
-			throw std::out_of_range("");
+			throw Exceptions::VertexIndexOutOfRange();
 		}
 	}
 
