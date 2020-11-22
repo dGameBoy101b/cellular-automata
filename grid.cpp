@@ -2,17 +2,17 @@
 
 Data::Grid::Grid()
 {
-    this->min_bound = Position();
-    this->max_bound = Position();
+    this->min_bound = Position<int>();
+    this->max_bound = Position<int>();
     this->cells = std::vector<Cell>();
 }
 
-const Data::Position& Data::Grid::getMinBound() const
+const Data::Position<int>& Data::Grid::getMinBound() const
 {
     return this->min_bound;
 }
 
-void Data::Grid::setMinBound(const Position& min)
+void Data::Grid::setMinBound(const Position<int>& min)
 {
     this->min_bound = min;
     this->correctBounds();
@@ -20,12 +20,12 @@ void Data::Grid::setMinBound(const Position& min)
     this->regenerate(this->cells);
 }
 
-const Data::Position& Data::Grid::getMaxBound() const
+const Data::Position<int>& Data::Grid::getMaxBound() const
 {
     return this->max_bound;
 }
 
-void Data::Grid::setMaxBound(const Position& max)
+void Data::Grid::setMaxBound(const Position<int>& max)
 {
     this->max_bound = max;
     this->correctBounds();
@@ -33,7 +33,7 @@ void Data::Grid::setMaxBound(const Position& max)
     this->regenerate(this->cells);
 }
 
-Data::Grid::Grid(const Position& min_bound, const Position& max_bound)
+Data::Grid::Grid(const Position<int>& min_bound, const Position<int>& max_bound)
 {
     this->min_bound = min_bound;
     this->max_bound = max_bound;
@@ -42,7 +42,7 @@ Data::Grid::Grid(const Position& min_bound, const Position& max_bound)
     this->regenerate();
 }
 
-int Data::Grid::getCellState(const Position& pos) const
+int Data::Grid::getCellState(const Position<int>& pos) const
 {
     if (!this->withinBounds(pos))
     {
@@ -59,7 +59,7 @@ int Data::Grid::getCellState(const Position& pos) const
     throw Exceptions::OutOfBounds();
 }
 
-void Data::Grid::setCellState(const Position& pos, int state)
+void Data::Grid::setCellState(const Position<int>& pos, int state)
 {
     for (std::vector<Cell>::iterator it = this->cells.begin(); it != this->cells.end(); it++)
     {
@@ -79,7 +79,7 @@ void Data::Grid::updateAllCells()
     }
 }
 
-bool Data::Grid::withinBounds(const Position& pos) const
+bool Data::Grid::withinBounds(const Position<int>& pos) const
 {
     return pos.getX() >= this->min_bound.getX()
         && pos.getX() <= this->max_bound.getX()
@@ -117,7 +117,7 @@ void Data::Grid::correctBounds()
 
 void Data::Grid::regenerate(const std::vector<Cell> cells)
 {
-    Position pos;
+    Position<int> pos;
     bool found;
 
     this->cells = std::vector<Cell>();
@@ -132,7 +132,7 @@ void Data::Grid::regenerate(const std::vector<Cell> cells)
         {
             for (int z = this->min_bound.getZ(); z <= this->max_bound.getZ(); z++)
             {
-                pos = Position(x, y, z);
+                pos = Position<int>(x, y, z);
                 found = false;
                 for (std::vector<Cell>::const_iterator cell = cells.begin(); cell != cells.end(); cell++)
                 {

@@ -6,7 +6,7 @@ namespace Display
 {
 	namespace FreeGlut
 	{
-		enum MouseEntryState
+		enum struct MouseEntryState
 		{
 			ENTERD = GLUT_ENTERED,
 			LEFT = GLUT_LEFT

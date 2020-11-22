@@ -27,8 +27,8 @@ namespace FileIO
 		static void save(const std::string& filename, const Data::Grid& grid);
 		static bool checkExtension(const std::string& filename);
 	private:
-		static const Data::Position parsePosition(const std::string& string);
-		static void parsePosComponent(const std::string& string, Data::Position& pos);
+		static const Data::Position<int> parsePosition(const std::string& string);
+		static void parsePosComponent(const std::string& string, Data::Position<int>& pos);
 		static const Data::Cell parseCell(const std::string& string);
 		static void parseCellComponent(const std::string& string, Data::Cell& cell);
 	};

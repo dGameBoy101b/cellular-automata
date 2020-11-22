@@ -1,53 +1,61 @@
 #include "position.h"
 
-Data::Position::Position()
+template<class numT>
+Data::Position<numT>::Position()
 {
-    this->x = 0;
-    this->y = 0;
-    this->z = 0;
+    this->x = numT();
+    this->y = numT();
+    this->z = numT();
 }
 
-Data::Position::Position(int x, int y, int z)
+template<class numT>
+Data::Position<numT>::Position(const numT& x, const numT& y, const numT& z)
 {
     this->x = x;
     this->y = y;
     this->z = z;
 }
 
-int Data::Position::getX() const
+template<class numT>
+const numT& Data::Position<numT>::getX() const
 {
     return this->x;
 }
 
-int Data::Position::getY() const
+template<class numT>
+const numT& Data::Position<numT>::getY() const
 {
     return this->y;
 }
 
-int Data::Position::getZ() const
+template<class numT>
+const numT& Data::Position<numT>::getZ() const
 {
     return this->z;
 }
 
-void Data::Position::setX(int x)
+template<class numT>
+void Data::Position<numT>::setX(const numT& x)
 {
     this->x = x;
 }
 
-void Data::Position::setY(int y)
+template<class numT>
+void Data::Position<numT>::setY(const numT& y)
 {
     this->y = y;
 }
 
-void Data::Position::setZ(int z)
+template<class numT>
+void Data::Position<numT>::setZ(const numT& z)
 {
     this->z = z;
 }
 
-bool Data::Position::operator==(const Position& other) const
+template<class numT>
+bool Data::Position<numT>::operator==(const Position<numT>& other) const
 {
     return this->x == other.x
         && this->y == other.y
         && this->z == other.z;
 }
-

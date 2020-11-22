@@ -21,33 +21,33 @@ namespace Data
 		 * @param min_bound The minimum bound of this Grid.
 		 * @param max_bound The maximum bound of this Grid.
 		 */
-		Grid(const Position& min_bound, const Position& max_bound);
+		Grid(const Position<int>& min_bound, const Position<int>& max_bound);
 		/**
 		 * @brief Get the minimum bounds of this Grid.
 		 * 
 		 * @return The minimum bounds of this Grid as a Position.
 		 */
-		const Position& getMinBound() const;
+		const Position<int>& getMinBound() const;
 		/**
 		 * @brief Set the minimum bounds of this Grid.
 		 * 
 		 * @param min The Position of the new minimum bound of this Grid.
 		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
 		 */
-		void setMinBound(const Position& min);
+		void setMinBound(const Position<int>& min);
 		/**
 		 * @brief Get the maximum bounds of this Grid.
 		 * 
 		 * @return The maximum bounds of this Grid as a Position.
 		 */
-		const Position& getMaxBound() const;
+		const Position<int>& getMaxBound() const;
 		/**
 		 * @brief Set the maximum bounds of this Grid.
 		 * 
 		 * @param max The Position of the new maximum bound of this Grid.
 		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
 		 */
-		void setMaxBound(const Position& max);
+		void setMaxBound(const Position<int>& max);
 		/**
 		 * @brief Get the state of a singular Cell located at the given Position.
 		 *
@@ -55,7 +55,7 @@ namespace Data
 		 * @return The state of the Cell located at the given Position.
 		 * @throw OutOfBounds The given coordinates are not within the bounds of this Grid.
 		 */
-		int getCellState(const Position& pos) const;
+		int getCellState(const Position<int>& pos) const;
 		/**
 		 * @brief Set the state of the Cell located at the given coordinates to the given state.
 		 *
@@ -63,7 +63,7 @@ namespace Data
 		 * @param state The new state to set the target Cell to.
 		 * @throw OutOfBounds The given coordinate is not within the bounds of this Grid.
 		 */
-		void setCellState(const Position& pos, int state);
+		void setCellState(const Position<int>& pos, int state);
 		/**
 		 * @brief Update all the Cells in this Grid.
 		 *
@@ -76,7 +76,7 @@ namespace Data
 		 * @return true The given Position is within the bounds of this Grid.
 		 * @return false The given Position is not within the bounds of this Grid.
 		 */
-		bool withinBounds(const Position& pos) const;
+		bool withinBounds(const Position<int>& pos) const;
 	private:
 		/**
 		 * @brief The cells contained in this Grid.
@@ -87,12 +87,12 @@ namespace Data
 		 * @brief The minimum bounds of this Grid.
 		 *
 		 */
-		Position min_bound;
+		Position<int> min_bound;
 		/**
 		 * @brief The maximum bounds of this Grid.
 		 *
 		 */
-		Position max_bound;
+		Position<int> max_bound;
 		/**
 		 * @brief Ensure each component of the minimum bound is lesser than the corresponding component of the maximum bound.
 		 * 

@@ -6,7 +6,7 @@ namespace Display
 {
 	namespace FreeGlut
 	{
-		enum VisibilityState
+		enum struct VisibilityState
 		{
 			NOT_VISIBLE = GLUT_NOT_VISIBLE,
 			VISIBLE = GLUT_VISIBLE

@@ -13,8 +13,8 @@ Data::Grid FileIO::InitialStateFile::load(const std::string& filename)
     std::ifstream file;
     Data::Grid grid;
     std::string str;
-    Data::Position min_bound;
-    Data::Position max_bound;
+    Data::Position<int> min_bound;
+    Data::Position<int> max_bound;
     Data::Cell cell;
 
     if (!InitialStateFile::checkExtension(filename))
@@ -119,7 +119,7 @@ void FileIO::InitialStateFile::save(const std::string& filename, const Data::Gri
         {
             for (int z = grid.getMinBound().getZ(); z <= grid.getMaxBound().getZ(); z++)
             {
-                if (grid.getCellState(Data::Position(x, y, z)) > 0)
+                if (grid.getCellState(Data::Position<int>(x, y, z)) > 0)
                 {
                     if (x != 0)
                     {
@@ -148,7 +148,7 @@ void FileIO::InitialStateFile::save(const std::string& filename, const Data::Gri
                     {
                         file << InitialStateFile::SEP;
                     }
-                    file << grid.getCellState(Data::Position(x, y, z)) << InitialStateFile::STATE << InitialStateFile::END;
+                    file << grid.getCellState(Data::Position<int>(x, y, z)) << InitialStateFile::STATE << InitialStateFile::END;
                 }
             }
         }
@@ -162,11 +162,11 @@ bool FileIO::InitialStateFile::checkExtension(const std::string& filename)
             InitialStateFile::EXT.length()).compare(InitialStateFile::EXT) == 0;
 }
 
-const Data::Position FileIO::InitialStateFile::parsePosition(const std::string& string)
+const Data::Position<int> FileIO::InitialStateFile::parsePosition(const std::string& string)
 {
     std::istringstream stream = std::istringstream(string, std::ios::in);
     std::string comp;
-    Data::Position pos = Data::Position();
+    Data::Position<int> pos = Data::Position<int>();
 
     while (stream.good())
     {
@@ -179,7 +179,7 @@ const Data::Position FileIO::InitialStateFile::parsePosition(const std::string& 
     return pos;
 }
 
-void FileIO::InitialStateFile::parsePosComponent(const std::string& string, Data::Position& pos)
+void FileIO::InitialStateFile::parsePosComponent(const std::string& string, Data::Position<int>& pos)
 {
     std::istringstream stream = std::istringstream(string, std::ios::in);
     int mag;
@@ -242,13 +242,13 @@ void FileIO::InitialStateFile::parseCellComponent(const std::string& string, Dat
     switch (std::tolower(suf))
     {
     case InitialStateFile::X:
-        cell.setPosition(Data::Position(mag, cell.getPos().getY(), cell.getPos().getZ()));
+        cell.setPosition(Data::Position<int>(mag, cell.getPos().getY(), cell.getPos().getZ()));
         break;
     case InitialStateFile::Y:
-        cell.setPosition(Data::Position(cell.getPos().getX(), mag, cell.getPos().getZ()));
+        cell.setPosition(Data::Position<int>(cell.getPos().getX(), mag, cell.getPos().getZ()));
         break;
     case InitialStateFile::Z:
-        cell.setPosition(Data::Position(cell.getPos().getX(), cell.getPos().getY(), mag));
+        cell.setPosition(Data::Position<int>(cell.getPos().getX(), cell.getPos().getY(), mag));
         break;
     case InitialStateFile::STATE:
         cell.setState(mag);

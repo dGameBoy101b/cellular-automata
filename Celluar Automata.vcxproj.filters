@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="colour.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="colour_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="initial_state_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glut_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="colour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="negative_state.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="non_normal_colour_component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="out_of_bounds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="position.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="unexpected_extension.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file_not_writable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file_not_readable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="colour_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="unrecognised_component_suffix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="colour_component_format_mismatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="initial_state_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="position_component_format_mismatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cell_component_format_mismatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_special_keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_mouse_buttons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_button_states.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_visibility_states.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_mouse_entry_states.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="window_already_created.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="window_already_destroyed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="non_positive_size.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="no_display_callback.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="invalid_parent_id.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

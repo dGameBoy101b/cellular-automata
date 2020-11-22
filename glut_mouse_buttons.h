@@ -6,7 +6,7 @@ namespace Display
 {
 	namespace FreeGlut
 	{
-		enum MouseButton
+		enum struct MouseButton
 		{
 			LEFT = GLUT_LEFT_BUTTON,
 			MIDDLE = GLUT_MIDDLE_BUTTON,

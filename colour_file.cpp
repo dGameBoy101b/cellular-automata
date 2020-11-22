@@ -1,4 +1,4 @@
-#include "colour_file.h"
+	#include "colour_file.h"
 
 const std::string FileIO::ColourFile::EXT = ".cls";
 
@@ -104,7 +104,8 @@ void FileIO::ColourFile::save(const std::string filename, const std::vector<Data
 bool FileIO::ColourFile::checkExtension(const std::string filename)
 {
 	return filename.length() >= ColourFile::EXT.length()
-		&& filename.substr(filename.length() - ColourFile::EXT.length(), ColourFile::EXT.length()).compare(ColourFile::EXT) == 0;
+		&& filename.substr(filename.length() - ColourFile::EXT.length(), 
+			ColourFile::EXT.length()).compare(ColourFile::EXT) == 0;
 }
 
 Data::Colour FileIO::ColourFile::parseColour(const std::string string)
@@ -129,7 +130,7 @@ void FileIO::ColourFile::parseComponent(const std::string string, Data::Colour& 
 {
 	std::istringstream comp_stream = std::istringstream(string, std::ios::in);
 	float comp;
-	char comp_suf;
+	char comp_suf = '\0';
 
 	comp_stream >> comp;
 	if (!comp_stream.good())

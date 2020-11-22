@@ -6,7 +6,7 @@ namespace Display
 {
 	namespace FreeGlut
 	{
-		enum ButtonState
+		enum struct ButtonState
 		{
 			DOWN = GLUT_DOWN,
 			UP = GLUT_UP

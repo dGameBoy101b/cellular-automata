@@ -20,13 +20,13 @@ namespace Data
 		 * @param state The non-negative integer state of the cell.
 		 * @throw NegativeState The given state was negative.
 		 */
-		Cell(const Position& pos, int state);
+		Cell(const Position<int>& pos, int state);
 		/**
 		 * @brief Get the position of this Cell.
 		 *
 		 * @return The position of this Cell.
 		 */
-		const Position& getPos() const;
+		const Position<int>& getPos() const;
 		/**
 		 * @brief Get the current state of this Cell.
 		 *
@@ -38,7 +38,7 @@ namespace Data
 		 *
 		 * @param pos The new position of this Cell.
 		 */
-		void setPosition(const Position& pos);
+		void setPosition(const Position<int>& pos);
 		/**
 		 * @brief Set the state of this Cell.
 		 *
@@ -56,7 +56,7 @@ namespace Data
 		 * @brief The position of this Cell.
 		 *
 		 */
-		Position pos;
+		Position<int> pos;
 		/**
 		 * @brief The current non-negative integer state of this Cell.
 		 *

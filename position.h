@@ -2,6 +2,7 @@
 
 namespace Data
 {
+	template<class numT>
 	class Position
 	{
 	public:
@@ -17,43 +18,43 @@ namespace Data
 		 * @param y The integer position along the y axis.
 		 * @param z The integer position along the z axis.
 		 */
-		Position(int x, int y, int z);
+		Position(const numT& x, const numT& y, const numT& z);
 		/**
 		 * @brief Get the x coordinate.
 		 *
 		 * @return The integer position along the x axis.
 		 */
-		int getX() const;
+		const numT& getX() const;
 		/**
 		 * @brief Get the y coordinate.
 		 *
 		 * @return The integer position along the y axis.
 		 */
-		int getY() const;
+		const numT& getY() const;
 		/**
 		 * @brief Get the z coordinate.
 		 *
 		 * @return The integer position along the z axis.
 		 */
-		int getZ() const;
+		const numT& getZ() const;
 		/**
 		 * @brief Set the x coordinate.
 		 *
 		 * @param x The new integer x coordinate.
 		 */
-		void setX(int x);
+		void setX(const numT& x);
 		/**
 		 * @brief Set the y coordinate.
 		 *
 		 * @param y The new integer y coordinate.
 		 */
-		void setY(int y);
+		void setY(const numT& y);
 		/**
 		 * @brief Set the z coordinate.
 		 *
 		 * @param z The new integer z coordinate.
 		 */
-		void setZ(int z);
+		void setZ(const numT& z);
 		/**
 		 * @brief Equality comparison.
 		 *
@@ -67,16 +68,16 @@ namespace Data
 		 * @brief The integer x coordinate of this Position.
 		 *
 		 */
-		int x;
+		numT x;
 		/**
 		 * @brief The integer y coordinate of this Position.
 		 *
 		 */
-		int y;
+		numT y;
 		/**
 		 * @brief The integer z coordinate of this Position.
 		 *
 		 */
-		int z;
+		numT z;
 	};
 }

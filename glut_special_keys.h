@@ -6,7 +6,7 @@ namespace Display
 {
 	namespace FreeGlut
 	{
-		enum SpecialKeys
+		enum struct SpecialKeys
 		{
 			F1 = GLUT_KEY_F1,
 			F2 = GLUT_KEY_F2,
