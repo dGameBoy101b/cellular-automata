@@ -74,6 +74,9 @@
     <ClCompile Include="glut_model.cpp">
       <Filter>Source Files\Display\FreeGlut</Filter>
     </ClCompile>
+    <ClCompile Include="square_model.cpp">
+      <Filter>Source Files\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cell.h">
@@ -177,6 +180,9 @@
     </ClInclude>
     <ClInclude Include="display_list_already_created.h">
       <Filter>Header Files\Display\FreeGlut\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="square_model.h">
+      <Filter>Header Files\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
