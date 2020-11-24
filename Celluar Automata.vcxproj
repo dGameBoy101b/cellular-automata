@@ -22,10 +22,12 @@
     <ClCompile Include="cell.cpp" />
     <ClCompile Include="colour.cpp" />
     <ClCompile Include="colour_file.cpp" />
+    <ClCompile Include="glut_model.cpp" />
     <ClCompile Include="glut_window.cpp" />
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="initial_state_file.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="model.cpp" />
     <ClCompile Include="position.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,9 +36,13 @@
     <ClInclude Include="colour.h" />
     <ClInclude Include="colour_component_format_mismatch.h" />
     <ClInclude Include="colour_file.h" />
+    <ClInclude Include="display_list_already_created.h" />
+    <ClInclude Include="display_list_already_destroyed.h" />
+    <ClInclude Include="display_list_not_exist.h" />
     <ClInclude Include="file_not_readable.h" />
     <ClInclude Include="file_not_writable.h" />
     <ClInclude Include="glut_button_states.h" />
+    <ClInclude Include="glut_model.h" />
     <ClInclude Include="glut_mouse_buttons.h" />
     <ClInclude Include="glut_mouse_entry_states.h" />
     <ClInclude Include="glut_special_keys.h" />
@@ -53,8 +59,10 @@
     <ClInclude Include="out_of_bounds.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="position_component_format_mismatch.h" />
+    <ClInclude Include="too_few_vertices_in_face.h" />
     <ClInclude Include="unexpected_extension.h" />
     <ClInclude Include="unrecognised_component_suffix.h" />
+    <ClInclude Include="vertex_index_out_of_range.h" />
     <ClInclude Include="window_already_created.h" />
     <ClInclude Include="window_already_destroyed.h" />
   </ItemGroup>
@@ -113,12 +121,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\rhysm\OneDrive\Documents\C++\cellular_automata\source\Celluar Automata\dependencies\freeglut_x86-windows\include\GL;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)dependencies\freeglut_x86-windows\bin;$(ProjectDir)dependencies\"freeglut_x86-windows"\include\GL;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\rhysm\OneDrive\Documents\C++\cellular_automata\source\Celluar Automata\dependencies\freeglut_x86-windows\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>C:\Users\rhysm\OneDrive\Documents\C++\cellular_automata\source\Celluar Automata\dependencies\freeglut_x86-windows\include\GL;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)dependencies\freeglut_x86-windows\bin;$(ProjectDir)dependencies\"freeglut_x86-windows"\include\GL;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\rhysm\OneDrive\Documents\C++\cellular_automata\source\Celluar Automata\dependencies\freeglut_x86-windows\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,11 +141,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\freeglut_x86-windows\bin;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\freeglut_x86-windows\lib;$(ProjectDir)dependencies\freeglut_x86-windows\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,6 +158,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\freeglut_x86-windows\bin;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +166,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\freeglut_x86-windows\lib;$(ProjectDir)dependencies\freeglut_x86-windows\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
