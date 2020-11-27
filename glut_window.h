@@ -12,6 +12,7 @@
 #include "non_positive_size.h"
 #include "no_display_callback.h"
 #include "invalid_parent_id.h"
+#include "glut_display_modes.h"
 
 namespace Display
 {
@@ -28,8 +29,8 @@ namespace Display
 			/**
 			 * @brief Create this Window in glut.
 			 * 
-			 * @throw WindowAlreadyCreated This Window already exists in glut.
-			 * @throw NoDisplayCallback This Window has no display callback set.
+			 * @throw Exceptions::WindowAlreadyCreated This Window already exists in glut.
+			 * @throw Exceptions::NoDisplayCallback This Window has no display callback set.
 			 */
 			void createWindow();
 			/**
@@ -40,10 +41,10 @@ namespace Display
 			 * @param y The y position of this Window in pixels relative to the parent window.
 			 * @param width The width of this Window in pixels relative.
 			 * @param height The height of this Window in pixels relative.
-			 * @throw WindowAlreadyCreated This Window already exists in glut.
-			 * @throw NoDisplayCallback This Window has no display callback set.
-			 * @throw InvalidParentID The given parent id is invalid.
-			 * @note The dimensions set for this Window are ingnored in favour for the given parameters 
+			 * @throw Exceptions::WindowAlreadyCreated This Window already exists in glut.
+			 * @throw Exceptions::NoDisplayCallback This Window has no display callback set.
+			 * @throw Exceptions::InvalidParentID The given parent id is invalid.
+			 * @note The dimensions set for this Window are ignored in favour for the given parameters 
 			 * but are updated to be the true dimensions after the sub window creatation succeeds.
 			 */
 			void createSubWindow(int parent_id, int x, int y, int width, int height);
@@ -119,6 +120,27 @@ namespace Display
 			 */
 			void setHeight(int height);
 			/**
+			 * @brief Add an option to the display mode of this Window.
+			 * 
+			 * @param opt The DisplayMode option to add.
+			 * @note Some options are not compatible with each other and thus will override each other.
+			 */
+			void addDisplayOption(DisplayMode opt);
+			/**
+			 * @brief Remove an option from the display mode of this Window.
+			 * 
+			 * @param opt The DisplayMode option to remove.
+			 * @note Essential options will revert to their defaults when removed.
+			 */
+			void removeDisplayOption(DisplayMode opt);
+			/**
+			 * @brief Check if an option is set for the display mode of this Window.
+			 * 
+			 * @param opt The DisplayMode option to check for.
+			 * @return True if the given DisplayMode option is set for this Window.
+			 */
+			bool checkDisplayOption(DisplayMode opt) const;
+			/**
 			 * @brief Get the title of this Window.
 			 * 
 			 * @return The string title of this Window.
@@ -152,7 +174,7 @@ namespace Display
 			 * @brief Set the display function of this Window.
 			 * 
 			 * @param func The pointer to the new display function of this Window.
-			 * @throw NoDisplayCallback The display function cannot be set to null.
+			 * @throw Exceptions::NoDisplayCallback The display function cannot be set to null.
 			 * @note The display function is required before creating this Window.
 			 */
 			void setDisplayFunc(void(*func)());
@@ -298,12 +320,6 @@ namespace Display
 			 * @brief The title of this Window.
 			 */
 			std::string title;
-		private:
-			/**
-			 * @brief The glut identifier of this Window.
-			 * @note Zero if this Window is not currently registered.
-			 */
-			int id;
 			/**
 			 * @brief The x position of this Window.
 			 * @note Negative for any position.
@@ -323,6 +339,26 @@ namespace Display
 			 */
 			int height;
 			/**
+			 * @brief The display mode of this Window.
+			 */
+			unsigned int mode;
+		private:
+			/**
+			 * @brief The glut identifier of this Window.
+			 * @note Zero if this Window is not currently registered.
+			 */
+			int id;
+			/**
+			 * @brief Ensure essential DisplayMode options are set for this Window.
+			 * 
+			 */
+			void defaultDisplayOptions();
+			/**
+			 * @brief Ensure no conflicting DislayMode options are set for this Window.
+			 * 
+			 */
+			void exclusiveDisplayOptions();
+			/**
 			 * @brief Set all the glut callback functions to the functions in this Window.
 			 */
 			void setCallbacks();
@@ -336,6 +372,16 @@ namespace Display
 			 * 
 			 */
 			void setDimensions();
+			/**
+			 * @brief Get the current DisplayMode options of the currently active glut window and store it in this Window.
+			 * 
+			 */
+			void getDisplayMode();
+			/**
+			 * @brief Set the initial glut window DisplayMode options to the DisplayModeOptions of this Window.
+			 * 
+			 */
+			void setDisplayMode();
 		};
 	}
 }

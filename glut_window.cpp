@@ -7,6 +7,7 @@ Display::FreeGlut::Window::Window()
 	this->y = -1;
 	this->width = 1;
 	this->height = 1;
+	this->mode = (unsigned int)DisplayMode::SINGLE_BUFFER | (unsigned int)DisplayMode::RGBA_COLOUR;
 	this->title = "";
 	this->displayFunc = nullptr;
 	this->closeFunc = nullptr;
@@ -32,9 +33,11 @@ void Display::FreeGlut::Window::createWindow()
 	}
 
 	this->setDimensions();
+	this->setDisplayMode();
 	this->id = glutCreateWindow(this->title.c_str());
 	this->setCallbacks();
 	this->getDimensions();
+	this->getDisplayMode();
 }
 
 void Display::FreeGlut::Window::createSubWindow(int parent_id, int x, int y, int width, int height)
@@ -52,9 +55,11 @@ void Display::FreeGlut::Window::createSubWindow(int parent_id, int x, int y, int
 		throw Exceptions::InvalidParentID();
 	}
 
+	this->setDisplayMode();
 	this->id = glutCreateSubWindow(parent_id, x, y, width, height);
 	this->setCallbacks();
 	this->getDimensions();
+	this->getDisplayMode();
 }
 
 void Display::FreeGlut::Window::destroyWindow()
@@ -134,6 +139,23 @@ void Display::FreeGlut::Window::setHeight(int height)
 	}
 
 	this->height = height;
+}
+
+void Display::FreeGlut::Window::addDisplayOption(DisplayMode opt)
+{
+	this->exclusiveDisplayOptions();
+	this->mode |= (unsigned int)opt;
+}
+
+void Display::FreeGlut::Window::removeDisplayOption(DisplayMode opt)
+{
+	this->mode &= !(unsigned int)opt;
+	this->defaultDisplayOptions();
+}
+
+bool Display::FreeGlut::Window::checkDisplayOption(DisplayMode opt) const
+{
+	return (this->mode & (unsigned int)opt) == (unsigned int)opt;
 }
 
 const std::string Display::FreeGlut::Window::getTitle() const
@@ -241,6 +263,38 @@ void Display::FreeGlut::Window::setCloseFunc(void(*func)())
 	this->closeFunc = func;
 }
 
+void Display::FreeGlut::Window::defaultDisplayOptions()
+{
+	if (!this->checkDisplayOption(DisplayMode::SINGLE_BUFFER)
+		&& !this->checkDisplayOption(DisplayMode::DOUBLE_BUFFER))
+	{
+		this->mode |= (unsigned int)DisplayMode::SINGLE_BUFFER;
+	}
+
+	if (!this->checkDisplayOption(DisplayMode::RGBA_COLOUR)
+		&& !this->checkDisplayOption(DisplayMode::INDEX_COLOUR))
+	{
+		this->mode |= (unsigned int)DisplayMode::RGBA_COLOUR;
+	}
+}
+
+void Display::FreeGlut::Window::exclusiveDisplayOptions()
+{
+	if (this->checkDisplayOption(DisplayMode::SINGLE_BUFFER)
+		&& this->checkDisplayOption(DisplayMode::DOUBLE_BUFFER))
+	{
+		this->mode &= !((unsigned int)DisplayMode::SINGLE_BUFFER 
+			| (unsigned int)DisplayMode::DOUBLE_BUFFER);
+	}
+
+	if (this->checkDisplayOption(DisplayMode::RGBA_COLOUR)
+		&& this->checkDisplayOption(DisplayMode::INDEX_COLOUR))
+	{
+		this->mode &= !((unsigned int)DisplayMode::RGBA_COLOUR
+			| (unsigned int)DisplayMode::INDEX_COLOUR);
+	}
+}
+
 void Display::FreeGlut::Window::setCallbacks()
 {
 	glutCloseFunc(this->closeFunc);
@@ -275,4 +329,84 @@ void Display::FreeGlut::Window::setDimensions()
 
 	glutInitWindowPosition(this->x, this->y);
 	glutInitWindowSize(this->width, this->height);
+}
+
+void Display::FreeGlut::Window::getDisplayMode()
+{
+	if (glutGet(GLUT_WINDOW_RGBA) == 1)
+	{
+		this->addDisplayOption(DisplayMode::RGBA_COLOUR);
+	}
+	else
+	{
+		this->addDisplayOption(DisplayMode::INDEX_COLOUR);
+	}
+
+	if (glutGet(GLUT_WINDOW_DOUBLEBUFFER) == 1)
+	{
+		this->addDisplayOption(DisplayMode::DOUBLE_BUFFER);
+	}
+	else
+	{
+		this->addDisplayOption(DisplayMode::SINGLE_BUFFER);
+	}
+
+	if (glutGet(GLUT_WINDOW_STEREO) == 1)
+	{
+		this->addDisplayOption(DisplayMode::STEREO_WINDOW);
+	}
+	else
+	{
+		this->removeDisplayOption(DisplayMode::STEREO_WINDOW);
+	}
+
+	if (glutGet(GLUT_WINDOW_NUM_SAMPLES) > 0)
+	{
+		this->addDisplayOption(DisplayMode::MULTISAMPLING);
+	}
+	else
+	{
+		this->removeDisplayOption(DisplayMode::MULTISAMPLING);
+	}
+
+	if (glutGet(GLUT_WINDOW_STENCIL_SIZE) > 0)
+	{
+		this->addDisplayOption(DisplayMode::STENCIL_BUFFER);
+	}
+	else
+	{
+		this->removeDisplayOption(DisplayMode::STENCIL_BUFFER);
+	}
+
+	if (glutGet(GLUT_WINDOW_DEPTH_SIZE) > 0)
+	{
+		this->addDisplayOption(DisplayMode::DEPTH_BUFFER);
+	}
+	else
+	{
+		this->removeDisplayOption(DisplayMode::DEPTH_BUFFER);
+	}
+
+	if (glutGet(GLUT_WINDOW_ALPHA_SIZE) > 0)
+	{
+		this->addDisplayOption(DisplayMode::ALPHA_COLOUR_BUFFER);
+	}
+	else
+	{
+		this->removeDisplayOption(DisplayMode::ALPHA_COLOUR_BUFFER);
+	}
+
+	if (glutGet(GLUT_WINDOW_ACCUM_RED_SIZE) > 0)
+	{
+		this->addDisplayOption(DisplayMode::ACCUMULATION_BUFFER);
+	}
+	else
+	{
+		this->removeDisplayOption(DisplayMode::ACCUMULATION_BUFFER);
+	}
+}
+
+void Display::FreeGlut::Window::setDisplayMode()
+{
+	glutInitDisplayMode(this->mode);
 }
