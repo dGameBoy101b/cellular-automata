@@ -94,7 +94,7 @@ void Display::FreeGlut::Model::createSolidDisplayList()
 	for (std::vector<std::vector<std::vector<Data::Position<float>>::size_type>>::const_iterator it = this->model.getFaces().begin();
 		it != this->model.getFaces().end(); it++)
 	{
-		glBegin(GL_TRIANGLE_STRIP);
+		glBegin(GL_POLYGON);
 		for (std::vector<std::vector<Data::Position<float>>::size_type>::const_iterator v_it = it->begin();
 			v_it != it->end(); v_it++)
 		{

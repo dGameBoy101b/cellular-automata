@@ -1,4 +1,5 @@
 #include "model.h"
+#include "glut_model.h"
 
 Data::Model::Model()
 {
@@ -30,8 +31,8 @@ void Data::Model::addFace(const std::vector<std::vector<Position<float>>::size_t
 	for (std::vector<std::vector<Position<float>>::size_type>::const_iterator it = face.begin(); 
 		it != face.end(); it++)
 	{
-		if (*it < this->vertices.size()
-			&& *it > 0)
+		if (*it > this->vertices.size()
+			|| *it < 0)
 		{
 			throw Exceptions::VertexIndexOutOfRange();
 		}
@@ -40,12 +41,12 @@ void Data::Model::addFace(const std::vector<std::vector<Position<float>>::size_t
 	this->faces.push_back(face);
 }
 
-const std::vector<Data::Position<float>>::size_type& Data::Model::getNumVertices() const
+std::vector<Data::Position<float>>::size_type Data::Model::getNumVertices() const
 {
 	return this->vertices.size();
 }
 
-const std::vector<std::vector<std::vector<Data::Position<float>>::size_type>>::size_type& Data::Model::getNumFaces() const
+std::vector<std::vector<std::vector<Data::Position<float>>::size_type>>::size_type Data::Model::getNumFaces() const
 {
 	return this->faces.size();
 }
