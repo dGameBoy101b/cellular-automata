@@ -66,11 +66,56 @@ namespace Data
 		 */
 		bool operator==(const Position<numT>& other) const;
 		/**
-		 * @brief Add this Positon to another Position.
-		 * @param other The other Position to add to this Position.
+		 * @brief Add this Positon to the given Position.
+		 * @param other The Position to add to this Position.
 		 * @return The Position sum of this Position and the given Position.
 		 */
 		const Position<numT> operator+(const Position<numT>& other) const;
+		/**
+		 * @brief Multiply each component of this Position by the given number.
+		 * @param other The number to multiply each component of this Position by.
+		 * @return This Position scaled by the given number.
+		 */
+		const Position<numT> operator*(const numT& other) const;
+		/**
+		 * @brief Subtract the given Position from this Position.
+		 * @param other The Positon to subtract from this Position.
+		 * @return The difference between this Position and the given Position.
+		 */
+		const Position<numT> operator-(const Position<numT>& other) const;
+		/**
+		 * @brief Multiply this Position by -1.
+		 * @return This Position multipled by -1.
+		 */
+		const Position<numT> operator-() const;
+		/**
+		 * @brief Divide each coponent of this Position by the given number.
+		 * @param other The number to divide each component of this Position by.
+		 * @return This Position scaled by the inverse of the given number.
+		 * @throw Exceptions::DivideByZero The given number is zero.
+		 */
+		const Position<numT> operator/(const numT& other) const;
+		/**
+		 * @brief Add the given Position to this Position.
+		 * @param other The Position to add to this Position.
+		 */
+		void operator+=(const Position<numT>& other);
+		/**
+		 * @brief Multiply each component of this Position by a given number.
+		 * @param other The number to multiply each component of this Position by.
+		 */
+		void operator*=(const numT& other);
+		/**
+		 * @brief Subtract the given Position from this Position.
+		 * @param other The Position to subtract from this Position.
+		 */
+		void operator-=(const Position<numT>& other);
+		/**
+		 * @brief Divide each component of this Position by the given number.
+		 * @param other The number to divide each component of this Position by.
+		 * @throw Exceptions::DivideByZero The given number is zero.
+		 */
+		void operator/=(const numT& other);
 		/**
 		 * @brief Calculate the vector magnitude of this Position.
 		 * @return The double vector magnitude of this Position.
@@ -169,20 +214,59 @@ const double Data::Position<numT>::calcMagnitude() const
 template<class numT>
 void Data::Position<numT>::normalise()
 {
-	const numT mag = (numT)this->calcMagnitude();
-
-	if (mag == 0)
-	{
-		throw Exceptions::DivideByZero();
-	}
-
-	this->x /= mag;
-	this->y /= mag;
-	this->z /= mag;
+	*this /= (numT)this->calcMagnitude();
 }
 
 template<class numT>
 const Data::Position<numT> Data::Position<numT>::operator+(const Position<numT>& other) const
 {
 	return Data::Position<numT>(this->x + other.x, this->y + other.y, this->z + other.z);
+}
+
+template<class numT>
+const Data::Position<numT> Data::Position<numT>::operator*(const numT& other) const
+{
+	return Position<numT>(this->x * other, this->y * other, this->z * other);
+}
+
+template<class numT>
+const Data::Position<numT> Data::Position<numT>::operator-(const Position<numT>& other) const
+{
+	return Position<numT>(this->x - other.x, this->y - other.y, this->z - other.z);
+}
+
+template<class numT>
+const Data::Position<numT> Data::Position<numT>::operator-() const
+{
+	return Position<numT>(-this->x, -this->y, -this->z);
+}
+
+template<class numT>
+const Data::Position<numT> Data::Position<numT>::operator/(const numT& other) const
+{
+	return Position<numT>(this->x / other, this->y / other, this->z / other);
+}
+
+template<class numT>
+void Data::Position<numT>::operator+=(const Position<numT>& other)
+{
+	*this = *this + other;
+}
+
+template<class numT>
+void Data::Position<numT>::operator*=(const numT& other)
+{
+	*this = *this * other;
+}
+
+template<class numT>
+void Data::Position<numT>::operator-=(const Position<numT>& other)
+{
+	*this = *this - other;
+}
+
+template<class numT>
+void Data::Position<numT>::operator/=(const numT& other)
+{
+	*this = *this / other;
 }

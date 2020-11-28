@@ -60,9 +60,7 @@ void Data::Model::normalise()
 	for (std::vector<Position<float>>::iterator it = this->vertices.begin();
 		it != this->vertices.end(); it++)
 	{
-		it->setX(it->getX() - center.getX());
-		it->setY(it->getY() - center.getY());
-		it->setZ(it->getZ() - center.getZ());
+		*it -= center;
 	}
 
 	radius = this->calcXRadius();
@@ -80,9 +78,7 @@ void Data::Model::normalise()
 	for (std::vector<Position<float>>::iterator it = this->vertices.begin();
 		it != this->vertices.end(); it++)
 	{
-		it->setX(it->getX() / radius);
-		it->setY(it->getY() / radius);
-		it->setZ(it->getZ() / radius);
+		*it /= radius;
 	}
 }
 
@@ -93,15 +89,10 @@ const Data::Position<float> Data::Model::calcCenter() const
 	for (std::vector<Position<float>>::const_iterator it = this->vertices.begin();
 		it != this->vertices.end(); it++)
 	{
-		center.setX(center.getX() + it->getX());
-		center.setY(center.getY() + it->getY());
-		center.setZ(center.getZ() + it->getZ());
+		center += *it;
 	}
 
-	center.setX(center.getX() / this->vertices.size());
-	center.setY(center.getY() / this->vertices.size());
-	center.setZ(center.getZ() / this->vertices.size());
-	return center;
+	return center / this->vertices.size();
 }
 
 const float Data::Model::calcXRadius() const
