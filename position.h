@@ -120,12 +120,31 @@ namespace Data
 		 * @brief Calculate the vector magnitude of this Position.
 		 * @return The double vector magnitude of this Position.
 		 */
-		const double calcMagnitude() const;
+		double calcMagnitude() const;
 		/**
 		 * @brief Vector normalise this Position such that its magnitude is 1.
 		 * @throw Exceptions::DivideByZero The calculated magnitude of this Position is 0.
 		 */
 		void normalise();
+		/**
+		 * @brief Calculate the vector dot product of this Position and the given Position.
+		 * @param other The other Position to find the vector dot product of with this Position.
+		 * @return The vector dot product of this Position and the given Position.
+		 */
+		double calcDotProduct(const Position<numT>& other) const;
+		/**
+		 * @brief Calculate the vector cross product of this Position and the given Position.
+		 * @param other The other Position to find the vector cross product of with this Position.
+		 * @return The vector cross product of this Position and the given Position.
+		 */
+		Position<numT> calcCrossProduct(const Position<numT>& other) const;
+		/**
+		 * @brief Calculate the rotation of this Positon about the given axis by the given angle.
+		 * @param axis The Position unit vector about which to rotate this Position.
+		 * @param angle The number of radians this Positon should be rotated by.
+		 * @return This Position rotated about the given axis by the given angle.
+		 */
+		Position<numT> calcRotation(Position<numT> axis, const double& angle) const;
 	private:
 		/**
 		 * @brief The integer x coordinate of this Position.
@@ -206,7 +225,7 @@ bool Data::Position<numT>::operator==(const Position<numT>& other) const
 }
 
 template<class numT>
-const double Data::Position<numT>::calcMagnitude() const
+double Data::Position<numT>::calcMagnitude() const
 {
 	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
 }
@@ -215,6 +234,40 @@ template<class numT>
 void Data::Position<numT>::normalise()
 {
 	*this /= (numT)this->calcMagnitude();
+}
+
+template<class numT>
+double Data::Position<numT>::calcDotProduct(const Position<numT>& other) const
+{
+	return this->x * other.x + this->y * other.y + this->z * other.z;
+}
+
+template<class numT>
+Data::Position<numT> Data::Position<numT>::calcCrossProduct(const Position<numT>& other) const
+{
+	return Position<numT>(this->y * other.z - this->z * other.y,
+		this->z * other.x - this->x * other.z,
+		this->x * other.y - this->y * other.x);
+}
+
+template<class numT>
+Data::Position<numT> Data::Position<numT>::calcRotation(Position<numT> axis, const double& angle) const
+{
+	axis.normalise();
+	double c = cos(angle);
+	double s = sin(angle);
+	double C = 1 - c;
+	double ax = axis.getX();
+	double ay = axis.getY();
+	double az = axis.getZ();
+	double x = this->x;
+	double y = this->y;
+	double z = this->z;
+
+	return Data::Position<numT>(
+		x * (ax * ax * C + c) + y * (ax * ay * C - az * s) + z * (ax * az * C + ay * s),
+		x * (ay * ax * C + az * s) + y * (ay * ay * C + c) + z * (ay * az * C - ax * s),
+		x * (az * ax * C - ay * s) + y * (az * ay * C + ax * s) + z * (az * az * C + c));
 }
 
 template<class numT>

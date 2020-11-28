@@ -28,13 +28,13 @@ namespace Display
 			 * @brief Get the forward direction of this Camera.
 			 * @return The normalised float Data::Position forward vector of this Camera.
 			 */
-			const Data::Position<float>& getDir() const;
+			const Data::Position<float>& getForward() const;
 			/**
 			 * @brief Set the forward direction of this Camera.
 			 * @param dir The new float Data:Position forward vector of this Camera.
 			 * @note The given vector is automatically normalised.
 			 */
-			void setDir(Data::Position<float> dir);
+			void setForward(Data::Position<float> dir);
 			/**
 			 * @brief Get the up direction of this Camera.
 			 * @return The float Data::Position up vector of this Camera.
@@ -50,6 +50,41 @@ namespace Display
 			 * @brief Apply the camera transformations to the glut matrices.
 			 */
 			void draw() const;
+			/**
+			 * @brief Calculate the normalised right vector of this Camera.
+			 * @return The float Data::Position normalised right vector of this Camera.
+			 */
+			const Data::Position<float> calcRight() const;
+			/**
+			 * @brief Move this Camera rightward by the given distance.
+			 * @param dist The float distance to move this Camera rightward.
+			 */
+			void dollyRight(float dist);
+			/**
+			 * @brief Move this Camera forward by the given distance.
+			 * @param dist The float distance to move this Camera forward.
+			 */
+			void truckForward(float dist);
+			/**
+			 * @brief Move this Camera upward by the given distance.
+			 * @param dist The float distance to move this Camera upward.
+			 */
+			void boomUp(float dist);
+			/**
+			 * @brief Rotate this Camera around its up vector by the given angle.
+			 * @param angle The float angle to rotate this Camera by in radians.
+			 */
+			void panRight(float angle);
+			/**
+			 * @brief Rotate this Camera around its right vector by the given angle.
+			 * @param angle The float angle to rotate this Camera by in radians.
+			 */
+			void tiltUp(float angle);
+			/**
+			 * @brief Rotate this Camera around its forward vector by the given angle.
+			 * @param angle The float angle to rotate this Camera by in radians.
+			 */
+			void rollCCW(float angle);
 		private:
 			/**
 			 * @brief The position of this Camera.

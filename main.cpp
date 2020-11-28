@@ -42,33 +42,73 @@ void close()
 	square.destroyWireframeDisplayList();
 }
 
+void charPress(unsigned char key, int, int)
+{
+	const unsigned char EXIT = 27;
+	const unsigned char RESET = ' ';
+	const unsigned char ROLL_CW = 'e';
+	const unsigned char ROLL_CCW = 'q';
+	const unsigned char TILT_UP = 'w';
+	const unsigned char TILT_DOWN = 's';
+	const unsigned char PAN_LEFT = 'a';
+	const unsigned char PAN_RIGHT = 'd';
+	const float SPEED = (float)acos(0) / 18.0f;
+
+	switch (std::tolower(key))
+	{
+	case EXIT:
+		glutExit();
+		return;
+	case RESET:
+		cam = Display::FreeGlut::Camera();
+		break;
+	case ROLL_CW:
+		cam.rollCCW(-SPEED);
+		break;
+	case ROLL_CCW:
+		cam.rollCCW(SPEED);
+		break;
+	case TILT_UP:
+		cam.tiltUp(SPEED);
+		break;
+	case TILT_DOWN:
+		cam.tiltUp(-SPEED);
+		break;
+	case PAN_LEFT:
+		cam.panRight(-SPEED);
+		break;
+	case PAN_RIGHT:
+		cam.panRight(SPEED);
+		break;
+	}
+
+	glutPostRedisplay();
+}
+
 void specialPress(Display::FreeGlut::SpecialKeys key, int, int)
 {
 	const Display::FreeGlut::SpecialKeys LEFT = Display::FreeGlut::SpecialKeys::LEFT;
 	const Display::FreeGlut::SpecialKeys RIGHT = Display::FreeGlut::SpecialKeys::RIGHT;
 	const Display::FreeGlut::SpecialKeys UP = Display::FreeGlut::SpecialKeys::UP;
 	const Display::FreeGlut::SpecialKeys DOWN = Display::FreeGlut::SpecialKeys::DOWN;
-	const float SPEED = 1;
-
-	Data::Position<float> pos;
+	const float SPEED = .1f;
 
 	switch (key)
 	{
 	case LEFT:
-		pos = Data::Position<float>(-SPEED, 0, 0);
+		cam.dollyRight(-SPEED);
 		break;
 	case RIGHT:
-		pos = Data::Position<float>(SPEED, 0, 0);
+		cam.dollyRight(SPEED);
 		break;
 	case UP:
-		pos = Data::Position<float>(0, SPEED, 0);
+		cam.boomUp(SPEED);
 		break;
 	case DOWN:
-		pos = Data::Position<float>(0, -SPEED, 0);
+		cam.boomUp(-SPEED);
 		break;
 	}
 
-	cam.setPos(cam.getPos() + pos);
 	glutPostRedisplay();
 }
 
@@ -83,6 +123,7 @@ int main(int argc, char** argv)
 	win.setDisplayFunc(display);
 	win.setCloseFunc(close);
 	win.setSpecialKeyboardDownFunc(specialPress);
+	win.setCharKeyboardDownFunc(charPress);
 	win.setTitle(TITLE);
 	win.setWidth(WIDTH);
 	win.setHeight(HEIGHT);

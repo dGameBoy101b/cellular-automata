@@ -92,7 +92,7 @@ const Data::Position<float> Data::Model::calcCenter() const
 		center += *it;
 	}
 
-	return center / this->vertices.size();
+	return center / (float)this->vertices.size();
 }
 
 const float Data::Model::calcXRadius() const
