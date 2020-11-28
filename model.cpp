@@ -54,6 +54,8 @@ std::vector<std::vector<std::vector<Data::Position<float>>::size_type>>::size_ty
 void Data::Model::normalise()
 {
 	const Position<float> center = this->calcCenter();
+	float radius;
+	float rad;
 
 	for (std::vector<Position<float>>::iterator it = this->vertices.begin();
 		it != this->vertices.end(); it++)
@@ -63,7 +65,17 @@ void Data::Model::normalise()
 		it->setZ(it->getZ() - center.getZ());
 	}
 
-	const float radius = this->calcRadius();
+	radius = this->calcXRadius();
+	rad = this->calcYRadius();
+	if (rad > radius)
+	{
+		radius = rad;
+	}
+	rad = this->calcZRadius();
+	if (rad > radius)
+	{
+		radius = rad;
+	}
 
 	for (std::vector<Position<float>>::iterator it = this->vertices.begin();
 		it != this->vertices.end(); it++)
@@ -92,7 +104,7 @@ const Data::Position<float> Data::Model::calcCenter() const
 	return center;
 }
 
-const float Data::Model::calcRadius() const
+const float Data::Model::calcXRadius() const
 {
 	const Data::Position<float> center = this->calcCenter();
 	float radius = 0;
@@ -101,9 +113,45 @@ const float Data::Model::calcRadius() const
 	for (std::vector<Data::Position<float>>::const_iterator it = this->vertices.begin();
 		it != this->vertices.end(); it++)
 	{
-		dist = sqrt((it->getX() - center.getX()) * (it->getX() - center.getX())
-			+ (it->getY() - center.getY()) * (it->getY() - center.getY())
-			+ (it->getZ() - center.getZ()) * (it->getZ() - center.getZ()));
+		dist = abs(it->getX() - center.getX());
+		if (dist > radius)
+		{
+			radius = dist;
+		}
+	}
+
+	return radius;
+}
+
+const float Data::Model::calcYRadius() const
+{
+	const Data::Position<float> center = this->calcCenter();
+	float radius = 0;
+	float dist = 0;
+
+	for (std::vector<Data::Position<float>>::const_iterator it = this->vertices.begin();
+		it != this->vertices.end(); it++)
+	{
+		dist = abs(it->getY() - center.getY());
+		if (dist > radius)
+		{
+			radius = dist;
+		}
+	}
+
+	return radius;
+}
+
+const float Data::Model::calcZRadius() const
+{
+	const Data::Position<float> center = this->calcCenter();
+	float radius = 0;
+	float dist = 0;
+
+	for (std::vector<Data::Position<float>>::const_iterator it = this->vertices.begin();
+		it != this->vertices.end(); it++)
+	{
+		dist = abs(it->getZ() - center.getZ());
 		if (dist > radius)
 		{
 			radius = dist;

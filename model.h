@@ -39,8 +39,8 @@ namespace Data
 		 * @brief Add a face to this Model.
 		 * 
 		 * @param face The list of vertex indicies that comprise the additional face.
-		 * @throw TooFewVerticesInFace Only 2 or less vertices are refernced in the new face.
-		 * @throw VertexIndexOutOfRange An index does not refer to a valid vertex.
+		 * @throw Exceptions::TooFewVerticesInFace Only 2 or less vertices are refernced in the new face.
+		 * @throw Exceptions::VertexIndexOutOfRange An index does not refer to a valid vertex.
 		 */
 		void addFace(const std::vector<std::vector<Position<float>>::size_type>& face);
 		/**
@@ -48,13 +48,13 @@ namespace Data
 		 * 
 		 * @return The number of vertices in this Model.
 		 */
-		const std::vector<Position<float>>::size_type& getNumVertices() const;
+		std::vector<Position<float>>::size_type getNumVertices() const;
 		/**
 		 * @brief Get the number of faces in this Model.
 		 * 
 		 * @return The number of faces in this Model.
 		 */
-		const std::vector<std::vector<std::vector<Position<float>>::size_type>>::size_type& getNumFaces() const;
+		std::vector<std::vector<std::vector<Position<float>>::size_type>>::size_type getNumFaces() const;
 		/**
 		 * @brief Normalise this Model to center on the origin and fit within a 2 unit cube.
 		 * 
@@ -76,10 +76,20 @@ namespace Data
 		 */
 		const Position<float> calcCenter() const;
 		/**
-		 * @brief Calculate the radius of this Model.
+		 * @brief Calculate the radius of this Model along the x axis.
 		 * 
-		 * @return The float radius of this Model.
+		 * @return The float radius of this Model along the x axis.
 		 */
-		const float calcRadius() const;
+		const float calcXRadius() const;
+		/**
+		 * @brief Calculate the radius of this Model along the y axis.
+		 * @return The float radius of this Model along the y axis.
+		 */
+		const float calcYRadius() const;
+		/**
+		 * @brief Calculate the radius of this Model along the z axis.
+		 * @return The float radius of this Model along the z axis.
+		 */
+		const float calcZRadius() const;
 	};
 }
