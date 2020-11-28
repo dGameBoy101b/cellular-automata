@@ -112,6 +112,36 @@ void specialPress(Display::FreeGlut::SpecialKeys key, int, int)
 	glutPostRedisplay();
 }
 
+void reshape(int w, int h)
+{
+	double dim;
+
+	if (w <= 0)
+	{
+		w = 1;
+	}
+	if (h <= 0)
+	{
+		h = 1;
+	}
+
+	if (w < h)
+	{
+		dim = w;
+	}
+	else
+	{
+		dim = h;
+	}
+
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-(double)w/dim, (double)w/dim, -(double)h/dim, (double)h/dim);
+
+	glutPostRedisplay();
+}
+
 int main(int argc, char** argv)
 {
 	const std::string TITLE = "Cellular Automata";
@@ -122,6 +152,7 @@ int main(int argc, char** argv)
 
 	win.setDisplayFunc(display);
 	win.setCloseFunc(close);
+	win.setReshapeFunc(reshape);
 	win.setSpecialKeyboardDownFunc(specialPress);
 	win.setCharKeyboardDownFunc(charPress);
 	win.setTitle(TITLE);
