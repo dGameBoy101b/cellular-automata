@@ -265,9 +265,9 @@ Data::Position<numT> Data::Position<numT>::calcRotation(Position<numT> axis, con
 	double z = this->z;
 
 	return Data::Position<numT>(
-		x * (ax * ax * C + c) + y * (ax * ay * C - az * s) + z * (ax * az * C + ay * s),
-		x * (ay * ax * C + az * s) + y * (ay * ay * C + c) + z * (ay * az * C - ax * s),
-		x * (az * ax * C - ay * s) + y * (az * ay * C + ax * s) + z * (az * az * C + c));
+		(numT)(x * (ax * ax * C + c) + y * (ax * ay * C - az * s) + z * (ax * az * C + ay * s)),
+		(numT)(x * (ay * ax * C + az * s) + y * (ay * ay * C + c) + z * (ay * az * C - ax * s)),
+		(numT)(x * (az * ax * C - ay * s) + y * (az * ay * C + ax * s) + z * (az * az * C + c)));
 }
 
 template<class numT>

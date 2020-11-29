@@ -2,6 +2,7 @@
 
 #include <GL/freeglut.h>
 #include "position.h"
+#include "non_positive_zoom_factor.h"
 
 namespace Display
 {
@@ -85,6 +86,11 @@ namespace Display
 			 * @param angle The float angle to rotate this Camera by in radians.
 			 */
 			void rollCCW(float angle);
+			/**
+			 * @brief Multiply the zoom factor of this Camera.
+			 * @param factor
+			 */
+			void zoomIn(float factor);
 		private:
 			/**
 			 * @brief The position of this Camera.
@@ -98,6 +104,10 @@ namespace Display
 			 * @brief The normalised up vector of this Camera.
 			 */
 			Data::Position<float> up;
+			/**
+			 * @brief The factor by which this Camera is zoomed.
+			 */
+			float zoom;
 		};
 	}
 }

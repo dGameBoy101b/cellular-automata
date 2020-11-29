@@ -5,6 +5,7 @@ Display::FreeGlut::Camera::Camera()
 	this->pos = Data::Position<float>(0, 0, 0);
 	this->dir = Data::Position<float>(0, 0, -1);
 	this->up = Data::Position<float>(0, 1, 0);
+	this->zoom = 1;
 }
 
 const Data::Position<float>& Display::FreeGlut::Camera::getPos() const
@@ -51,6 +52,7 @@ void Display::FreeGlut::Camera::draw() const
 		this->up.getX(),
 		this->up.getY(),
 		this->up.getZ());
+	glScalef(this->zoom, this->zoom, this->zoom);
 }
 
 const Data::Position<float> Display::FreeGlut::Camera::calcRight() const
@@ -91,4 +93,13 @@ void Display::FreeGlut::Camera::tiltUp(float angle)
 void Display::FreeGlut::Camera::rollCCW(float angle)
 {
 	this->up = this->up.calcRotation(this->dir, angle);
+}
+
+void Display::FreeGlut::Camera::zoomIn(float factor)
+{
+	if (factor <= 0)
+	{
+		throw Exceptions::NonPositiveZoomFactor();
+	}
+	this->zoom *= factor;
 }

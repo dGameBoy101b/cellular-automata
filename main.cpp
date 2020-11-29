@@ -52,7 +52,10 @@ void charPress(unsigned char key, int, int)
 	const unsigned char TILT_DOWN = 's';
 	const unsigned char PAN_LEFT = 'a';
 	const unsigned char PAN_RIGHT = 'd';
-	const float SPEED = (float)acos(0) / 18.0f;
+	const unsigned char ZOOM_IN = 'z';
+	const unsigned char ZOOM_OUT = 'x';
+	const float TURN_SPEED = (float)acos(0) / 18.0f;
+	const float ZOOM_SPEED = 1.1f;
 
 	switch (std::tolower(key))
 	{
@@ -63,22 +66,28 @@ void charPress(unsigned char key, int, int)
 		cam = Display::FreeGlut::Camera();
 		break;
 	case ROLL_CW:
-		cam.rollCCW(-SPEED);
+		cam.rollCCW(-TURN_SPEED);
 		break;
 	case ROLL_CCW:
-		cam.rollCCW(SPEED);
+		cam.rollCCW(TURN_SPEED);
 		break;
 	case TILT_UP:
-		cam.tiltUp(SPEED);
+		cam.tiltUp(TURN_SPEED);
 		break;
 	case TILT_DOWN:
-		cam.tiltUp(-SPEED);
+		cam.tiltUp(-TURN_SPEED);
 		break;
 	case PAN_LEFT:
-		cam.panRight(-SPEED);
+		cam.panRight(-TURN_SPEED);
 		break;
 	case PAN_RIGHT:
-		cam.panRight(SPEED);
+		cam.panRight(TURN_SPEED);
+		break;
+	case ZOOM_IN:
+		cam.zoomIn(ZOOM_SPEED);
+		break;
+	case ZOOM_OUT:
+		cam.zoomIn(1.0f/ZOOM_SPEED);
 		break;
 	}
 
