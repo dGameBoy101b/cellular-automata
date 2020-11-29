@@ -59,9 +59,6 @@
     <ClCompile Include="model.cpp">
       <Filter>Source Files\Data</Filter>
     </ClCompile>
-    <ClCompile Include="position.cpp">
-      <Filter>Source Files\Data</Filter>
-    </ClCompile>
     <ClCompile Include="colour_file.cpp">
       <Filter>Source Files\FileIO</Filter>
     </ClCompile>
@@ -76,6 +73,15 @@
     </ClCompile>
     <ClCompile Include="square_model.cpp">
       <Filter>Source Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="glut_colour.cpp">
+      <Filter>Source Files\Display\FreeGlut</Filter>
+    </ClCompile>
+    <ClCompile Include="glut_camera.cpp">
+      <Filter>Source Files\Display\FreeGlut</Filter>
+    </ClCompile>
+    <ClCompile Include="square_2d_view.cpp">
+      <Filter>Source Files\Display\FreeGlut</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,9 +160,6 @@
     <ClInclude Include="unrecognised_component_suffix.h">
       <Filter>Header Files\FileIO\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="negative_state.h">
-      <Filter>Header Files\Data\Exceptions</Filter>
-    </ClInclude>
     <ClInclude Include="non_normal_colour_component.h">
       <Filter>Header Files\Data\Exceptions</Filter>
     </ClInclude>
@@ -183,6 +186,24 @@
     </ClInclude>
     <ClInclude Include="square_model.h">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_display_modes.h">
+      <Filter>Header Files\Display\FreeGlut</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_colour.h">
+      <Filter>Header Files\Display\FreeGlut</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_camera.h">
+      <Filter>Header Files\Display\FreeGlut</Filter>
+    </ClInclude>
+    <ClInclude Include="divide_by_zero.h">
+      <Filter>Header Files\Data\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="non_positive_zoom_factor.h">
+      <Filter>Header Files\Display\FreeGlut\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="square_2d_view.h">
+      <Filter>Header Files\Display\FreeGlut</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
