@@ -42,7 +42,7 @@ Data::Grid::Grid(const Position<int>& min_bound, const Position<int>& max_bound)
     this->regenerate();
 }
 
-int Data::Grid::getCellState(const Position<int>& pos) const
+unsigned int Data::Grid::getCellState(const Position<int>& pos) const
 {
     if (!this->withinBounds(pos))
     {
@@ -59,7 +59,7 @@ int Data::Grid::getCellState(const Position<int>& pos) const
     throw Exceptions::OutOfBounds();
 }
 
-void Data::Grid::setCellState(const Position<int>& pos, int state)
+void Data::Grid::setCellState(const Position<int>& pos, unsigned int state)
 {
     for (std::vector<Cell>::iterator it = this->cells.begin(); it != this->cells.end(); it++)
     {

@@ -7,13 +7,8 @@ Data::Cell::Cell()
     this->next_state = 0;
 }
 
-Data::Cell::Cell(const Position<int>& pos, int state)
+Data::Cell::Cell(const Position<int>& pos, unsigned int state)
 {
-    if (state < 0)
-    {
-        throw Exceptions::NegativeState();
-    }
-
     this->pos = pos;
     this->state = state;
     this->next_state = 0;
@@ -24,7 +19,7 @@ const Data::Position<int>& Data::Cell::getPos() const
     return this->pos;
 }
 
-int Data::Cell::getState() const
+unsigned int Data::Cell::getState() const
 {
     return this->state;
 }
@@ -34,13 +29,8 @@ void Data::Cell::setPosition(const Position<int>& pos)
     this->pos = pos;
 }
 
-void Data::Cell::setState(int state)
+void Data::Cell::setState(unsigned int state)
 {
-    if (state < 0)
-    {
-        throw Exceptions::NegativeState();
-    }
-
     this->next_state = state;
 }
 

@@ -53,17 +53,17 @@ namespace Data
 		 *
 		 * @param pos The Position of the Cell whose state to get.
 		 * @return The state of the Cell located at the given Position.
-		 * @throw OutOfBounds The given coordinates are not within the bounds of this Grid.
+		 * @throw Exceptions::OutOfBounds The given coordinates are not within the bounds of this Grid.
 		 */
-		int getCellState(const Position<int>& pos) const;
+		unsigned int getCellState(const Position<int>& pos) const;
 		/**
 		 * @brief Set the state of the Cell located at the given coordinates to the given state.
 		 *
 		 * @param pos The position of the target Cell.
 		 * @param state The new state to set the target Cell to.
-		 * @throw OutOfBounds The given coordinate is not within the bounds of this Grid.
+		 * @throw Exceptions::OutOfBounds The given coordinate is not within the bounds of this Grid.
 		 */
-		void setCellState(const Position<int>& pos, int state);
+		void setCellState(const Position<int>& pos, unsigned int state);
 		/**
 		 * @brief Update all the Cells in this Grid.
 		 *

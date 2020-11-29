@@ -1,7 +1,6 @@
 #pragma once
 
 #include "position.h"
-#include "negative_state.h"
 
 namespace Data
 {
@@ -18,9 +17,8 @@ namespace Data
 		 *
 		 * @param pos The position of the cell.
 		 * @param state The non-negative integer state of the cell.
-		 * @throw NegativeState The given state was negative.
 		 */
-		Cell(const Position<int>& pos, int state);
+		Cell(const Position<int>& pos, unsigned int state);
 		/**
 		 * @brief Get the position of this Cell.
 		 *
@@ -32,7 +30,7 @@ namespace Data
 		 *
 		 * @return The current integer state of this Cell.
 		 */
-		int getState() const;
+		unsigned int getState() const;
 		/**
 		 * @brief Set the position of this Cell.
 		 *
@@ -43,9 +41,9 @@ namespace Data
 		 * @brief Set the state of this Cell.
 		 *
 		 * @param state The next integer state of this Cell.
-		 * @throw NegativeState The given state was negative.
+		 * @throw Exceptions::NegativeState The given state was negative.
 		 */
-		void setState(int state);
+		void setState(unsigned int state);
 		/**
 		 * @brief Update the current state of this Cell with the next state.
 		 *
@@ -61,11 +59,11 @@ namespace Data
 		 * @brief The current non-negative integer state of this Cell.
 		 *
 		 */
-		int state;
+		unsigned int state;
 		/**
 		 * @brief The next non-negative integer state of this Cell.
 		 *
 		 */
-		int next_state;
+		unsigned int next_state;
 	};
 }
