@@ -8,6 +8,8 @@
 #include "square_model.h"
 #include "glut_camera.h"
 #include "glut_window.h"
+#include "glut_display_list.h"
+#include "too_few_colours.h"
 
 namespace Display
 {
@@ -39,6 +41,8 @@ namespace Display
 			static std::vector<Display::FreeGlut::Colour> colours;
 			static Display::FreeGlut::Camera camera;
 			static Display::FreeGlut::Model cell_model;
+			static Display::FreeGlut::DisplayList grid_display_list;
+			static const Display::FreeGlut::DisplayList createDisplayList();
 			static void display();
 			static void close();
 			static void reshape(int w, int h);

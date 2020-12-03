@@ -42,6 +42,9 @@
     <Filter Include="Source Files\Display\FreeGlut">
       <UniqueIdentifier>{29625466-9944-4b05-94fb-c560f1b40d4f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Display\FreeGlut\Enumerations">
+      <UniqueIdentifier>{06910685-dfa6-4614-9d10-3d7235cc4430}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,21 +108,6 @@
     </ClInclude>
     <ClInclude Include="initial_state_file.h">
       <Filter>Header Files\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="glut_button_states.h">
-      <Filter>Header Files\Display\FreeGlut</Filter>
-    </ClInclude>
-    <ClInclude Include="glut_mouse_buttons.h">
-      <Filter>Header Files\Display\FreeGlut</Filter>
-    </ClInclude>
-    <ClInclude Include="glut_mouse_entry_states.h">
-      <Filter>Header Files\Display\FreeGlut</Filter>
-    </ClInclude>
-    <ClInclude Include="glut_special_keys.h">
-      <Filter>Header Files\Display\FreeGlut</Filter>
-    </ClInclude>
-    <ClInclude Include="glut_visibility_states.h">
-      <Filter>Header Files\Display\FreeGlut</Filter>
     </ClInclude>
     <ClInclude Include="glut_window.h">
       <Filter>Header Files\Display\FreeGlut</Filter>
@@ -187,9 +175,6 @@
     <ClInclude Include="square_model.h">
       <Filter>Header Files\Data</Filter>
     </ClInclude>
-    <ClInclude Include="glut_display_modes.h">
-      <Filter>Header Files\Display\FreeGlut</Filter>
-    </ClInclude>
     <ClInclude Include="glut_colour.h">
       <Filter>Header Files\Display\FreeGlut</Filter>
     </ClInclude>
@@ -204,6 +189,24 @@
     </ClInclude>
     <ClInclude Include="square_2d_view.h">
       <Filter>Header Files\Display\FreeGlut</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_button_states.h">
+      <Filter>Header Files\Display\FreeGlut\Enumerations</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_display_modes.h">
+      <Filter>Header Files\Display\FreeGlut\Enumerations</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_mouse_buttons.h">
+      <Filter>Header Files\Display\FreeGlut\Enumerations</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_mouse_entry_states.h">
+      <Filter>Header Files\Display\FreeGlut\Enumerations</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_special_keys.h">
+      <Filter>Header Files\Display\FreeGlut\Enumerations</Filter>
+    </ClInclude>
+    <ClInclude Include="glut_visibility_states.h">
+      <Filter>Header Files\Display\FreeGlut\Enumerations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

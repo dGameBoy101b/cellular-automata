@@ -3,15 +3,15 @@
 Display::FreeGlut::Model::Model()
 {
 	this->model = Data::Model();
-	this->wireframe_id = 0;
-	this->solid_id = 0;
+	this->wireframe_displaylist = nullptr;
+	this->solid_displaylist = nullptr;
 }
 
 Display::FreeGlut::Model::Model(const Data::Model& model)
 {
 	this->model = model;
-	this->wireframe_id = 0;
-	this->solid_id = 0;
+	this->wireframe_displaylist = nullptr;
+	this->solid_displaylist = nullptr;
 }
 
 const Data::Model& Display::FreeGlut::Model::getModel() const
@@ -24,73 +24,26 @@ void Display::FreeGlut::Model::setModel(const Data::Model& model)
 	this->model = model;
 }
 
-bool Display::FreeGlut::Model::wireframeDisplayListExists() const
+const Display::FreeGlut::DisplayList* const Display::FreeGlut::Model::getWireframeDisplayList() const
 {
-	return this->wireframe_id > 0
-		&& glIsList(this->wireframe_id);
+	return this->wireframe_displaylist;
 }
 
-bool Display::FreeGlut::Model::solidDisplayListExists() const
+const Display::FreeGlut::DisplayList* const Display::FreeGlut::Model::getSolidDisplayList() const
 {
-	return this->solid_id > 0
-		&& glIsList(this->solid_id);
-}
-
-void Display::FreeGlut::Model::destroyWireframeDisplayList()
-{
-	if (!this->wireframeDisplayListExists())
-	{
-		throw Exceptions::DisplayListAlreadyDestroyed();
-	}
-
-	glDeleteLists(this->wireframe_id, 1);
-	this->wireframe_id = 0;
-}
-
-void Display::FreeGlut::Model::destroySolidDisplayList()
-{
-	if (!this->solidDisplayListExists())
-	{
-		throw Exceptions::DisplayListAlreadyDestroyed();
-	}
-
-	glDeleteLists(this->solid_id, 1);
-	this->solid_id = 0;
-}
-
-void Display::FreeGlut::Model::drawWireframe() const
-{
-	if (!this->wireframeDisplayListExists())
-	{
-		throw Exceptions::DisplayListNotExist();
-	}
-
-	glCallList(this->wireframe_id);
-}
-
-void Display::FreeGlut::Model::drawSolid() const
-{
-	if (!this->solidDisplayListExists())
-	{
-		throw Exceptions::DisplayListNotExist();
-	}
-
-	glCallList(this->solid_id);
+	return this->solid_displaylist;
 }
 
 void Display::FreeGlut::Model::createSolidDisplayList()
 {
 	Data::Position<float> pos;
 
-	if (this->solidDisplayListExists())
-	{
-		throw Exceptions::DisplayListAlreadyCreated();
-	}
+	*(this->solid_displaylist) = DisplayList();
+	glNewList(this->solid_displaylist->getId(), GL_COMPILE);
 
-	this->solid_id = glGenLists(1);
-	glNewList(this->solid_id, GL_COMPILE);
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
+
 	for (std::vector<std::vector<std::vector<Data::Position<float>>::size_type>>::const_iterator it = this->model.getFaces().begin();
 		it != this->model.getFaces().end(); it++)
 	{
@@ -103,23 +56,39 @@ void Display::FreeGlut::Model::createSolidDisplayList()
 		}
 		glEnd();
 	}
+
 	glPopMatrix();
 	glEndList();
+}
+
+void Display::FreeGlut::Model::destoryWireFrameDisplayList()
+{
+	if (this->wireframe_displaylist != nullptr)
+	{
+		this->wireframe_displaylist->~DisplayList();
+		this->wireframe_displaylist = nullptr;
+	}
+}
+
+void Display::FreeGlut::Model::destorySolidDisplayList()
+{
+	if (this->solid_displaylist != nullptr)
+	{
+		this->solid_displaylist->~DisplayList();
+		this->solid_displaylist = nullptr;
+	}
 }
 
 void Display::FreeGlut::Model::createWireframeDisplayList()
 {
 	Data::Position<float> pos;
 
-	if (this->wireframeDisplayListExists())
-	{
-		throw Exceptions::DisplayListAlreadyCreated();
-	}
+	*(this->wireframe_displaylist) = DisplayList();
+	glNewList(this->wireframe_displaylist->getId(), GL_COMPILE);
 
-	this->wireframe_id = glGenLists(1);
-	glNewList(this->wireframe_id, GL_COMPILE);
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
+
 	for (std::vector<std::vector<std::vector<Data::Position<float>>::size_type>>::const_iterator it = this->model.getFaces().begin();
 		it != this->model.getFaces().end(); it++)
 	{
@@ -132,18 +101,7 @@ void Display::FreeGlut::Model::createWireframeDisplayList()
 		}
 		glEnd();
 	}
+
 	glPopMatrix();
 	glEndList();
-}
-
-Display::FreeGlut::Model::~Model()
-{
-	if (this->wireframeDisplayListExists())
-	{
-		this->destroyWireframeDisplayList();
-	}
-	if (this->solidDisplayListExists())
-	{
-		this->destroySolidDisplayList();
-	}
 }

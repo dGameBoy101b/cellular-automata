@@ -2,9 +2,7 @@
 
 #include <GL/freeglut.h>
 #include "model.h"
-#include "display_list_already_destroyed.h"
-#include "display_list_not_exist.h"
-#include "display_list_already_created.h"
+#include "glut_display_list.h"
 
 namespace Display
 {
@@ -15,7 +13,6 @@ namespace Display
 		public:
 			/**
 			 * @brief Default constructor.
-			 * 
 			 */
 			Model();
 			/**
@@ -37,73 +34,44 @@ namespace Display
 			 */
 			void setModel(const Data::Model& model);
 			/**
-			 * @brief Test if the wireframe display list for this Model exists in glut.
-			 * 
-			 * @return True if the wireframe has been registered in glut, flase otherwise.
+			 * @brief Get the wireframe DisplayList of this Model.
+			 * @return The DisplayList for the wireframe of this Model.
 			 */
-			bool wireframeDisplayListExists() const;
+			const DisplayList* const getWireframeDisplayList() const;
 			/**
-			 * @brief Test if the solid display list for this Model exists in glut.
-			 * 
-			 * @return True if the solid has been registered in glut, false otherwise.
+			 * @brief Get the solid DisplayList of this Model.
+			 * @return The DisplayList for the solid of this Model.
 			 */
-			bool solidDisplayListExists() const;
+			const DisplayList* const getSolidDisplayList() const;
 			/**
 			 * @brief Create the wireframe display list for this Model in glut.
-			 * 
-			 * @throw Exceptions::DisplayListAlreadyCreated The wireframe display list already exists.
 			 */
 			void createWireframeDisplayList();
 			/**
-			 * @brief Destroy the wireframe displaylist for this Model in glut.
-			 * 
-			 * @throw Exceptions::DisplayListAlreadyDestroyed The wireframe display list already does not exist.
-			 */
-			void destroyWireframeDisplayList();
-			/**
 			 * @brief Create the solid display list for this Model in glut.
-			 * 
-			 * @throw Exceptions::DisplayListAlreadyCreated The solid display list already exists.
 			 */
 			void createSolidDisplayList();
 			/**
-			 * @brief Destory the solid display list for this Model in glut.
-			 * 
-			 * @throw Exceptions::DisplayListAlreadyDestroyed The solid display list already does not exist.
+			 * @brief Destroy the wireframe DisplayList of this Model.
 			 */
-			void destroySolidDisplayList();
+			void destoryWireFrameDisplayList();
 			/**
-			 * @brief Draw the wireframe display list for this Model.
-			 * 
-			 * @throw Exceptins::DisplayListNotExist The solid display list does not exist.
+			 * @brief Destroy the solid DisplayList of this Model.
 			 */
-			void drawWireframe() const;
-			/**
-			 * @brief Draw the solid display list for this Model.
-			 * 
-			 * @throw Exceptions::DisplayListNotExist The wireframe display list does not exist.
-			 */
-			void drawSolid() const;
-			/**
-			 * @brief Destructor.
-			 * 
-			 */
-			~Model();
+			void destorySolidDisplayList();
 		private:
 			/**
 			 * @brief The underlying Data::Model.
 			 */
 			Data::Model model;
 			/**
-			 * @brief The wireframe display list id.
-			 * @note Zero if no display list exists.
+			 * @brief The wireframe DisplayList.
 			 */
-			int wireframe_id;
+			Display::FreeGlut::DisplayList* wireframe_displaylist;
 			/**
-			 * @brief The solid display list id.
-			 * @note Zero if no display list exists.
+			 * @brief The solid DisplayList.
 			 */
-			int solid_id;
+			Display::FreeGlut::DisplayList* solid_displaylist;
 		};
 	}
 }

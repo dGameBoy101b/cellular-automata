@@ -45,6 +45,9 @@ Display::FreeGlut::Camera Display::FreeGlut::Square2DView::camera
 Display::FreeGlut::Model Display::FreeGlut::Square2DView::cell_model 
 = Display::FreeGlut::Model(Data::SquareModel::getModel());
 
+Display::FreeGlut::DisplayList Display::FreeGlut::Square2DView::grid_display_list
+= Display::FreeGlut::Square2DView::createDisplayList();
+
 const Display::FreeGlut::Window& Display::FreeGlut::Square2DView::getWindow()
 {
 	return Square2DView::window;
@@ -79,7 +82,13 @@ const std::vector<Display::FreeGlut::Colour>& Display::FreeGlut::Square2DView::g
 
 void Display::FreeGlut::Square2DView::setColours(const std::vector<Display::FreeGlut::Colour>& colours)
 {
+	if (colours.size() < 2)
+	{
+		Exceptions::TooFewColours();
+	}
+
 	Square2DView::colours = colours;
+	Square2DView::grid_display_list = Square2DView::createDisplayList();
 }
 
 const Data::Grid& Display::FreeGlut::Square2DView::getGrid()
@@ -90,6 +99,7 @@ const Data::Grid& Display::FreeGlut::Square2DView::getGrid()
 void Display::FreeGlut::Square2DView::setGrid(const Data::Grid& grid)
 {
 	Square2DView::grid = grid;
+	Square2DView::grid_display_list = Square2DView::createDisplayList();
 }
 
 const Display::FreeGlut::Camera& Display::FreeGlut::Square2DView::getCamera()
@@ -97,25 +107,28 @@ const Display::FreeGlut::Camera& Display::FreeGlut::Square2DView::getCamera()
 	return Square2DView::camera;
 }
 
-void Display::FreeGlut::Square2DView::display()
+const Display::FreeGlut::DisplayList Display::FreeGlut::Square2DView::createDisplayList()
 {
+	Display::FreeGlut::DisplayList list = Display::FreeGlut::DisplayList();
 	Data::Position<int> pos;
 	unsigned int state;
 
+	if (Square2DView::cell_model.getSolidDisplayList() == nullptr)
+	{
+		Square2DView::cell_model.createSolidDisplayList();
+	}
+
+	glNewList(list.getId(), GL_COMPILE);
+
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	glPushMatrix();
 
-	glClear(GL_COLOR_BUFFER_BIT);
-	Square2DView::colours[0].drawClearColour();
-
-	Square2DView::camera.draw();
-	
 	for (int x = Square2DView::grid.getMinBound().getX(); x <= Square2DView::grid.getMaxBound().getX(); x++)
 	{
 		for (int y = Square2DView::grid.getMinBound().getY(); y <= Square2DView::grid.getMaxBound().getY(); y++)
 		{
 			pos = Data::Position<int>(x, y, 0);
-			
+
 			glPushMatrix();
 			glTranslatef((float)pos.getX(), (float)pos.getY(), (float)pos.getZ());
 
@@ -126,25 +139,35 @@ void Display::FreeGlut::Square2DView::display()
 			}
 
 			Square2DView::colours.at(state).drawColour();
-
-			if (!Square2DView::cell_model.solidDisplayListExists())
-			{
-				Square2DView::cell_model.createSolidDisplayList();
-			}
-			Square2DView::cell_model.drawSolid();
+			Square2DView::cell_model.getSolidDisplayList()->draw();
 			glPopMatrix();
 		}
 	}
+
+	glPopMatrix();
+	glEndList();
+
+	return list;
+}
+
+void Display::FreeGlut::Square2DView::display()
+{
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glClear(GL_COLOR_BUFFER_BIT);
+	Square2DView::colours.at(0).drawClearColour();
+
+	Square2DView::camera.draw();
+
+	Square2DView::grid_display_list.draw();
 
 	glutSwapBuffers();
 }
 
 void Display::FreeGlut::Square2DView::close()
 {
-	if (Square2DView::cell_model.solidDisplayListExists())
-	{
-		Square2DView::cell_model.destroySolidDisplayList();
-	}
+	Square2DView::cell_model.destorySolidDisplayList();
 }
 
 void Display::FreeGlut::Square2DView::charPress(unsigned char key, int, int)
