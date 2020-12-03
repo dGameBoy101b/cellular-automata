@@ -4,7 +4,7 @@ Data::Grid::Grid()
 {
     this->min_bound = Position<int>();
     this->max_bound = Position<int>();
-    this->cells = std::vector<Cell>();
+    this->regenerate();
 }
 
 const Data::Position<int>& Data::Grid::getMinBound() const
