@@ -41,6 +41,7 @@ namespace Display
 			static Display::FreeGlut::Model cell_model;
 			static void display();
 			static void close();
+			static void reshape(int w, int h);
 			static void charPress(unsigned char key, int, int);
 			static void mousePress(Display::FreeGlut::MouseButton button, Display::FreeGlut::ButtonState state, int, int);
 		};

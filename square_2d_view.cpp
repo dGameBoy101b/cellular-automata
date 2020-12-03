@@ -1,6 +1,7 @@
 #include "square_2d_view.h"
 
-const unsigned char Display::FreeGlut::Square2DView::EXIT = 27;
+const unsigned char Display::FreeGlut::Square2DView::EXIT 
+= 27;
 
 const unsigned char Display::FreeGlut::Square2DView::SWITCH_VIEW
 = 'v';
@@ -21,7 +22,7 @@ const float Display::FreeGlut::Square2DView::ZOOM_FAC
 = 1.1f;
 
 const float Display::FreeGlut::Square2DView::MOVE_SPEED
-= 1.0f;
+= .2f;
 
 const Display::FreeGlut::MouseButton Display::FreeGlut::Square2DView::ZOOM_IN
 = Display::FreeGlut::MouseButton::SCROLL_UP;
@@ -64,6 +65,7 @@ void Display::FreeGlut::Square2DView::setWindow(const Display::FreeGlut::Window&
 
 	Square2DView::window.setDisplayFunc(Square2DView::display);
 	Square2DView::window.setCloseFunc(Square2DView::close);
+	Square2DView::window.setReshapeFunc(Square2DView::reshape);
 	Square2DView::window.setCharKeyboardDownFunc(Square2DView::charPress);
 	Square2DView::window.setMouseButtonFunc(Square2DView::mousePress);
 
@@ -108,12 +110,12 @@ void Display::FreeGlut::Square2DView::display()
 
 	Square2DView::camera.draw();
 	
-	for (int x = Square2DView::grid.getMinBound().getX(); x <= Square2DView::grid.getMinBound().getX(); x++)
+	for (int x = Square2DView::grid.getMinBound().getX(); x <= Square2DView::grid.getMaxBound().getX(); x++)
 	{
 		for (int y = Square2DView::grid.getMinBound().getY(); y <= Square2DView::grid.getMaxBound().getY(); y++)
 		{
 			pos = Data::Position<int>(x, y, 0);
-
+			
 			glPushMatrix();
 			glTranslatef((float)pos.getX(), (float)pos.getY(), (float)pos.getZ());
 
@@ -183,6 +185,36 @@ void Display::FreeGlut::Square2DView::mousePress(Display::FreeGlut::MouseButton 
 		Square2DView::camera.zoomIn(1 / Square2DView::ZOOM_FAC);
 		break;
 	}
+
+	glutPostRedisplay();
+}
+
+void Display::FreeGlut::Square2DView::reshape(int w, int h)
+{
+	double dim;
+
+	if (w <= 0)
+	{
+		w = 1;
+	}
+	if (h <= 0)
+	{
+		h = 1;
+	}
+
+	if (w < h)
+	{
+		dim = w;
+	}
+	else
+	{
+		dim = h;
+	}
+
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-(double)w / dim, (double)w / dim, -(double)h / dim, (double)h / dim);
 
 	glutPostRedisplay();
 }
