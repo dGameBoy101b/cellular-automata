@@ -133,52 +133,70 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="cell.cpp" />
-		<Unit filename="cell.h" />
-		<Unit filename="cell_component_format_mismatch.h" />
-		<Unit filename="colour.cpp" />
-		<Unit filename="colour.h" />
-		<Unit filename="colour_component_format_mismatch.h" />
-		<Unit filename="colour_file.cpp" />
-		<Unit filename="colour_file.h" />
-		<Unit filename="display_list_already_created.h" />
-		<Unit filename="display_list_already_destroyed.h" />
-		<Unit filename="display_list_not_exist.h" />
-		<Unit filename="file_not_readable.h" />
-		<Unit filename="file_not_writable.h" />
-		<Unit filename="glut_button_states.h" />
-		<Unit filename="glut_model.cpp" />
-		<Unit filename="glut_model.h" />
-		<Unit filename="glut_mouse_buttons.h" />
-		<Unit filename="glut_mouse_entry_states.h" />
-		<Unit filename="glut_special_keys.h" />
-		<Unit filename="glut_visibility_states.h" />
-		<Unit filename="glut_window.cpp" />
-		<Unit filename="glut_window.h" />
-		<Unit filename="grid.cpp" />
-		<Unit filename="grid.h" />
-		<Unit filename="initial_state_file.cpp" />
-		<Unit filename="initial_state_file.h" />
-		<Unit filename="invalid_parent_id.h" />
+		<Unit filename="Data/Exceptions/divide_by_zero.h" />
+		<Unit filename="Data/Exceptions/non_normal_colour_component.h" />
+		<Unit filename="Data/Exceptions/out_of_bounds.h" />
+		<Unit filename="Data/Exceptions/too_few_vertices_in_face.h" />
+		<Unit filename="Data/Exceptions/vertex_index_out_of_range.h" />
+		<Unit filename="Data/cell.cpp" />
+		<Unit filename="Data/cell.h" />
+		<Unit filename="Data/colour.cpp" />
+		<Unit filename="Data/colour.h" />
+		<Unit filename="Data/grid.cpp" />
+		<Unit filename="Data/grid.h" />
+		<Unit filename="Data/model.cpp" />
+		<Unit filename="Data/model.h" />
+		<Unit filename="Data/position.h" />
+		<Unit filename="Data/square_model.cpp" />
+		<Unit filename="Data/square_model.h" />
+		<Unit filename="Data/tree_node.cpp" />
+		<Unit filename="Data/tree_node.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/display_list_already_created.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/display_list_already_destroyed.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/display_list_not_exist.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/invalid_parent_id.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/no_display_callback.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/non_positive_size.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/non_positive_zoom_factor.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/too_few_colours.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/window_already_created.h" />
+		<Unit filename="Display/FreeGlut/Exceptions/window_already_destroyed.h" />
+		<Unit filename="Display/FreeGlut/glut_button_states.h" />
+		<Unit filename="Display/FreeGlut/glut_camera.cpp" />
+		<Unit filename="Display/FreeGlut/glut_camera.h" />
+		<Unit filename="Display/FreeGlut/glut_colour.cpp" />
+		<Unit filename="Display/FreeGlut/glut_colour.h" />
+		<Unit filename="Display/FreeGlut/glut_display_list.cpp" />
+		<Unit filename="Display/FreeGlut/glut_display_list.h" />
+		<Unit filename="Display/FreeGlut/glut_display_modes.h" />
+		<Unit filename="Display/FreeGlut/glut_model.cpp" />
+		<Unit filename="Display/FreeGlut/glut_model.h" />
+		<Unit filename="Display/FreeGlut/glut_mouse_buttons.h" />
+		<Unit filename="Display/FreeGlut/glut_mouse_entry_states.h" />
+		<Unit filename="Display/FreeGlut/glut_special_keys.h" />
+		<Unit filename="Display/FreeGlut/glut_visibility_states.h" />
+		<Unit filename="Display/FreeGlut/glut_window.cpp" />
+		<Unit filename="Display/FreeGlut/glut_window.h" />
+		<Unit filename="Display/FreeGlut/square_2d_view.cpp" />
+		<Unit filename="Display/FreeGlut/square_2d_view.h" />
+		<Unit filename="FileIO/Exceptions/cell_component_format_mismatch.h" />
+		<Unit filename="FileIO/Exceptions/colour_component_format_mismatch.h" />
+		<Unit filename="FileIO/Exceptions/file_not_readable.h" />
+		<Unit filename="FileIO/Exceptions/file_not_writable.h" />
+		<Unit filename="FileIO/Exceptions/position_component_format_mismatch.h" />
+		<Unit filename="FileIO/Exceptions/unexpected_extension.h" />
+		<Unit filename="FileIO/Exceptions/unrecognised_component_suffix.h" />
+		<Unit filename="FileIO/colour_file.cpp" />
+		<Unit filename="FileIO/colour_file.h" />
+		<Unit filename="FileIO/initial_state_file.cpp" />
+		<Unit filename="FileIO/initial_state_file.h" />
+		<Unit filename="FileIO/rule_file.cpp" />
+		<Unit filename="FileIO/rule_file.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="model.cpp" />
-		<Unit filename="model.h" />
-		<Unit filename="negative_state.h" />
-		<Unit filename="no_display_callback.h" />
-		<Unit filename="non_normal_colour_component.h" />
-		<Unit filename="non_positive_size.h" />
-		<Unit filename="out_of_bounds.h" />
-		<Unit filename="position.cpp" />
-		<Unit filename="position.h" />
-		<Unit filename="position_component_format_mismatch.h" />
-		<Unit filename="square_model.cpp" />
-		<Unit filename="square_model.h" />
-		<Unit filename="too_few_vertices_in_face.h" />
-		<Unit filename="unexpected_extension.h" />
-		<Unit filename="unrecognised_component_suffix.h" />
-		<Unit filename="vertex_index_out_of_range.h" />
-		<Unit filename="window_already_created.h" />
-		<Unit filename="window_already_destroyed.h" />
-		<Extensions />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
