@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Cellular Automata" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="./Debug/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug/" />
+				<Option deps_output="./Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_CONSOLE" />
+					<Add option="-Wall" />
+					<Add directory="dependencies/freeglut_x86-windows/include/" />
+					<Add directory="$(IncludePath)/" />
+				</Compiler>
+				<Linker>
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+					<Add directory="dependencies/freeglut_x86-windows/lib/" />
+					<Add directory="dependencies/freeglut_x86-windows/debug/lib/" />
+					<Add directory="$(LibraryPath)/" />
+				</Linker>
+			</Target>
+			<Target title="Debug x64">
+				<Option output="./Debug/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug/" />
+				<Option deps_output="./Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_CONSOLE" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+				</Linker>
+			</Target>
+			<Target title="Release x64">
+				<Option output="./Release/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release/" />
+				<Option deps_output="./Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DNDEBUG" />
+					<Add option="-D_CONSOLE" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+				</Linker>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="./Release/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release/" />
+				<Option deps_output="./Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_CONSOLE" />
+					<Add option="-Wall" />
+					<Add directory="dependencies/freeglut_x86-windows/include/" />
+					<Add directory="$(IncludePath)/" />
+				</Compiler>
+				<Linker>
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+					<Add directory="dependencies/freeglut_x86-windows/lib/" />
+					<Add directory="dependencies/freeglut_x86-windows/debug/lib/" />
+					<Add directory="$(LibraryPath)/" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="cell.cpp" />
+		<Unit filename="cell.h" />
+		<Unit filename="cell_component_format_mismatch.h" />
+		<Unit filename="colour.cpp" />
+		<Unit filename="colour.h" />
+		<Unit filename="colour_component_format_mismatch.h" />
+		<Unit filename="colour_file.cpp" />
+		<Unit filename="colour_file.h" />
+		<Unit filename="display_list_already_created.h" />
+		<Unit filename="display_list_already_destroyed.h" />
+		<Unit filename="display_list_not_exist.h" />
+		<Unit filename="file_not_readable.h" />
+		<Unit filename="file_not_writable.h" />
+		<Unit filename="glut_button_states.h" />
+		<Unit filename="glut_model.cpp" />
+		<Unit filename="glut_model.h" />
+		<Unit filename="glut_mouse_buttons.h" />
+		<Unit filename="glut_mouse_entry_states.h" />
+		<Unit filename="glut_special_keys.h" />
+		<Unit filename="glut_visibility_states.h" />
+		<Unit filename="glut_window.cpp" />
+		<Unit filename="glut_window.h" />
+		<Unit filename="grid.cpp" />
+		<Unit filename="grid.h" />
+		<Unit filename="initial_state_file.cpp" />
+		<Unit filename="initial_state_file.h" />
+		<Unit filename="invalid_parent_id.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="model.cpp" />
+		<Unit filename="model.h" />
+		<Unit filename="negative_state.h" />
+		<Unit filename="no_display_callback.h" />
+		<Unit filename="non_normal_colour_component.h" />
+		<Unit filename="non_positive_size.h" />
+		<Unit filename="out_of_bounds.h" />
+		<Unit filename="position.cpp" />
+		<Unit filename="position.h" />
+		<Unit filename="position_component_format_mismatch.h" />
+		<Unit filename="square_model.cpp" />
+		<Unit filename="square_model.h" />
+		<Unit filename="too_few_vertices_in_face.h" />
+		<Unit filename="unexpected_extension.h" />
+		<Unit filename="unrecognised_component_suffix.h" />
+		<Unit filename="vertex_index_out_of_range.h" />
+		<Unit filename="window_already_created.h" />
+		<Unit filename="window_already_destroyed.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
