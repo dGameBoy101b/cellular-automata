@@ -100,6 +100,12 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="Testing/Tests/data_colour_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_colour_tests.hpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="Testing/Tests/data_position_tests.cpp">
 			<Option target="Test" />
 		</Unit>

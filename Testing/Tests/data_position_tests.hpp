@@ -6,5 +6,5 @@
 namespace Tests
 {
 	/** The unit tests for Data::Position */
-	extern std::map<std::string, std::function<void()>> data_position_tests;
+	extern const std::map<std::string, std::function<void()>> DATA_POSITION_TESTS;
 }

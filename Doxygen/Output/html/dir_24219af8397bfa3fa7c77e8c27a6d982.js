@@ -12,7 +12,5 @@ var dir_24219af8397bfa3fa7c77e8c27a6d982 =
     [ "grid.hpp", "grid_8hpp.html", [
       [ "Grid", "class_data_1_1_grid.html", "class_data_1_1_grid" ]
     ] ],
-    [ "position.hpp", "position_8hpp.html", [
-      [ "Position", "class_data_1_1_position.html", "class_data_1_1_position" ]
-    ] ]
+    [ "position.hpp", "position_8hpp.html", "position_8hpp" ]
 ];

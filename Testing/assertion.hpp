@@ -104,7 +104,6 @@ namespace TestFramework
 		try
 		{
 			func();
-			throw AssertionException("No error thrown");
 		}
 		catch (const ErrorT& x)
 		{
@@ -114,5 +113,6 @@ namespace TestFramework
 		{
 			throw AssertionException("Unexpected error thrown");
 		}
+		throw AssertionException("No error thrown");
 	}
 }

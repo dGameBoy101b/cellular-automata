@@ -1,4 +1,4 @@
-#include "data_position_tests.hpp"
+#include "DATA_POSITION_TESTS.hpp"
 #include <utility>
 #include <initializer_list>
 #include "../assertion.hpp"
@@ -6,25 +6,24 @@
 
 namespace Tests
 {
-	/** The unit tests for Data::Position */
-	std::map<std::string, std::function<void()>> data_position_tests =
+	const std::map<std::string, std::function<void()>> DATA_POSITION_TESTS =
 	{
 		{
 			"Data::Position<int> Default Constructor",
 			[]{
 				Data::Position<int> test = Data::Position<int>();
-				TestFramework::assert(test.getX() == 0);
-				TestFramework::assert(test.getY() == 0);
-				TestFramework::assert(test.getZ() == 0);
+				TestFramework::assertEqual(test.getX(), 0);
+				TestFramework::assertEqual(test.getY(), 0);
+				TestFramework::assertEqual(test.getZ(), 0);
 			}
 		},
 		{
 			"Data::Position<float> Default Constructor",
 			[]{
 				Data::Position<float> test = Data::Position<float>();
-				TestFramework::assert(test.getX() == 0);
-				TestFramework::assert(test.getY() == 0);
-				TestFramework::assert(test.getZ() == 0);
+				TestFramework::assertEqual(test.getX(), 0.f);
+				TestFramework::assertEqual(test.getY(), 0.f);
+				TestFramework::assertEqual(test.getZ(), 0.f);
 			}
 		},
 		{
