@@ -8,23 +8,18 @@ namespace Data
 	{
 	public:
 		/**
-		 * @brief Construct a new Cell object.
-		 *
-		 */
-		Cell();
-		/**
 		 * @brief Initialise a new Cell object.
 		 *
 		 * @param pos The position of the cell.
 		 * @param state The non-negative integer state of the cell.
 		 */
-		Cell(const Position<int>& pos, unsigned int state);
+		Cell(const Position<int>& pos = Position<int>(), unsigned int state = 0);
 		/**
 		 * @brief Get the position of this Cell.
 		 *
 		 * @return The position of this Cell.
 		 */
-		const Position<int>& getPos() const;
+		const Position<int>& getPosition() const;
 		/**
 		 * @brief Get the current state of this Cell.
 		 *
@@ -41,7 +36,7 @@ namespace Data
 		 * @brief Set the state of this Cell.
 		 *
 		 * @param state The next integer state of this Cell.
-		 * @throw Exceptions::NegativeState The given state was negative.
+		 \note The given value will not be returned by Cell::getState until Cell::updateState is called
 		 */
 		void setState(unsigned int state);
 		/**

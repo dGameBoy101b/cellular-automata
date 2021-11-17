@@ -1,40 +1,35 @@
 #include "cell.hpp"
 
-Data::Cell::Cell()
-{
-    this->pos = Position<int>();
-    this->state = 0;
-    this->next_state = 0;
-}
+using namespace Data;
 
-Data::Cell::Cell(const Position<int>& pos, unsigned int state)
+Cell::Cell(const Position<int>& pos, unsigned int state)
 {
     this->pos = pos;
     this->state = state;
-    this->next_state = 0;
+    this->next_state = state;
 }
 
-const Data::Position<int>& Data::Cell::getPos() const
+const Position<int>& Cell::getPosition() const
 {
     return this->pos;
 }
 
-unsigned int Data::Cell::getState() const
+unsigned int Cell::getState() const
 {
     return this->state;
 }
 
-void Data::Cell::setPosition(const Position<int>& pos)
+void Cell::setPosition(const Position<int>& pos)
 {
     this->pos = pos;
 }
 
-void Data::Cell::setState(unsigned int state)
+void Cell::setState(unsigned int state)
 {
     this->next_state = state;
 }
 
-void Data::Cell::updateState()
+void Cell::updateState()
 {
     this->state = this->next_state;
 }

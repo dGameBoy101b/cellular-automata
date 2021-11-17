@@ -52,7 +52,7 @@ unsigned int Data::Grid::getCellState(const Position<int>& pos) const
 
     for (std::vector<Cell>::const_iterator it = this->cells.begin(); it != this->cells.end(); it++)
     {
-        if (it->getPos() == pos)
+        if (it->getPosition() == pos)
         {
             return it->getState();
         }
@@ -64,7 +64,7 @@ void Data::Grid::setCellState(const Position<int>& pos, unsigned int state)
 {
     for (std::vector<Cell>::iterator it = this->cells.begin(); it != this->cells.end(); it++)
     {
-        if (it->getPos() == pos)
+        if (it->getPosition() == pos)
         {
             it->setState(state);
             break;
@@ -137,7 +137,7 @@ void Data::Grid::regenerate(const std::vector<Cell> cells)
                 found = false;
                 for (std::vector<Cell>::const_iterator cell = cells.begin(); cell != cells.end(); cell++)
                 {
-                    if (cell->getPos() == pos)
+                    if (cell->getPosition() == pos)
                     {
                         this->cells.push_back(*cell);
                         found = true;
