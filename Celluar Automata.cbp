@@ -6,11 +6,11 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="Debug Win32">
-				<Option output="./Debug/Cellular Automata" prefix_auto="1" extension_auto="1" />
-				<Option object_output="Debug/" />
+			<Target title="Debug">
+				<Option output="./Builds/Debug/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Builds/Debug/" />
 				<Option deps_output="./Debug/" />
-				<Option type="0" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
@@ -41,66 +41,9 @@
 					<Add directory="$(LibraryPath)/" />
 				</Linker>
 			</Target>
-			<Target title="Debug x64">
-				<Option output="./Debug/Cellular Automata" prefix_auto="1" extension_auto="1" />
-				<Option object_output="Debug/" />
-				<Option deps_output="./Debug/" />
-				<Option type="0" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-					<Add option="-D_DEBUG" />
-					<Add option="-D_CONSOLE" />
-					<Add option="-Wall" />
-				</Compiler>
-				<Linker>
-					<Add library="winmm.lib" />
-					<Add library="comctl32.lib" />
-					<Add library="kernel32.lib" />
-					<Add library="user32.lib" />
-					<Add library="gdi32.lib" />
-					<Add library="winspool.lib" />
-					<Add library="comdlg32.lib" />
-					<Add library="advapi32.lib" />
-					<Add library="shell32.lib" />
-					<Add library="ole32.lib" />
-					<Add library="oleaut32.lib" />
-					<Add library="uuid.lib" />
-					<Add library="odbc32.lib" />
-					<Add library="odbccp32.lib" />
-				</Linker>
-			</Target>
-			<Target title="Release x64">
-				<Option output="./Release/Cellular Automata" prefix_auto="1" extension_auto="1" />
-				<Option object_output="Release/" />
-				<Option deps_output="./Release/" />
-				<Option type="0" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-DNDEBUG" />
-					<Add option="-D_CONSOLE" />
-					<Add option="-Wall" />
-				</Compiler>
-				<Linker>
-					<Add library="winmm.lib" />
-					<Add library="comctl32.lib" />
-					<Add library="kernel32.lib" />
-					<Add library="user32.lib" />
-					<Add library="gdi32.lib" />
-					<Add library="winspool.lib" />
-					<Add library="comdlg32.lib" />
-					<Add library="advapi32.lib" />
-					<Add library="shell32.lib" />
-					<Add library="ole32.lib" />
-					<Add library="oleaut32.lib" />
-					<Add library="uuid.lib" />
-					<Add library="odbc32.lib" />
-					<Add library="odbccp32.lib" />
-				</Linker>
-			</Target>
-			<Target title="Release Win32">
-				<Option output="./Release/Cellular Automata" prefix_auto="1" extension_auto="1" />
-				<Option object_output="Release/" />
+			<Target title="Release">
+				<Option output="./Builds/Release/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Builds/Release/" />
 				<Option deps_output="./Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -131,68 +74,68 @@
 					<Add directory="dependencies/freeglut_x86-windows/debug/lib/" />
 					<Add directory="$(LibraryPath)/" />
 				</Linker>
+			</Target>
+			<Target title="Test">
+				<Option output="./Builds/Test/Celluar Automata" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Builds/Test/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
 			</Target>
 		</Build>
-		<Unit filename="Data/Exceptions/divide_by_zero.h" />
-		<Unit filename="Data/Exceptions/non_normal_colour_component.h" />
-		<Unit filename="Data/Exceptions/out_of_bounds.h" />
-		<Unit filename="Data/Exceptions/too_few_vertices_in_face.h" />
-		<Unit filename="Data/Exceptions/vertex_index_out_of_range.h" />
-		<Unit filename="Data/cell.cpp" />
-		<Unit filename="Data/cell.h" />
-		<Unit filename="Data/colour.cpp" />
-		<Unit filename="Data/colour.h" />
-		<Unit filename="Data/grid.cpp" />
-		<Unit filename="Data/grid.h" />
-		<Unit filename="Data/model.cpp" />
-		<Unit filename="Data/model.h" />
-		<Unit filename="Data/position.h" />
-		<Unit filename="Data/square_model.cpp" />
-		<Unit filename="Data/square_model.h" />
-		<Unit filename="Data/tree_node.cpp" />
-		<Unit filename="Data/tree_node.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/display_list_already_created.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/display_list_already_destroyed.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/display_list_not_exist.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/invalid_parent_id.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/no_display_callback.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/non_positive_size.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/non_positive_zoom_factor.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/too_few_colours.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/window_already_created.h" />
-		<Unit filename="Display/FreeGlut/Exceptions/window_already_destroyed.h" />
-		<Unit filename="Display/FreeGlut/glut_button_states.h" />
-		<Unit filename="Display/FreeGlut/glut_camera.cpp" />
-		<Unit filename="Display/FreeGlut/glut_camera.h" />
-		<Unit filename="Display/FreeGlut/glut_colour.cpp" />
-		<Unit filename="Display/FreeGlut/glut_colour.h" />
-		<Unit filename="Display/FreeGlut/glut_display_list.cpp" />
-		<Unit filename="Display/FreeGlut/glut_display_list.h" />
-		<Unit filename="Display/FreeGlut/glut_display_modes.h" />
-		<Unit filename="Display/FreeGlut/glut_model.cpp" />
-		<Unit filename="Display/FreeGlut/glut_model.h" />
-		<Unit filename="Display/FreeGlut/glut_mouse_buttons.h" />
-		<Unit filename="Display/FreeGlut/glut_mouse_entry_states.h" />
-		<Unit filename="Display/FreeGlut/glut_special_keys.h" />
-		<Unit filename="Display/FreeGlut/glut_visibility_states.h" />
-		<Unit filename="Display/FreeGlut/glut_window.cpp" />
-		<Unit filename="Display/FreeGlut/glut_window.h" />
-		<Unit filename="Display/FreeGlut/square_2d_view.cpp" />
-		<Unit filename="Display/FreeGlut/square_2d_view.h" />
-		<Unit filename="FileIO/Exceptions/cell_component_format_mismatch.h" />
-		<Unit filename="FileIO/Exceptions/colour_component_format_mismatch.h" />
-		<Unit filename="FileIO/Exceptions/file_not_readable.h" />
-		<Unit filename="FileIO/Exceptions/file_not_writable.h" />
-		<Unit filename="FileIO/Exceptions/position_component_format_mismatch.h" />
-		<Unit filename="FileIO/Exceptions/unexpected_extension.h" />
-		<Unit filename="FileIO/Exceptions/unrecognised_component_suffix.h" />
-		<Unit filename="FileIO/colour_file.cpp" />
-		<Unit filename="FileIO/colour_file.h" />
-		<Unit filename="FileIO/initial_state_file.cpp" />
-		<Unit filename="FileIO/initial_state_file.h" />
-		<Unit filename="FileIO/rule_file.cpp" />
-		<Unit filename="FileIO/rule_file.h" />
-		<Unit filename="main.cpp" />
+		<Unit filename="Source/Data/cell.cpp" />
+		<Unit filename="Source/Data/cell.hpp" />
+		<Unit filename="Source/Data/colour.cpp" />
+		<Unit filename="Source/Data/colour.hpp" />
+		<Unit filename="Source/Data/grid.cpp" />
+		<Unit filename="Source/Data/grid.hpp" />
+		<Unit filename="Source/Data/position.hpp" />
+		<Unit filename="Source/FileIO/colour_table_csv_loader.cpp" />
+		<Unit filename="Source/FileIO/colour_table_csv_loader.hpp" />
+		<Unit filename="Source/FileIO/file_loader.hpp" />
+		<Unit filename="Source/FileIO/grid_csv_loader.cpp" />
+		<Unit filename="Source/FileIO/grid_csv_loader.hpp" />
+		<Unit filename="Source/FileIO/rule_file.cpp" />
+		<Unit filename="Source/FileIO/rule_file.h" />
+		<Unit filename="Source/main.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_position_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_position_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/assertion.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/assertion.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/main.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/test_factory.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/test_factory.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/test_manager.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/test_manager.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/test_status.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/unit_test.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/unit_test.hpp">
+			<Option target="Test" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
