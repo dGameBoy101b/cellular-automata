@@ -8,8 +8,7 @@ namespace FileIO
 	\param <ReturnT> The data type this file loader handles
 	\param <ExtV> The file extension this file loader handles
 	*/
-	template <class ReturnT>
-	class FileLoader
+	template <class ReturnT> class FileLoader
 	{
 	public:
 		/** Load data from a file.
@@ -28,6 +27,7 @@ namespace FileIO
 	protected:
 		/** Check the extension of the given path.
 		\param path The string path to check the extension of.
+		\param ext The correct extention
 		\return True if the given path is valid, false otherwise.
 		\throw Exceptions::UnexpectedExtension The given path does not have the expected file extension.
 		\throw Exceptions::FileNotWritable The given path could not be writen to.
@@ -35,8 +35,7 @@ namespace FileIO
 		bool checkExtension(const std::string& path, const std::string& ext);
 	};
 
-	template <class ReturnT>
-	inline bool FileLoader<ReturnT>::checkExtension(const std::string& path, const std::string& ext)
+	template <class ReturnT> inline bool FileLoader<ReturnT>::checkExtension(const std::string& path, const std::string& ext)
 	{
 		if (path.size() < ext.size())
 		{

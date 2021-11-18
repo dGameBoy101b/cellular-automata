@@ -9,29 +9,22 @@ namespace Data
 	class Grid
 	{
 	public:
-		/**
-		 * @brief Construct a new zero size Grid object.
-		 *
+		/** Construct a new Grid object with the given bounds.
+		\param min_bound The minimum bound of this Grid.
+		\param max_bound The maximum bound of this Grid.
+		\throw std::invalid_argument A component of the given minimum is greater than the corresponding maximum component
 		 */
-		Grid();
-		/**
-		 * @brief Construct a new Grid object with the given bounds and the given initial states.
-		 *
-		 * @param min_bound The minimum bound of this Grid.
-		 * @param max_bound The maximum bound of this Grid.
-		 */
-		Grid(const Position<int>& min_bound, const Position<int>& max_bound);
+		Grid(const Position<int>& min_bound = Position<int>(), const Position<int>& max_bound = Position<int>());
 		/**
 		 * @brief Get the minimum bounds of this Grid.
 		 *
 		 * @return The minimum bounds of this Grid as a Position.
 		 */
 		const Position<int>& getMinBound() const;
-		/**
-		 * @brief Set the minimum bounds of this Grid.
-		 *
-		 * @param min The Position of the new minimum bound of this Grid.
-		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
+		/** Set the minimum bounds of this Grid.
+		\param min The Position of the new minimum bound of this Grid.
+		\throw std::invalid_argument A component of the given minimum is greater than the corresponding maximum component
+		\warning Triggers a cell regeneration
 		 */
 		void setMinBound(const Position<int>& min);
 		/**
@@ -40,19 +33,25 @@ namespace Data
 		 * @return The maximum bounds of this Grid as a Position.
 		 */
 		const Position<int>& getMaxBound() const;
-		/**
-		 * @brief Set the maximum bounds of this Grid.
-		 *
-		 * @param max The Position of the new maximum bound of this Grid.
-		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
+		/** Set the maximum bounds of this Grid.
+		\param max The Position of the new maximum bound of this Grid.
+		\throw std::invalid_argument A component of the given maximum is lesser than the corresponding minimum component
+		\warning Triggers a cell regeneration
 		 */
 		void setMaxBound(const Position<int>& max);
+		/** Set both the minimu and maximum bounds of this Grid
+		\param min The new minimum bounds
+		\param max The new maximum bounds
+		\throw std::invalid_argument A component of the given minimum is greater than the corresponding maximum component
+		\warning Triggers a cell regeneration
+		*/
+		void setMinMaxBounds(const Position<int>& min, const Position<int>& max);
 		/**
 		 * @brief Get the state of a singular Cell located at the given Position.
 		 *
 		 * @param pos The Position of the Cell whose state to get.
 		 * @return The state of the Cell located at the given Position.
-		 * @throw Exceptions::OutOfBounds The given coordinates are not within the bounds of this Grid.
+		 * @throw std::invalid_argument The given coordinates are not within the bounds of this Grid.
 		 */
 		unsigned int getCellState(const Position<int>& pos) const;
 		/**
@@ -60,7 +59,7 @@ namespace Data
 		 *
 		 * @param pos The position of the target Cell.
 		 * @param state The new state to set the target Cell to.
-		 * @throw Exceptions::OutOfBounds The given coordinate is not within the bounds of this Grid.
+		 * @throw std::invalid_argument The given coordinate is not within the bounds of this Grid.
 		 */
 		void setCellState(const Position<int>& pos, unsigned int state);
 		/**
@@ -92,11 +91,6 @@ namespace Data
 		 *
 		 */
 		Position<int> max_bound;
-		/**
-		 * @brief Ensure each component of the minimum bound is lesser than the corresponding component of the maximum bound.
-		 *
-		 */
-		void correctBounds();
 		/**
 		 * @brief Discard the cells of this Grid and generate new cells for each position in this Grid, including any given cells within bounds.
 		 *
