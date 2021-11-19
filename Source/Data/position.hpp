@@ -5,8 +5,7 @@
 
 namespace Data
 {
-	template<class numT>
-	class Position
+	template<class numT> class Position
 	{
 	public:
 		/**
@@ -17,6 +16,11 @@ namespace Data
 		 * @param z The numT position along the z axis.
 		 */
 		Position(const numT& x = numT(), const numT& y = numT(), const numT& z = numT());
+		/** Copy constructor
+		\param <numU> The number type of the given Position
+		\param other The other Position to copy
+		*/
+		template<class numU> Position(const Position<numU>& other);
 		/**
 		 * @brief Get the x coordinate.
 		 *
@@ -143,103 +147,110 @@ namespace Data
 	\return The given output stream
 	*/
 	template<class numT> std::ostream& operator<<(std::ostream& output, const Position<numT>& obj);
-}
 
-template<class numT> Data::Position<numT>::Position(const numT& x, const numT& y, const numT& z)
-{
-	this->x = x;
-	this->y = y;
-	this->z = z;
-}
+	template<class numT> Position<numT>::Position(const numT& x, const numT& y, const numT& z)
+	{
+		this->x = x;
+		this->y = y;
+		this->z = z;
+	}
 
-template<class numT> const numT& Data::Position<numT>::getX() const
-{
-	return this->x;
-}
+	template<class numT> template<class numU> Position<numT>::Position(const Position<numU>& other)
+	{
+		this->x = other.getX();
+		this->y = other.getY();
+		this->z = other.getZ();
+	}
 
-template<class numT> const numT& Data::Position<numT>::getY() const
-{
-	return this->y;
-}
+	template<class numT> const numT& Position<numT>::getX() const
+	{
+		return this->x;
+	}
 
-template<class numT> const numT& Data::Position<numT>::getZ() const
-{
-	return this->z;
-}
+	template<class numT> const numT& Position<numT>::getY() const
+	{
+		return this->y;
+	}
 
-template<class numT> void Data::Position<numT>::setX(const numT& x)
-{
-	this->x = x;
-}
+	template<class numT> const numT& Position<numT>::getZ() const
+	{
+		return this->z;
+	}
 
-template<class numT> void Data::Position<numT>::setY(const numT& y)
-{
-	this->y = y;
-}
+	template<class numT> void Position<numT>::setX(const numT& x)
+	{
+		this->x = x;
+	}
 
-template<class numT> void Data::Position<numT>::setZ(const numT& z)
-{
-	this->z = z;
-}
+	template<class numT> void Position<numT>::setY(const numT& y)
+	{
+		this->y = y;
+	}
 
-template<class numT> bool Data::Position<numT>::operator==(const Position<numT>& other) const
-{
-	return this->x == other.x
-		&& this->y == other.y
-		&& this->z == other.z;
-}
+	template<class numT> void Position<numT>::setZ(const numT& z)
+	{
+		this->z = z;
+	}
 
-template<class numT> bool Data::Position<numT>::operator!=(const Position<numT>& other) const
-{
-	return !(*this == other);
-}
+	template<class numT> bool Position<numT>::operator==(const Position<numT>& other) const
+	{
+		return this->x == other.x
+			&& this->y == other.y
+			&& this->z == other.z;
+	}
 
-template<class numT> const Data::Position<numT> Data::Position<numT>::operator+(const Position<numT>& other) const
-{
-	return Data::Position<numT>(this->x + other.x, this->y + other.y, this->z + other.z);
-}
+	template<class numT> bool Position<numT>::operator!=(const Position<numT>& other) const
+	{
+		return !(*this == other);
+	}
 
-template<class numT> const Data::Position<numT> Data::Position<numT>::operator*(const numT& other) const
-{
-	return Position<numT>(this->x * other, this->y * other, this->z * other);
-}
+	template<class numT> const Position<numT> Position<numT>::operator+(const Position<numT>& other) const
+	{
+		return Position<numT>(this->x + other.x, this->y + other.y, this->z + other.z);
+	}
 
-template<class numT> const Data::Position<numT> Data::Position<numT>::operator-(const Position<numT>& other) const
-{
-	return Position<numT>(this->x - other.x, this->y - other.y, this->z - other.z);
-}
+	template<class numT> const Position<numT> Position<numT>::operator*(const numT& other) const
+	{
+		return Position<numT>(this->x * other, this->y * other, this->z * other);
+	}
 
-template<class numT> const Data::Position<numT> Data::Position<numT>::operator-() const
-{
-	return Position<numT>(-this->x, -this->y, -this->z);
-}
+	template<class numT> const Position<numT> Position<numT>::operator-(const Position<numT>& other) const
+	{
+		return Position<numT>(this->x - other.x, this->y - other.y, this->z - other.z);
+	}
 
-template<class numT> const Data::Position<numT> Data::Position<numT>::operator/(const numT& other) const
-{
-	return Position<numT>(this->x / other, this->y / other, this->z / other);
-}
+	template<class numT> const Position<numT> Position<numT>::operator-() const
+	{
+		return Position<numT>(-this->x, -this->y, -this->z);
+	}
 
-template<class numT> void Data::Position<numT>::operator+=(const Position<numT>& other)
-{
-	*this = *this + other;
-}
+	template<class numT> const Position<numT> Position<numT>::operator/(const numT& other) const
+	{
+		return Position<numT>(this->x / other, this->y / other, this->z / other);
+	}
 
-template<class numT> void Data::Position<numT>::operator*=(const numT& other)
-{
-	*this = *this * other;
-}
+	template<class numT> void Position<numT>::operator+=(const Position<numT>& other)
+	{
+		*this = *this + other;
+	}
 
-template<class numT> void Data::Position<numT>::operator-=(const Position<numT>& other)
-{
-	*this = *this - other;
-}
+	template<class numT> void Position<numT>::operator*=(const numT& other)
+	{
+		*this = *this * other;
+	}
 
-template<class numT> void Data::Position<numT>::operator/=(const numT& other)
-{
-	*this = *this / other;
-}
+	template<class numT> void Position<numT>::operator-=(const Position<numT>& other)
+	{
+		*this = *this - other;
+	}
 
-template<class numT> std::ostream& Data::operator<<(std::ostream& output, const Position<numT>& obj)
-{
-	return output << '(' << obj.getX() << ',' << obj.getY() << ',' << obj.getZ() << ')';
+	template<class numT> void Position<numT>::operator/=(const numT& other)
+	{
+		*this = *this / other;
+	}
+
+	template<class numT> std::ostream& operator<<(std::ostream& output, const Position<numT>& obj)
+	{
+		return output << '(' << obj.getX() << ',' << obj.getY() << ',' << obj.getZ() << ')';
+	}
 }

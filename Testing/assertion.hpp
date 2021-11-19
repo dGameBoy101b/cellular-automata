@@ -111,7 +111,9 @@ namespace TestFramework
 		}
 		catch (const std::exception& x)
 		{
-			throw AssertionException("Unexpected error thrown");
+			std::stringstream error;
+			error << "Unexpected error thrown: " << x.what();
+			throw AssertionException(error.str());
 		}
 		throw AssertionException("No error thrown");
 	}

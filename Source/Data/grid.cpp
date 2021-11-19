@@ -5,8 +5,20 @@ using namespace Data;
 
 Grid::Grid(const Bounds<int>& bounds)
 {
+	this->bounds = bounds;
     this->cells = std::vector<CellState>();
-    this->setMinMaxBounds(bounds.getMin(), bounds.getMax());
+    Position<int> pos = bounds.getMax() - bounds.getMin();
+    this->cells.reserve(pos.getX() * pos.getY() * pos.getZ());
+	for (int x = bounds.getMin().getX(); x <= bounds.getMax().getX(); ++x)
+	{
+		for (int y = bounds.getMin().getY(); y <= bounds.getMax().getY(); ++y)
+		{
+			for (int z = bounds.getMin().getZ(); z <= bounds.getMax().getZ(); ++z)
+			{
+                cells.push_back(CellState());
+			}
+		}
+	}
 }
 
 const Bounds<int>& Grid::getBounds() const
@@ -27,7 +39,12 @@ void Grid::setMaxBound(const Position<int>& max)
 void Grid::setMinMaxBounds(const Position<int>& min, const Position<int>& max)
 {
 	Bounds<int> bounds = Bounds<int>(min, max);
-	Bounds<int> copy_bounds = this->bounds.intersectWith(bounds);
+	bool copy = this->bounds.doesOverlap(bounds);
+	Bounds<int> copy_bounds;
+	if (copy)
+	{
+		copy_bounds = this->bounds.intersectWith(bounds);
+	}
 	std::vector<CellState> cells = std::vector<CellState>();
 	Position<int> pos = max - min + Position<int>(1, 1, 1);
 	cells.reserve(pos.getX() * pos.getY() * pos.getZ());
@@ -38,7 +55,7 @@ void Grid::setMinMaxBounds(const Position<int>& min, const Position<int>& max)
 			for (int z = min.getZ(); z <= max.getZ(); ++z)
 			{
                 pos = Position<int>(x, y, z);
-                if (copy_bounds.isWithin(pos))
+                if (copy && copy_bounds.isWithin(pos))
 				{
 					cells.push_back(this->cells.at(this->calcIndex(pos)));
 				}
@@ -59,12 +76,12 @@ unsigned int Grid::calcIndex(const Position<int>& pos) const
     {
         throw std::invalid_argument("Out of bounds position on grid");
     }
-	return pos.getX()
-		* (this->bounds.getMax().getY() - this->bounds.getMin().getY())
-		* (this->bounds.getMax().getZ() - this->bounds.getMin().getZ())
-    + pos.getY()
-		* (this->bounds.getMax().getZ() - this->bounds.getMin().getZ())
-    + pos.getZ();
+    Position<unsigned int> offset = pos - this->bounds.getMin();
+    Position<unsigned int> range = this->bounds.getMax() - this->bounds.getMin() + Data::Position<int>(1, 1, 1);
+	unsigned int res = offset.getX() * range.getY() * range.getZ()
+		+ offset.getY() * range.getZ()
+		+ offset.getZ();
+	return res;
 }
 
 unsigned int Grid::getCellState(const Position<int>& pos) const
@@ -114,7 +131,7 @@ bool Grid::operator!=(const Grid& other) const
 
 std::ostream& Data::operator<<(std::ostream& output, const Grid& grid)
 {
-	output << '{' << grid.getBounds() << ':';
+	output << '{' << grid.getBounds() << ":\n";
 	Position<int> pos;
 	for (int x = grid.getBounds().getMin().getX(); x <= grid.getBounds().getMax().getX(); ++x)
 	{
@@ -126,7 +143,7 @@ std::ostream& Data::operator<<(std::ostream& output, const Grid& grid)
 				output << Cell(pos, grid.getCellState(pos));
 				if (pos != grid.getBounds().getMax())
 				{
-					output << ',';
+					output << ",\n";
 				}
 			}
 		}

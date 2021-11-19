@@ -2,8 +2,6 @@
 #include "assertion.hpp"
 #include <typeinfo>
 
-#include <iostream>
-
 using namespace TestFramework;
 
 UnitTest::UnitTest(const std::function<void()>& func, const std::string& name)

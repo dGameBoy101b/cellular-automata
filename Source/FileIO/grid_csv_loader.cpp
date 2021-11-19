@@ -84,7 +84,7 @@ Data::Grid GridCSVLoader::load(const std::string& path)
     this->formatError(file, "maximum bound y", GridCSVLoader::SEP, c);
     file >> z >> c;
     std::cout << z << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "maximum bound z", GridCSVLoader::END, c); ///\fixme Incorrectly skips over expected newline character
+    this->formatError(file, "maximum bound z", GridCSVLoader::END, c); ///\fixme GridCSVLoader::load incorrectly skips over expected newline character
 
     grid = Data::Grid(Data::Bounds<int>(pos, Data::Position<int>(x, y, z)));
     while (file.good())

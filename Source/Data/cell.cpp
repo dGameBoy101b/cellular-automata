@@ -35,7 +35,7 @@ void Cell::updateState()
 
 std::ostream& Data::operator<<(std::ostream& output, const Cell& cell)
 {
-	return output << '{' << cell.getPosition() << ',' << cell.getState() << '}';
+	return output << '{' << cell.pos << ',' << cell.state << '}';
 }
 
 bool Cell::operator==(const Cell& other) const

@@ -30,7 +30,7 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 			test.setMinBound(MIN);
 			TestFramework::assertEqual(test.getBounds().getMin(), MIN);
 			TestFramework::assertEqual(test.getBounds().getMax(), Data::Position<int>());
-		}
+		}///\todo Test cell state copying of Grid::setMinBound
 	},
 	{
 		"Data::Grid Minimum Bound Setter Invalid",
@@ -48,7 +48,7 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 			test.setMaxBound(MAX);
 			TestFramework::assertEqual(test.getBounds().getMax(), MAX);
 			TestFramework::assertEqual(test.getBounds().getMin(), Data::Position<int>());
-		}
+		}///\todo Test cell state copying of Grid::setMaxBound
 	},
 	{
 		"Data::Grid Maximum Bound Setter Invalid",
@@ -61,12 +61,20 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 	{
 		"Data::Grid Minimum and Maximum Bounds Setter",
 		[]{
-			const Data::Position<int> MIN = Data::Position<int>(2, -5, 10);
-			const Data::Position<int> MAX = Data::Position<int>(5, -2, 10);
+			const Data::Position<int> MIN = Data::Position<int>(2, 5, 10);
+			const Data::Position<int> MAX = Data::Position<int>(5, 7, 10);
+			const Data::Position<int> POS = Data::Position<int>(3, 6, 10);
+			const unsigned int STATE = 8;
 			Data::Grid test = Data::Grid();
 			test.setMinMaxBounds(MIN, MAX);
 			TestFramework::assertEqual(test.getBounds().getMin(), MIN);
 			TestFramework::assertEqual(test.getBounds().getMax(), MAX);
+			test.setCellState(POS, STATE);
+			test.updateAllCells();
+			test.setMinMaxBounds(Data::Position<int>(), POS);
+			TestFramework::assertEqual(test.getBounds().getMin(), Data::Position<int>());
+			TestFramework::assertEqual(test.getBounds().getMax(), POS);
+			TestFramework::assertEqual(test.getCellState(POS), STATE);
 		}
 	},
 	{
@@ -88,14 +96,17 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 			const unsigned int STATE1 = 3;
 			const Data::Position<int> POS2 = Data::Position<int>(-3, 3, 2);
 			const unsigned int STATE2 = 10;
+			const Data::Position<int> POS3 = Data::Position<int>();
 			Data::Grid test = Data::Grid(BOUNDS);
 			test.setCellState(POS1, STATE1);
 			test.setCellState(POS2, STATE2);
 			TestFramework::assertNotEqual(test.getCellState(POS1), STATE1);
 			TestFramework::assertNotEqual(test.getCellState(POS2), STATE2);
+			TestFramework::assertEqual(test.getCellState(POS3), 0u);
 			test.updateAllCells();
 			TestFramework::assertEqual(test.getCellState(POS1), STATE1);
 			TestFramework::assertEqual(test.getCellState(POS2), STATE2);
+			TestFramework::assertEqual(test.getCellState(POS3), 0u);
 		}
 	},
 	{
