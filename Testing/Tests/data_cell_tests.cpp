@@ -41,5 +41,24 @@ const std::map<std::string, std::function<void()>> Tests::DATA_CELL_TESTS =
 			test.updateState();
 			TestFramework::assertEqual(test.getState(), STATE);
 		}
+	},
+	{
+		"Data::Cell Equality",
+		[]{
+			const Data::Position<int> POS = Data::Position<int>(2, 9, -27);
+			const unsigned int STATE = 21;
+			TestFramework::assertEqual(Data::Cell(), Data::Cell());
+			TestFramework::assertEqual(Data::Cell(POS, STATE), Data::Cell(POS, STATE));
+		}
+	},
+	{
+		"Data::Cell Inequality",
+		[]{
+			const Data::Position<int> POS = Data::Position<int>(200, -42, 0);
+			const unsigned int STATE = 90;
+			TestFramework::assertNotEqual(Data::Cell(), Data::Cell(POS, STATE));
+			TestFramework::assertNotEqual(Data::Cell(POS, STATE), Data::Cell(POS + 1, STATE));
+			TestFramework::assertNotEqual(Data::Cell(POS, STATE), Data::Cell(POS, STATE + 1));
+		}
 	}
 };

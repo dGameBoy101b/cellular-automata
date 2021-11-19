@@ -112,6 +112,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06a70a8a8a4844b55b7a744fa69be37e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e">updateState</a> ()</td></tr>
 <tr class="memdesc:a06a70a8a8a4844b55b7a744fa69be37e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the current state of this <a class="el" href="class_data_1_1_cell.html">Cell</a> with the next state.  <a href="class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e">More...</a><br /></td></tr>
 <tr class="separator:a06a70a8a8a4844b55b7a744fa69be37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea60edfcaabd317250e371f98b1e3f3c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_cell.html#aea60edfcaabd317250e371f98b1e3f3c">operator==</a> (const <a class="el" href="class_data_1_1_cell.html">Cell</a> &amp;other) const</td></tr>
+<tr class="separator:aea60edfcaabd317250e371f98b1e3f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4ed20e08a46ff76dd68f9ed7151dfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_cell.html#abf4ed20e08a46ff76dd68f9ed7151dfd">operator!=</a> (const <a class="el" href="class_data_1_1_cell.html">Cell</a> &amp;other) const</td></tr>
+<tr class="separator:abf4ed20e08a46ff76dd68f9ed7151dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a312d0bd61978c6b8fa783961c38598df"></a>
@@ -189,6 +193,60 @@ Public Member Functions</h2></td></tr>
 
 <p>Get the current state of this <a class="el" href="class_data_1_1_cell.html">Cell</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current integer state of this <a class="el" href="class_data_1_1_cell.html">Cell</a>. </dd></dl>
+
+</div>
+</div>
+<a id="abf4ed20e08a46ff76dd68f9ed7151dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4ed20e08a46ff76dd68f9ed7151dfd">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cell::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_data_1_1_cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Not equals operator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other cell to compare this to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If this and the given cell do not have equal positions or states </dd>
+<dd>
+false If this and the given cell have equal positions and states </dd></dl>
+
+</div>
+</div>
+<a id="aea60edfcaabd317250e371f98b1e3f3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea60edfcaabd317250e371f98b1e3f3c">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cell::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_data_1_1_cell.html">Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Equals operator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other cell to compare this to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If this and the given cell have equal positions and states </dd>
+<dd>
+false If this and the given cell do not have equal positions or states </dd></dl>
 
 </div>
 </div>

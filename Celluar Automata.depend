@@ -55,11 +55,12 @@
 
 1636619770 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\main.cpp
 
-1637150794 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.cpp
+1637253447 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.cpp
 	"cell.hpp"
 
-1637151192 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.hpp
+1637253347 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.hpp
 	"position.hpp"
+	"cell_state.hpp"
 
 1637131835 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\position.hpp
 	<cmath>
@@ -72,13 +73,15 @@
 1637149152 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour.hpp
 	<ostream>
 
-1637154386 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.cpp
+1637296135 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.cpp
 	"grid.hpp"
 	<stdexcept>
 
-1637153321 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.hpp
+1637259746 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.hpp
 	"position.hpp"
 	"cell.hpp"
+	"cell_state.hpp"
+	"bounds.hpp"
 	<vector>
 
 1636681350 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.cpp
@@ -93,15 +96,18 @@
 	<vector>
 	<string>
 
-1637153493 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\file_loader.hpp
+1637249573 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\file_loader.hpp
 	<string>
 
-1636626917 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.cpp
+1637300697 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.cpp
 	"grid_csv_loader.hpp"
+	"../Data/Bounds.hpp"
 	<fstream>
 	<stdexcept>
+	<sstream>
+	<iostream>
 
-1636681366 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.hpp
+1637250128 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.hpp
 	"../Data/grid.hpp"
 	"file_loader.hpp"
 
@@ -176,14 +182,17 @@
 	<sstream>
 	<string>
 
-1637151687 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
+1637261152 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
 	"test_manager.hpp"
 	"test_factory.hpp"
 	<iostream>
 	"Tests/data_position_tests.hpp"
 	"Tests/data_colour_tests.hpp"
+	"Tests/data_cell_state_tests.hpp"
 	"Tests/data_cell_tests.hpp"
+	"Tests/data_bounds_tests.hpp"
 	"Tests/data_grid_tests.hpp"
+	"Tests/fileio_grid_csv_loader_tests.hpp"
 
 1637044351 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.hpp
 	"unit_test.hpp"
@@ -191,7 +200,7 @@
 	<string>
 	<stdexcept>
 
-1637053696 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\unit_test.hpp
+1637296006 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\unit_test.hpp
 	<functional>
 	<string>
 	<exception>
@@ -215,7 +224,7 @@
 	"test_factory.hpp"
 	"unit_test.hpp"
 
-1637133580 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.cpp
+1637295239 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.cpp
 	"test_manager.hpp"
 	<ostream>
 
@@ -226,7 +235,7 @@
 	"../assertion.hpp"
 	"../../Source/Data/position.hpp"
 
-1637053710 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\unit_test.cpp
+1637296013 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\unit_test.cpp
 	"unit_test.hpp"
 	"assertion.hpp"
 	<typeinfo>
@@ -247,7 +256,7 @@
 	"../assertion.hpp"
 	"../../Source/Data/colour.hpp"
 
-1637150968 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_cell_tests.cpp
+1637210581 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_cell_tests.cpp
 	"data_cell_tests.hpp"
 	"../assertion.hpp"
 	"../../Source/Data/cell.hpp"
@@ -262,8 +271,49 @@
 	<string>
 	<functional>
 
-1637154128 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_grid_tests.cpp
+1637260487 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_grid_tests.cpp
 	"data_grid_tests.hpp"
 	"../assertion.hpp"
 	"../../Source/Data/grid.hpp"
+
+1637207754 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio_grid_csv_loader_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637260519 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio_grid_csv_loader_tests.cpp
+	"fileio_grid_csv_loader_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/FileIO/grid_csv_loader.hpp"
+
+1637253511 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.hpp
+	<ostream>
+
+1637253525 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.cpp
+	"cell_state.hpp"
+
+1637302281 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds.hpp
+	<ostream>
+	<stdexcept>
+	"position.hpp"
+
+1637293398 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_cell_state_tests.cpp
+	"data_cell_state_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/Data/cell_state.hpp"
+
+1637260948 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_cell_state_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637261116 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637294625 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_tests.cpp
+	"data_bounds_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/Data/Bounds.hpp"
 

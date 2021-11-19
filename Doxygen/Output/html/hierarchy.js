@@ -1,6 +1,9 @@
 var hierarchy =
 [
+    [ "Data::Bounds< numT >", "class_data_1_1_bounds.html", null ],
+    [ "Data::Bounds< int >", "class_data_1_1_bounds.html", null ],
     [ "Data::Cell", "class_data_1_1_cell.html", null ],
+    [ "Data::CellState", "class_data_1_1_cell_state.html", null ],
     [ "Data::Colour", "class_data_1_1_colour.html", null ],
     [ "FileIO::FileLoader< ReturnT >", "class_file_i_o_1_1_file_loader.html", null ],
     [ "FileIO::FileLoader< Data::Grid >", "class_file_i_o_1_1_file_loader.html", [

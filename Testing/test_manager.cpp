@@ -10,7 +10,7 @@ void TestManager::runAll(std::ostream& output)
 	unsigned int fails = 0;
 	for (auto it = this->tests.begin(); it != this->tests.end(); ++it)
 	{
-		it->run();
+		it->run(&output);
 		switch (it->getStatus())
 		{
 		case TestStatus::Passed:
@@ -22,7 +22,7 @@ void TestManager::runAll(std::ostream& output)
 		case TestStatus::Error:
 			++errors;
 		}
-		output << *it << std::endl;
+		output << std::endl;
 	}
 	output << this->tests.size() << " tests run: "
 	<< passes << " passed; "

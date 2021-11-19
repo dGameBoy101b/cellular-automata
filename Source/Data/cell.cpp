@@ -5,8 +5,7 @@ using namespace Data;
 Cell::Cell(const Position<int>& pos, unsigned int state)
 {
     this->pos = pos;
-    this->state = state;
-    this->next_state = state;
+    this->state = CellState(state);
 }
 
 const Position<int>& Cell::getPosition() const
@@ -16,7 +15,7 @@ const Position<int>& Cell::getPosition() const
 
 unsigned int Cell::getState() const
 {
-    return this->state;
+    return this->state.getValue();
 }
 
 void Cell::setPosition(const Position<int>& pos)
@@ -26,10 +25,26 @@ void Cell::setPosition(const Position<int>& pos)
 
 void Cell::setState(unsigned int state)
 {
-    this->next_state = state;
+    this->state.setValue(state);
 }
 
 void Cell::updateState()
 {
-    this->state = this->next_state;
+    this->state.updateValue();
+}
+
+std::ostream& Data::operator<<(std::ostream& output, const Cell& cell)
+{
+	return output << '{' << cell.getPosition() << ',' << cell.getState() << '}';
+}
+
+bool Cell::operator==(const Cell& other) const
+{
+	return this->pos == other.pos
+	&& this->state == other.state;
+}
+
+bool Cell::operator!=(const Cell& other) const
+{
+	return !(*this == other);
 }

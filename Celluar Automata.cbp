@@ -82,8 +82,11 @@
 				<Option compiler="gcc" />
 			</Target>
 		</Build>
+		<Unit filename="Source/Data/bounds.hpp" />
 		<Unit filename="Source/Data/cell.cpp" />
 		<Unit filename="Source/Data/cell.hpp" />
+		<Unit filename="Source/Data/cell_state.cpp" />
+		<Unit filename="Source/Data/cell_state.hpp" />
 		<Unit filename="Source/Data/colour.cpp" />
 		<Unit filename="Source/Data/colour.hpp" />
 		<Unit filename="Source/Data/grid.cpp" />
@@ -99,6 +102,18 @@
 		<Unit filename="Source/main.cpp">
 			<Option target="Debug" />
 			<Option target="Release" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_bounds_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_bounds_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_cell_state_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_cell_state_tests.hpp">
+			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/data_cell_tests.cpp">
 			<Option target="Test" />
@@ -122,6 +137,12 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/data_position_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/assertion.cpp">

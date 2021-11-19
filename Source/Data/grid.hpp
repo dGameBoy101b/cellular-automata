@@ -2,6 +2,8 @@
 
 #include "position.hpp"
 #include "cell.hpp"
+#include "cell_state.hpp"
+#include "bounds.hpp"
 #include <vector>
 
 namespace Data
@@ -10,34 +12,24 @@ namespace Data
 	{
 	public:
 		/** Construct a new Grid object with the given bounds.
-		\param min_bound The minimum bound of this Grid.
-		\param max_bound The maximum bound of this Grid.
-		\throw std::invalid_argument A component of the given minimum is greater than the corresponding maximum component
+		\param bounds The bounds of this Grid.
 		 */
-		Grid(const Position<int>& min_bound = Position<int>(), const Position<int>& max_bound = Position<int>());
-		/**
-		 * @brief Get the minimum bounds of this Grid.
-		 *
-		 * @return The minimum bounds of this Grid as a Position.
-		 */
-		const Position<int>& getMinBound() const;
+		Grid(const Bounds<int>& bounds = Bounds<int>());
+		/** Get the bounds of this Grid
+		\return The bounds of this Grid
+		*/
+		const Bounds<int>& getBounds() const;
 		/** Set the minimum bounds of this Grid.
 		\param min The Position of the new minimum bound of this Grid.
 		\throw std::invalid_argument A component of the given minimum is greater than the corresponding maximum component
 		\warning Triggers a cell regeneration
-		 */
+		*/
 		void setMinBound(const Position<int>& min);
-		/**
-		 * @brief Get the maximum bounds of this Grid.
-		 *
-		 * @return The maximum bounds of this Grid as a Position.
-		 */
-		const Position<int>& getMaxBound() const;
 		/** Set the maximum bounds of this Grid.
 		\param max The Position of the new maximum bound of this Grid.
 		\throw std::invalid_argument A component of the given maximum is lesser than the corresponding minimum component
 		\warning Triggers a cell regeneration
-		 */
+		*/
 		void setMaxBound(const Position<int>& max);
 		/** Set both the minimu and maximum bounds of this Grid
 		\param min The new minimum bounds
@@ -67,36 +59,45 @@ namespace Data
 		 *
 		 */
 		void updateAllCells();
-		/**
-		 * @brief Test if the given Position is within the bounds of this Grid.
-		 *
-		 * @param pos The Position to test.
-		 * @return true The given Position is within the bounds of this Grid.
-		 * @return false The given Position is not within the bounds of this Grid.
-		 */
-		bool withinBounds(const Position<int>& pos) const;
+		/** Equals operator
+		\param other The other grid to compare this to
+		\return true If given grid has the same bounds and cell states as this
+		\return false If given grid does not have same bounds or cell state as this
+		*/
+		bool operator==(const Grid& other) const;
+		/** Not equals operator
+		\param other The other grid to compare this to
+		\return true If given grid does not have same bounds or cell state as this
+		\return false If given grid has the same bounds and cell states as this
+		*/
+		bool operator!=(const Grid& other) const;
+		/** Get a subgrid whose bounds are the intersection of this and the given bounds
+		\param min The minimum bound of the subgrid
+		\param max The maximum bound of the subgrid
+		\return A Grid whose bounds are the intersection of this and the given bounds and has its cell states copied from this
+		*/
+		Grid intersection(const Position<int>& min, const Position<int>& max) const;
 	private:
 		/**
 		 * @brief The cells contained in this Grid.
 		 *
 		 */
-		std::vector<Cell> cells;
+		std::vector<CellState> cells;
 		/**
 		 * @brief The minimum bounds of this Grid.
 		 *
 		 */
-		Position<int> min_bound;
-		/**
-		 * @brief The maximum bounds of this Grid.
-		 *
-		 */
-		Position<int> max_bound;
-		/**
-		 * @brief Discard the cells of this Grid and generate new cells for each position in this Grid, including any given cells within bounds.
-		 *
-		 * @param cells The cells to try and add to the new set of cells in this Grid.
-		 * @warning Each grid cell must be regenerated which can be expensive for large grids.
-		 */
-		void regenerate(const std::vector<Cell> cells = std::vector<Cell>());
+		Bounds<int> bounds;
+		/** Map the given position to an index in the cells vector
+		\param pos The position to convert
+		\throw std::invalid_argument The given position is not within the bounds of this Grid
+		*/
+		unsigned int calcIndex(const Position<int>& pos) const;
 	};
+	/** Grid formatted stream insertion
+	\param output The output stream to insert into
+	\param grid The grid to insert
+	\return The given output stream
+	*/
+	std::ostream& operator<<(std::ostream& output, const Grid& grid);
 }

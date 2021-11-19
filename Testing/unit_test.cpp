@@ -14,8 +14,12 @@ UnitTest::UnitTest(const std::function<void()>& func, const std::string& name)
 	this->error_message = "";
 }
 
-void UnitTest::run()
+void UnitTest::run(std::ostream*const output)
 {
+	if (output != nullptr)
+	{
+		this->printPrefix(*output);
+	}
 	try
 	{
 		this->func();
@@ -30,6 +34,33 @@ void UnitTest::run()
 	{
 		this->status = TestStatus::Error;
 		this->error_message = x.what();
+	}
+	if (output != nullptr)
+	{
+		this->printSuffix(*output);
+	}
+}
+
+void UnitTest::printPrefix(std::ostream& output) const
+{
+	output << this->name << ": ";
+}
+
+void UnitTest::printSuffix(std::ostream& output) const
+{
+	switch (this->status)
+	{
+	case TestStatus::Passed:
+		output << "Passed";
+		break;
+	case TestStatus::Failed:
+		output << "Failed: " << this->error_message;
+		break;
+	case TestStatus::Error:
+		output << "Error: " << this->error_message;
+		break;
+	default:
+		output << "Not Run";
 	}
 }
 
@@ -57,20 +88,7 @@ const std::string& UnitTest::getErrorMessage() const
 
 std::ostream& TestFramework::operator<<(std::ostream& output, const UnitTest& test)
 {
-	output << test.getName() << ": ";
-	switch (test.getStatus())
-	{
-	case TestStatus::Passed:
-		output << "Passed";
-		break;
-	case TestStatus::Failed:
-		output << "Failed: " << test.getErrorMessage();
-		break;
-	case TestStatus::Error:
-		output << "Error: " << test.getErrorMessage();
-		break;
-	default:
-		output << "Not Run";
-	}
+	test.printPrefix(output);
+	test.printSuffix(output);
 	return output;
 }

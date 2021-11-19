@@ -1,6 +1,7 @@
 #pragma once
 
 #include "position.hpp"
+#include "cell_state.hpp"
 
 namespace Data
 {
@@ -44,6 +45,18 @@ namespace Data
 		 *
 		 */
 		void updateState();
+		/** Equals operator
+		\param other The other cell to compare this to
+		\return true If this and the given cell have equal positions and states
+		\return false If this and the given cell do not have equal positions or states
+		*/
+		bool operator==(const Cell& other) const;
+		/** Not equals operator
+		\param other The other cell to compare this to
+		\return true If this and the given cell do not have equal positions or states
+		\return false If this and the given cell have equal positions and states
+		*/
+		bool operator!=(const Cell& other) const;
 	private:
 		/**
 		 * @brief The position of this Cell.
@@ -54,11 +67,12 @@ namespace Data
 		 * @brief The current non-negative integer state of this Cell.
 		 *
 		 */
-		unsigned int state;
-		/**
-		 * @brief The next non-negative integer state of this Cell.
-		 *
-		 */
-		unsigned int next_state;
+		CellState state;
 	};
+	/** Cell formatted stream insertion
+	\param output The output stream to insert into
+	\param cell The cell to insert
+	\return The given output stream
+	*/
+	std::ostream& operator<<(std::ostream& output, const Cell& cell);
 }

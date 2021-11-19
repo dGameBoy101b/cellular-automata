@@ -3,132 +3,133 @@
 
 using namespace Data;
 
-Grid::Grid(const Position<int>& min_bound, const Position<int>& max_bound)
+Grid::Grid(const Bounds<int>& bounds)
 {
-    this->cells = std::vector<Cell>();
-    this->setMinMaxBounds(min_bound, max_bound);
+    this->cells = std::vector<CellState>();
+    this->setMinMaxBounds(bounds.getMin(), bounds.getMax());
 }
 
-const Position<int>& Grid::getMinBound() const
+const Bounds<int>& Grid::getBounds() const
 {
-    return this->min_bound;
+    return this->bounds;
 }
 
 void Grid::setMinBound(const Position<int>& min)
 {
-    this->setMinMaxBounds(min, this->max_bound);
-}
-
-const Position<int>& Grid::getMaxBound() const
-{
-    return this->max_bound;
+    this->setMinMaxBounds(min, this->bounds.getMax());
 }
 
 void Grid::setMaxBound(const Position<int>& max)
 {
-    this->setMinMaxBounds(this->min_bound, max);
+    this->setMinMaxBounds(this->bounds.getMin(), max);
 }
 
 void Grid::setMinMaxBounds(const Position<int>& min, const Position<int>& max)
 {
-	if (min.getX() > max.getX())
+	Bounds<int> bounds = Bounds<int>(min, max);
+	Bounds<int> copy_bounds = this->bounds.intersectWith(bounds);
+	std::vector<CellState> cells = std::vector<CellState>();
+	Position<int> pos = max - min + Position<int>(1, 1, 1);
+	cells.reserve(pos.getX() * pos.getY() * pos.getZ());
+	for (int x = min.getX(); x <= max.getX(); ++x)
 	{
-		throw std::invalid_argument("Minimum bound X must not be greater than maximum bound X");
+		for (int y = min.getY(); y <= max.getY(); ++y)
+		{
+			for (int z = min.getZ(); z <= max.getZ(); ++z)
+			{
+                pos = Position<int>(x, y, z);
+                if (copy_bounds.isWithin(pos))
+				{
+					cells.push_back(this->cells.at(this->calcIndex(pos)));
+				}
+				else
+				{
+					cells.push_back(CellState());
+				}
+			}
+		}
 	}
-	if (min.getY() > max.getY())
-	{
-		throw std::invalid_argument("Minimum bound Y must not be greater than maximum bound Y");
-	}
-	if (min.getZ() > max.getZ())
-	{
-		throw std::invalid_argument("Minimum bound Z must not be greater than maximum bound Z");
-	}
-    this->min_bound = min;
-    this->max_bound = max;
-    this->regenerate(this->cells);
+	this->cells = cells;
+	this->bounds = bounds;
+}
+
+unsigned int Grid::calcIndex(const Position<int>& pos) const
+{
+    if (!this->bounds.isWithin(pos))
+    {
+        throw std::invalid_argument("Out of bounds position on grid");
+    }
+	return pos.getX()
+		* (this->bounds.getMax().getY() - this->bounds.getMin().getY())
+		* (this->bounds.getMax().getZ() - this->bounds.getMin().getZ())
+    + pos.getY()
+		* (this->bounds.getMax().getZ() - this->bounds.getMin().getZ())
+    + pos.getZ();
 }
 
 unsigned int Grid::getCellState(const Position<int>& pos) const
 {
-    if (!this->withinBounds(pos))
-    {
-        throw std::invalid_argument("Out of bounds position on grid");
-    }
-    for (auto it = this->cells.cbegin(); it != this->cells.cend(); it++)
-    {
-        if (it->getPosition() == pos)
-        {
-            return it->getState();
-        }
-    }
+    return this->cells.at(this->calcIndex(pos)).getValue();
 }
 
 void Grid::setCellState(const Position<int>& pos, unsigned int state)
 {
-    if (!this->withinBounds(pos))
-    {
-        throw std::invalid_argument("Out of bounds position on grid");
-    }
-    for (auto it = this->cells.begin(); it != this->cells.end(); it++)
-    {
-        if (it->getPosition() == pos)
-        {
-            it->setState(state);
-            break;
-        }
-    }
+    this->cells.at(this->calcIndex(pos)).setValue(state);
 }
 
 void Grid::updateAllCells()
 {
     for (auto it = this->cells.begin(); it != this->cells.end(); it++)
     {
-        it->updateState();
+        it->updateValue();
     }
 }
 
-bool Grid::withinBounds(const Position<int>& pos) const
+bool Grid::operator==(const Grid& other) const
 {
-    return pos.getX() >= this->min_bound.getX()
-        && pos.getX() <= this->max_bound.getX()
-        && pos.getY() >= this->min_bound.getY()
-        && pos.getY() <= this->max_bound.getY()
-        && pos.getZ() >= this->min_bound.getZ()
-        && pos.getZ() <= this->max_bound.getZ();
+	if (this->bounds != other.bounds)
+	{
+		return false;
+	}
+	for (int x = this->bounds.getMin().getX(); x <= this->bounds.getMax().getX(); ++x)
+	{
+		for (int y = this->bounds.getMin().getY(); y <= this->bounds.getMax().getY(); ++y)
+		{
+			for (int z = this->bounds.getMin().getZ(); z <= this->bounds.getMax().getZ(); ++z)
+			{
+				if (this->getCellState(Position<int>(x, y, z)) != other.getCellState(Position<int>(x, y, z)))
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
 }
 
-void Grid::regenerate(const std::vector<Cell> cells)
+bool Grid::operator!=(const Grid& other) const
 {
-    Position<int> pos;
-    bool found;
+	return !(*this == other);
+}
 
-    this->cells = std::vector<Cell>();
-    this->cells.reserve(
-        (this->max_bound.getX() - this->min_bound.getX() + 1) *
-        (this->max_bound.getY() - this->min_bound.getY() + 1) *
-        (this->max_bound.getZ() - this->min_bound.getZ() + 1));
-
-    for (int x = this->min_bound.getX(); x <= this->max_bound.getX(); x++)
-    {
-        for (int y = this->min_bound.getY(); y <= this->max_bound.getY(); y++)
-        {
-            for (int z = this->min_bound.getZ(); z <= this->max_bound.getZ(); z++)
-            {
-                pos = Position<int>(x, y, z);
-                found = false;
-                for (auto cell = cells.cbegin(); cell != cells.cend(); cell++)
-                {
-                    if (cell->getPosition() == pos)
-                    {
-                        this->cells.push_back(*cell);
-                        found = true;
-                    }
-                }
-                if (!found)
-                {
-                    this->cells.push_back(Cell(pos, 0));
-                }
-            }
-        }
-    }
+std::ostream& Data::operator<<(std::ostream& output, const Grid& grid)
+{
+	output << '{' << grid.getBounds() << ':';
+	Position<int> pos;
+	for (int x = grid.getBounds().getMin().getX(); x <= grid.getBounds().getMax().getX(); ++x)
+	{
+		for (int y = grid.getBounds().getMin().getY(); y <= grid.getBounds().getMax().getY(); ++y)
+		{
+			for (int z = grid.getBounds().getMin().getZ(); z <= grid.getBounds().getMax().getZ(); ++z)
+			{
+				pos = Position<int>(x, y, z);
+				output << Cell(pos, grid.getCellState(pos));
+				if (pos != grid.getBounds().getMax())
+				{
+					output << ',';
+				}
+			}
+		}
+	}
+	return output << '}';
 }

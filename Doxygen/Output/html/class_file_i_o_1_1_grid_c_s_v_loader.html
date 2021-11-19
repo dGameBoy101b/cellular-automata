@@ -141,13 +141,21 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Load data from a file. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Load a <a class="el" href="class_data_1_1_grid.html">Data::Grid</a> from the CSV file at the given path </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The string path of the file to load the data from. </td></tr>
+    <tr><td class="paramname">path</td><td>The path to the CSV file to load from </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The loaded data. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="class_data_1_1_grid.html">Data::Grid</a> loaded from the given file </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>The given path could not be read </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>The data read is in an unexpected format </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>\fixme Incorrectly skips over expected newline character</p>
 
 <p>Implements <a class="el" href="class_file_i_o_1_1_file_loader.html#a9827c6e40b37e01f27a8bce700d6d358">FileIO::FileLoader&lt; Data::Grid &gt;</a>.</p>
 
@@ -186,17 +194,16 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Save data to a file. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Save the given <a class="el" href="class_data_1_1_grid.html">Data::Grid</a> to the CSV file at the given path </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The string path of the file to save the data to. </td></tr>
-    <tr><td class="paramname">data</td><td>The data to save. </td></tr>
+    <tr><td class="paramname">path</td><td>The path to the CSV file to save to </td></tr>
+    <tr><td class="paramname">grid</td><td>The <a class="el" href="class_data_1_1_grid.html">Data::Grid</a> to save the given path </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">Exceptions::UnexpectedExtension</td><td>The given path does not have expected file extension. </td></tr>
-    <tr><td class="paramname">Exceptions::FileNotReadable</td><td>The given path could not be read. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>The given path could not be written to </td></tr>
   </table>
   </dd>
 </dl>
