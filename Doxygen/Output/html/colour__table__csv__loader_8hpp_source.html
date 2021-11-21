@@ -87,32 +87,21 @@ $(document).ready(function(){initNavTree('colour__table__csv__loader_8hpp_source
 </div><!--header-->
 <div class="contents">
 <a href="colour__table__csv__loader_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file__loader_8hpp.html">file_loader.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="csv__loader_8hpp.html">csv_loader.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../Data/colour.hpp&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespace_file_i_o.html">    7</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_file_i_o.html">FileIO</a></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_file_i_o_1_1_colour_table_c_s_v_loader.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_file_i_o_1_1_colour_table_c_s_v_loader.html">ColourTableCSVLoader</a> : <span class="keyword">public</span> <a class="code" href="class_file_i_o_1_1_file_loader.html">FileLoader</a>&lt;std::vector&lt;Data::Colour&gt;&gt;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        std::vector&lt;Data::Colour&gt; <a class="code" href="class_file_i_o_1_1_colour_table_c_s_v_loader.html#a01880b89a3f451c5211844fa7d82c610">load</a>(<span class="keyword">const</span> std::string&amp; path);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_file_i_o_1_1_colour_table_c_s_v_loader.html#aa57483049e3aeeb8968ea2fa18522c08">save</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> std::vector&lt;Data::Colour&gt;&amp; data);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string EXT;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> SEP;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> END;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    };</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">template</span>&lt;&gt; std::vector&lt;Data::Colour&gt; <a class="code" href="class_file_i_o_1_1_c_s_v_loader.html">CSVLoader&lt;std::vector&lt;Data::Colour&gt;</a>&gt;::load(std::ifstream&amp; file);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">template</span>&lt;&gt; <span class="keywordtype">void</span> <a class="code" href="class_file_i_o_1_1_c_s_v_loader.html">CSVLoader&lt;std::vector&lt;Data::Colour&gt;</a>&gt;::save(std::ofstream&amp; file, <span class="keyword">const</span> std::vector&lt;Data::Colour&gt;&amp; table);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_file_i_o_1_1_file_loader_html"><div class="ttname"><a href="class_file_i_o_1_1_file_loader.html">FileIO::FileLoader</a></div><div class="ttdef"><b>Definition:</b> file_loader.hpp:11</div></div>
+<div class="ttc" id="acsv__loader_8hpp_html"><div class="ttname"><a href="csv__loader_8hpp.html">csv_loader.hpp</a></div></div>
 <div class="ttc" id="anamespace_file_i_o_html"><div class="ttname"><a href="namespace_file_i_o.html">FileIO</a></div><div class="ttdef"><b>Definition:</b> colour_table_csv_loader.hpp:7</div></div>
-<div class="ttc" id="aclass_file_i_o_1_1_colour_table_c_s_v_loader_html_a01880b89a3f451c5211844fa7d82c610"><div class="ttname"><a href="class_file_i_o_1_1_colour_table_c_s_v_loader.html#a01880b89a3f451c5211844fa7d82c610">FileIO::ColourTableCSVLoader::load</a></div><div class="ttdeci">std::vector&lt; Data::Colour &gt; load(const std::string &amp;path)</div><div class="ttdef"><b>Definition:</b> colour_table_csv_loader.cpp:12</div></div>
-<div class="ttc" id="aclass_file_i_o_1_1_colour_table_c_s_v_loader_html_aa57483049e3aeeb8968ea2fa18522c08"><div class="ttname"><a href="class_file_i_o_1_1_colour_table_c_s_v_loader.html#aa57483049e3aeeb8968ea2fa18522c08">FileIO::ColourTableCSVLoader::save</a></div><div class="ttdeci">void save(const std::string &amp;path, const std::vector&lt; Data::Colour &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> colour_table_csv_loader.cpp:58</div></div>
-<div class="ttc" id="aclass_file_i_o_1_1_colour_table_c_s_v_loader_html"><div class="ttname"><a href="class_file_i_o_1_1_colour_table_c_s_v_loader.html">FileIO::ColourTableCSVLoader</a></div><div class="ttdef"><b>Definition:</b> colour_table_csv_loader.hpp:9</div></div>
-<div class="ttc" id="afile__loader_8hpp_html"><div class="ttname"><a href="file__loader_8hpp.html">file_loader.hpp</a></div></div>
+<div class="ttc" id="aclass_file_i_o_1_1_c_s_v_loader_html"><div class="ttname"><a href="class_file_i_o_1_1_c_s_v_loader.html">FileIO::CSVLoader</a></div><div class="ttdef"><b>Definition:</b> csv_loader.hpp:13</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

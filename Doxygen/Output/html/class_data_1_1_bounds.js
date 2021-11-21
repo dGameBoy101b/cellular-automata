@@ -11,5 +11,7 @@ var class_data_1_1_bounds =
     [ "setMax", "class_data_1_1_bounds.html#a5d0b72e5514bde757a5f104ea9558643", null ],
     [ "setMin", "class_data_1_1_bounds.html#a343f79043f47c439d6c8b6779c1a3151", null ],
     [ "setMinMax", "class_data_1_1_bounds.html#aa4aa55358f9476113de27f32128e820e", null ],
-    [ "unionWith", "class_data_1_1_bounds.html#a66deb155c36d4c8cbc1a2641c56d1e5e", null ]
+    [ "unionWith", "class_data_1_1_bounds.html#a66deb155c36d4c8cbc1a2641c56d1e5e", null ],
+    [ "max", "class_data_1_1_bounds.html#a0e51d2435ffcaaf08ad2f3cb59c6f8ea", null ],
+    [ "min", "class_data_1_1_bounds.html#add6cd4d30cbb177524d798a7e38f7c12", null ]
 ];

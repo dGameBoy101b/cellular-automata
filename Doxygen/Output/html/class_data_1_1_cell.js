@@ -7,5 +7,8 @@ var class_data_1_1_cell =
     [ "operator==", "class_data_1_1_cell.html#aea60edfcaabd317250e371f98b1e3f3c", null ],
     [ "setPosition", "class_data_1_1_cell.html#a46c467973384263fa7cd22f17d7cb349", null ],
     [ "setState", "class_data_1_1_cell.html#a9c1f0a4e218e7c71c3408d87f16bb0f3", null ],
-    [ "updateState", "class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e", null ]
+    [ "updateState", "class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e", null ],
+    [ "operator<<", "class_data_1_1_cell.html#a656aaebc2d03bd2d76bebd7d3d0d4cbf", null ],
+    [ "pos", "class_data_1_1_cell.html#a9ddccb0bac3bca25a692eef816374e9c", null ],
+    [ "state", "class_data_1_1_cell.html#a39e7234be3e143939d0e05a92deda829", null ]
 ];

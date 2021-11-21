@@ -84,6 +84,8 @@ $(document).ready(function(){initNavTree('class_data_1_1_grid.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_data_1_1_grid-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Data::Grid Class Reference</div>  </div>
@@ -94,7 +96,7 @@ $(document).ready(function(){initNavTree('class_data_1_1_grid.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a623b8ea2d2973b476dde04ce88f94aaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#a623b8ea2d2973b476dde04ce88f94aaf">Grid</a> (const <a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt; int &gt; &amp;bounds=<a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt; int &gt;())</td></tr>
+<tr class="memitem:a623b8ea2d2973b476dde04ce88f94aaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#a623b8ea2d2973b476dde04ce88f94aaf">Grid</a> (const <a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt; int &gt; &amp;<a class="el" href="class_data_1_1_grid.html#a2b02d72b7fe00695bd33dd4be91a9122">bounds</a>=<a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt; int &gt;())</td></tr>
 <tr class="separator:a623b8ea2d2973b476dde04ce88f94aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e754dd39f053a9b412335c1ed39bdb7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt; int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#a5e754dd39f053a9b412335c1ed39bdb7">getBounds</a> () const</td></tr>
 <tr class="separator:a5e754dd39f053a9b412335c1ed39bdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +121,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a030e909c1dc26fe93b0278c9604de30c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88775e3390b84d73a56a5e4e6693c078"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data_1_1_grid.html">Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#a88775e3390b84d73a56a5e4e6693c078">intersection</a> (const <a class="el" href="class_data_1_1_position.html">Position</a>&lt; int &gt; &amp;min, const <a class="el" href="class_data_1_1_position.html">Position</a>&lt; int &gt; &amp;max) const</td></tr>
 <tr class="separator:a88775e3390b84d73a56a5e4e6693c078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a2c539fd2a04beedca672e5a141efb2e1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#a2c539fd2a04beedca672e5a141efb2e1">calcIndex</a> (const <a class="el" href="class_data_1_1_position.html">Position</a>&lt; int &gt; &amp;pos) const</td></tr>
+<tr class="separator:a2c539fd2a04beedca672e5a141efb2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ade0cc8f375fd35c9ffa44b7b83d4a5b1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_data_1_1_cell_state.html">CellState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#ade0cc8f375fd35c9ffa44b7b83d4a5b1">cells</a></td></tr>
+<tr class="separator:ade0cc8f375fd35c9ffa44b7b83d4a5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b02d72b7fe00695bd33dd4be91a9122"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_1_1_grid.html#a2b02d72b7fe00695bd33dd4be91a9122">bounds</a></td></tr>
+<tr class="separator:a2b02d72b7fe00695bd33dd4be91a9122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a623b8ea2d2973b476dde04ce88f94aaf"></a>
@@ -146,6 +160,44 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2c539fd2a04beedca672e5a141efb2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c539fd2a04beedca672e5a141efb2e1">&#9670;&nbsp;</a></span>calcIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Grid::calcIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_data_1_1_position.html">Position</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Map the given position to an index in the cells vector </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The position to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>The given position is not within the bounds of this <a class="el" href="class_data_1_1_grid.html">Grid</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5e754dd39f053a9b412335c1ed39bdb7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e754dd39f053a9b412335c1ed39bdb7">&#9670;&nbsp;</a></span>getBounds()</h2>
 
@@ -450,6 +502,53 @@ false If given grid does not have same bounds or cell state as this </dd></dl>
 </div><div class="memdoc">
 
 <p>Update all the Cells in this <a class="el" href="class_data_1_1_grid.html">Grid</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2b02d72b7fe00695bd33dd4be91a9122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b02d72b7fe00695bd33dd4be91a9122">&#9670;&nbsp;</a></span>bounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data_1_1_bounds.html">Bounds</a>&lt;int&gt; Data::Grid::bounds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The minimum bounds of this <a class="el" href="class_data_1_1_grid.html">Grid</a> </p>
+
+</div>
+</div>
+<a id="ade0cc8f375fd35c9ffa44b7b83d4a5b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade0cc8f375fd35c9ffa44b7b83d4a5b1">&#9670;&nbsp;</a></span>cells</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_data_1_1_cell_state.html">CellState</a>&gt; Data::Grid::cells</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The cells contained in this <a class="el" href="class_data_1_1_grid.html">Grid</a> </p>
 
 </div>
 </div>

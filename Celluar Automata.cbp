@@ -94,6 +94,7 @@
 		<Unit filename="Source/Data/position.hpp" />
 		<Unit filename="Source/FileIO/colour_table_csv_loader.cpp" />
 		<Unit filename="Source/FileIO/colour_table_csv_loader.hpp" />
+		<Unit filename="Source/FileIO/csv_loader.hpp" />
 		<Unit filename="Source/FileIO/file_loader.hpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.cpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.hpp" />

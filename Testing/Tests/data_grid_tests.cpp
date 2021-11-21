@@ -26,11 +26,17 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 		"Data::Grid Minimum Bound Setter",
 		[]{
 			const Data::Position<int> MIN = Data::Position<int>(-4, -19, 0);
+			const Data::Position<int> POS = Data::Position<int>();
+			const unsigned int STATE = 12;
 			Data::Grid test = Data::Grid();
+			test.setCellState(POS, STATE);
+			test.updateAllCells();
+			TestFramework::assertEqual(test.getCellState(POS), STATE);
 			test.setMinBound(MIN);
 			TestFramework::assertEqual(test.getBounds().getMin(), MIN);
 			TestFramework::assertEqual(test.getBounds().getMax(), Data::Position<int>());
-		}///\todo Test cell state copying of Grid::setMinBound
+			TestFramework::assertEqual(test.getCellState(POS), STATE);
+		}
 	},
 	{
 		"Data::Grid Minimum Bound Setter Invalid",
@@ -44,11 +50,17 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 		"Data::Grid Maximum Bound Setter",
 		[]{
 			const Data::Position<int> MAX = Data::Position<int>(4, 0, 13);
+			const Data::Position<int> POS = Data::Position<int>();
+			const unsigned int STATE = 78;
 			Data::Grid test = Data::Grid();
+			test.setCellState(POS, STATE);
+			test.updateAllCells();
+			TestFramework::assertEqual(test.getCellState(POS), STATE);
 			test.setMaxBound(MAX);
 			TestFramework::assertEqual(test.getBounds().getMax(), MAX);
 			TestFramework::assertEqual(test.getBounds().getMin(), Data::Position<int>());
-		}///\todo Test cell state copying of Grid::setMaxBound
+			TestFramework::assertEqual(test.getCellState(POS), STATE);
+		}
 	},
 	{
 		"Data::Grid Maximum Bound Setter Invalid",

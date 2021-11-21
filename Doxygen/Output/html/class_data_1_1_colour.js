@@ -10,5 +10,9 @@ var class_data_1_1_colour =
     [ "setAlpha", "class_data_1_1_colour.html#a5a11d1f855ab85c72e2d24836b4d3081", null ],
     [ "setBlue", "class_data_1_1_colour.html#ace3943b4b767d9a00f9d8e46ec8c7f43", null ],
     [ "setGreen", "class_data_1_1_colour.html#a8cf40f9548378e79fb111da69985b0af", null ],
-    [ "setRed", "class_data_1_1_colour.html#a40518b97f37cf207351fb4547779467d", null ]
+    [ "setRed", "class_data_1_1_colour.html#a40518b97f37cf207351fb4547779467d", null ],
+    [ "a", "class_data_1_1_colour.html#aa6ec39dd6d55fd4a10b88e1dc10f4963", null ],
+    [ "b", "class_data_1_1_colour.html#ad8673c3d6b5e2454609e96f2ee6bad56", null ],
+    [ "g", "class_data_1_1_colour.html#acf1237e68bdefa08a95c1b554d25bb3f", null ],
+    [ "r", "class_data_1_1_colour.html#afdb62889541df38233b66e30b5e7b9f8", null ]
 ];

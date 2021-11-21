@@ -1,84 +1,34 @@
 #include "colour_table_csv_loader.hpp"
-#include <stdexcept>
-#include <fstream>
-#include <stdexcept>
 
 using namespace FileIO;
 
-const std::string ColourTableCSVLoader::EXT = "csv";
-const char ColourTableCSVLoader::SEP = ',';
-const char ColourTableCSVLoader::END = '\n';
-
-std::vector<Data::Colour> ColourTableCSVLoader::load(const std::string& path)
+template<> std::vector<Data::Colour> CSVLoader<std::vector<Data::Colour>>::load(std::ifstream& file)
 {
-	if (!this->checkExtension(path, ColourTableCSVLoader::EXT))
-	{
-		throw std::invalid_argument("Unsupported file extension");
-	}
-
-	std::ifstream file;
-	file.open(path, std::ios::in);
-	if (!file.is_open())
-	{
-		throw std::invalid_argument("File is unreadable");
-	}
-
 	float r, g, b, a;
 	char c;
-	std::vector<Data::Colour> data = std::vector<Data::Colour>();
+	std::vector<Data::Colour> table = std::vector<Data::Colour>();
 	while (file.good())
 	{
 		file >> r >> c;
-		if (!file.good() || c != ColourTableCSVLoader::SEP)
-		{
-			throw std::invalid_argument("File format mismatch");
-		}
+		this->formatError(file, "red component", CSVLoader::SEP, c);
 		file >> g >> c;
-		if (!file.good() || c != ColourTableCSVLoader::SEP)
-		{
-			throw std::invalid_argument("File format mismatch");
-		}
+		this->formatError(file, "green component", CSVLoader::SEP, c);
 		file >> b >> c;
-		if (!file.good() || c != ColourTableCSVLoader::SEP)
-		{
-			throw std::invalid_argument("File format mismatch");
-		}
+		this->formatError(file, "blue component", CSVLoader::SEP, c);
 		file >> a >> c;
-		if (!file.good() || c != ColourTableCSVLoader::END)
-		{
-			throw std::invalid_argument("File format mismatch");
-		}
-		data.push_back(Data::Colour(r, g, b, a));
+		this->formatError(file, "alpha component", CSVLoader::SEP, c);
+		table.push_back(Data::Colour(r, g, b, a));
 	}
-
-	file.close();
-	return data;
+	return table;
 }
 
-void ColourTableCSVLoader::save(const std::string& path, const std::vector<Data::Colour>& data)
+template<> void CSVLoader<std::vector<Data::Colour>>::save(std::ofstream& file, const std::vector<Data::Colour>& table)
 {
-	if (!this->checkExtension(path, ColourTableCSVLoader::EXT))
+	for (auto it = table.cbegin(); it != table.cend(); ++it)
 	{
-		throw std::invalid_argument("Unsupported file extension");
+		file << it->getRed() << CSVLoader::SEP
+		<< it->getGreen() << CSVLoader::SEP
+		<< it->getBlue() << CSVLoader::SEP
+		<< it->getAlpha() << CSVLoader::END;
 	}
-
-	std::ofstream file;
-	file.open(path, std::ios::trunc | std::ios::out);
-	if (!file.is_open())
-	{
-		throw std::invalid_argument("File is unwrittable");
-	}
-
-	for (auto it = data.cbegin(); it != data.cend(); ++it)
-	{
-		file << it->getRed() << ColourTableCSVLoader::SEP
-		<< it->getGreen() << ColourTableCSVLoader::SEP
-		<< it->getBlue() << ColourTableCSVLoader::SEP
-		<< it->getAlpha() << ColourTableCSVLoader::END;
-		if (!file.good())
-		{
-			throw std::invalid_argument("File is unwrittable");
-		}
-	}
-	file.close();
 }

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['load_147',['load',['../class_file_i_o_1_1_colour_table_c_s_v_loader.html#a01880b89a3f451c5211844fa7d82c610',1,'FileIO::ColourTableCSVLoader::load()'],['../class_file_i_o_1_1_file_loader.html#a9827c6e40b37e01f27a8bce700d6d358',1,'FileIO::FileLoader::load()'],['../class_file_i_o_1_1_grid_c_s_v_loader.html#a7812d9370e359060fe50497b202a4f39',1,'FileIO::GridCSVLoader::load()']]]
+  ['intersection_161',['intersection',['../class_data_1_1_grid.html#a88775e3390b84d73a56a5e4e6693c078',1,'Data::Grid']]],
+  ['intersectwith_162',['intersectWith',['../class_data_1_1_bounds.html#a3dc4df6a6b5b40e7dfffc50f45159c62',1,'Data::Bounds']]],
+  ['iswithin_163',['isWithin',['../class_data_1_1_bounds.html#ace2c1f49c0d8265fbf61e43a0da87e23',1,'Data::Bounds']]]
 ];

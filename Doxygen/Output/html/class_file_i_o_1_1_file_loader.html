@@ -92,6 +92,15 @@ $(document).ready(function(){initNavTree('class_file_i_o_1_1_file_loader.html','
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="file__loader_8hpp_source.html">file_loader.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for FileIO::FileLoader&lt; ReturnT &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_file_i_o_1_1_file_loader.png" usemap="#FileIO::FileLoader_3C_20ReturnT_20_3E_map" alt=""/>
+  <map id="FileIO::FileLoader_3C_20ReturnT_20_3E_map" name="FileIO::FileLoader_3C_20ReturnT_20_3E_map">
+<area href="class_file_i_o_1_1_c_s_v_loader.html" alt="FileIO::CSVLoader&lt; ReturnT &gt;" shape="rect" coords="0,56,186,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -114,7 +123,6 @@ class FileIO::FileLoader&lt; ReturnT &gt;</h3>
 <p>File Loader template </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">&lt;ReturnT&gt;</td><td>The data type this file loader handles </td></tr>
-    <tr><td class="paramname">&lt;ExtV&gt;</td><td>The file extension this file loader handles </td></tr>
   </table>
   </dd>
 </dl>
@@ -178,7 +186,7 @@ template&lt;class ReturnT &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -190,13 +198,6 @@ template&lt;class ReturnT &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the given path is valid, false otherwise. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">Exceptions::UnexpectedExtension</td><td>The given path does not have the expected file extension. </td></tr>
-    <tr><td class="paramname">Exceptions::FileNotWritable</td><td>The given path could not be writen to. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -232,8 +233,14 @@ template&lt;class ReturnT &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The loaded data. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>The given path could not be read. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implemented in <a class="el" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a7812d9370e359060fe50497b202a4f39">FileIO::GridCSVLoader</a>, and <a class="el" href="class_file_i_o_1_1_colour_table_c_s_v_loader.html#a01880b89a3f451c5211844fa7d82c610">FileIO::ColourTableCSVLoader</a>.</p>
+<p>Implemented in <a class="el" href="class_file_i_o_1_1_c_s_v_loader.html#a40c39955ddcf16fec5aea73738197816">FileIO::CSVLoader&lt; ReturnT &gt;</a>.</p>
 
 </div>
 </div>
@@ -281,13 +288,12 @@ template&lt;class ReturnT &gt; </div>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">Exceptions::UnexpectedExtension</td><td>The given path does not have expected file extension. </td></tr>
-    <tr><td class="paramname">Exceptions::FileNotReadable</td><td>The given path could not be read. </td></tr>
+    <tr><td class="paramname">std::invalid_argument</td><td>The given path could not be writen to </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_file_i_o_1_1_colour_table_c_s_v_loader.html#aa57483049e3aeeb8968ea2fa18522c08">FileIO::ColourTableCSVLoader</a>, and <a class="el" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a00abad00fbc545cee787a17e9c306786">FileIO::GridCSVLoader</a>.</p>
+<p>Implemented in <a class="el" href="class_file_i_o_1_1_c_s_v_loader.html#af0ca78ecdefd29faf88543f0eb1a3af0">FileIO::CSVLoader&lt; ReturnT &gt;</a>.</p>
 
 </div>
 </div>

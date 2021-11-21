@@ -87,31 +87,20 @@ $(document).ready(function(){initNavTree('grid__csv__loader_8hpp_source.html',''
 </div><!--header-->
 <div class="contents">
 <a href="grid__csv__loader_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;../Data/grid.hpp&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file__loader_8hpp.html">file_loader.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="csv__loader_8hpp.html">csv_loader.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_file_i_o.html">FileIO</a></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_file_i_o_1_1_grid_c_s_v_loader.html">    6</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_file_i_o_1_1_grid_c_s_v_loader.html">GridCSVLoader</a> : <span class="keyword">public</span> <a class="code" href="class_file_i_o_1_1_file_loader.html">FileLoader</a>&lt;Data::Grid&gt;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_data_1_1_grid.html">Data::Grid</a> <a class="code" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a7812d9370e359060fe50497b202a4f39">load</a>(<span class="keyword">const</span> std::string&amp; path);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a00abad00fbc545cee787a17e9c306786">save</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> <a class="code" href="class_data_1_1_grid.html">Data::Grid</a>&amp; data);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string EXT;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> SEP;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> END;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> formatError(std::ifstream&amp; file, <span class="keyword">const</span> std::string&amp; part, <span class="keyword">const</span> <span class="keywordtype">char</span> expect, <span class="keyword">const</span> <span class="keywordtype">char</span> test);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">template</span>&lt;&gt; <a class="code" href="class_data_1_1_grid.html">Data::Grid</a> <a class="code" href="class_file_i_o_1_1_c_s_v_loader.html#a40c39955ddcf16fec5aea73738197816">CSVLoader&lt;Data::Grid&gt;::load</a>(std::ifstream&amp; file);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">template</span>&lt;&gt; <span class="keywordtype">void</span> <a class="code" href="class_file_i_o_1_1_c_s_v_loader.html#af0ca78ecdefd29faf88543f0eb1a3af0">CSVLoader&lt;Data::Grid&gt;::save</a>(std::ofstream&amp; file, <span class="keyword">const</span> <a class="code" href="class_data_1_1_grid.html">Data::Grid</a>&amp; grid);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_file_i_o_1_1_grid_c_s_v_loader_html_a7812d9370e359060fe50497b202a4f39"><div class="ttname"><a href="class_file_i_o_1_1_grid_c_s_v_loader.html#a7812d9370e359060fe50497b202a4f39">FileIO::GridCSVLoader::load</a></div><div class="ttdeci">Data::Grid load(const std::string &amp;path)</div><div class="ttdef"><b>Definition:</b> grid_csv_loader.cpp:48</div></div>
-<div class="ttc" id="aclass_file_i_o_1_1_file_loader_html"><div class="ttname"><a href="class_file_i_o_1_1_file_loader.html">FileIO::FileLoader</a></div><div class="ttdef"><b>Definition:</b> file_loader.hpp:11</div></div>
-<div class="ttc" id="aclass_file_i_o_1_1_grid_c_s_v_loader_html"><div class="ttname"><a href="class_file_i_o_1_1_grid_c_s_v_loader.html">FileIO::GridCSVLoader</a></div><div class="ttdef"><b>Definition:</b> grid_csv_loader.hpp:6</div></div>
+<div class="ttc" id="acsv__loader_8hpp_html"><div class="ttname"><a href="csv__loader_8hpp.html">csv_loader.hpp</a></div></div>
 <div class="ttc" id="anamespace_file_i_o_html"><div class="ttname"><a href="namespace_file_i_o.html">FileIO</a></div><div class="ttdef"><b>Definition:</b> colour_table_csv_loader.hpp:7</div></div>
-<div class="ttc" id="aclass_file_i_o_1_1_grid_c_s_v_loader_html_a00abad00fbc545cee787a17e9c306786"><div class="ttname"><a href="class_file_i_o_1_1_grid_c_s_v_loader.html#a00abad00fbc545cee787a17e9c306786">FileIO::GridCSVLoader::save</a></div><div class="ttdeci">void save(const std::string &amp;path, const Data::Grid &amp;data)</div><div class="ttdef"><b>Definition:</b> grid_csv_loader.cpp:108</div></div>
+<div class="ttc" id="aclass_file_i_o_1_1_c_s_v_loader_html_a40c39955ddcf16fec5aea73738197816"><div class="ttname"><a href="class_file_i_o_1_1_c_s_v_loader.html#a40c39955ddcf16fec5aea73738197816">FileIO::CSVLoader::load</a></div><div class="ttdeci">ReturnT load(const std::string &amp;path)</div><div class="ttdef"><b>Definition:</b> csv_loader.hpp:86</div></div>
 <div class="ttc" id="aclass_data_1_1_grid_html"><div class="ttname"><a href="class_data_1_1_grid.html">Data::Grid</a></div><div class="ttdef"><b>Definition:</b> grid.hpp:11</div></div>
-<div class="ttc" id="afile__loader_8hpp_html"><div class="ttname"><a href="file__loader_8hpp.html">file_loader.hpp</a></div></div>
+<div class="ttc" id="aclass_file_i_o_1_1_c_s_v_loader_html_af0ca78ecdefd29faf88543f0eb1a3af0"><div class="ttname"><a href="class_file_i_o_1_1_c_s_v_loader.html#af0ca78ecdefd29faf88543f0eb1a3af0">FileIO::CSVLoader::save</a></div><div class="ttdeci">void save(const std::string &amp;path, const ReturnT &amp;data)</div><div class="ttdef"><b>Definition:</b> csv_loader.hpp:108</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

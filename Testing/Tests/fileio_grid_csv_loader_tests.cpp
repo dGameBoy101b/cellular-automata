@@ -5,27 +5,27 @@
 const std::map<std::string, std::function<void()>> Tests::FILEIO_GRID_CSV_LOADER_TESTS =
 {
 	{
-		"FileIO::GridCSVLoader Save and Load Empty",
+		"FileIO::CSVLoader<Data::Grid> Save and Load Empty",
 		[]{
 			const Data::Grid GRID = Data::Grid();
 			const std::string PATH = "empty_test_grid.csv";
-			FileIO::GridCSVLoader().save(PATH, GRID);
-			Data::Grid test = FileIO::GridCSVLoader().load(PATH);
+			FileIO::CSVLoader<Data::Grid>().save(PATH, GRID);
+			Data::Grid test = FileIO::CSVLoader<Data::Grid>().load(PATH);
 			TestFramework::assertEqual(test, GRID);
 		}
 	},
 	{
-		"FileIO::GridCSVLoader Save and Load Large",
+		"FileIO::CSVLoader<Data::Grid> Save and Load Large",
 		[]{
-			const Data::Grid GRID = Data::Grid(Data::Bounds<int>(Data::Position<int>(-2000000, -2000001, -2000002), Data::Position<int>(2000003, 2000004, 2000005)));
+			const Data::Grid GRID = Data::Grid(Data::Bounds<int>(Data::Position<int>(-100, -101, -102), Data::Position<int>(103, 104, 105)));
 			const std::string PATH = "big_test_grid.csv";
-			FileIO::GridCSVLoader().save(PATH, GRID);
-			Data::Grid test = FileIO::GridCSVLoader().load(PATH);
+			FileIO::CSVLoader<Data::Grid>().save(PATH, GRID);
+			Data::Grid test = FileIO::CSVLoader<Data::Grid>().load(PATH);
 			TestFramework::assertEqual(test, GRID);
 		}
 	},
 	{
-		"FileIO::GridCSVLoader Save and Load Non-Homogeneous",
+		"FileIO::CSVLoader<Data::Grid> Save and Load Non-Homogeneous",
 		[]{
 			const std::string PATH = "mixed_test_grid.csv";
 			Data::Grid GRID = Data::Grid(Data::Bounds<int>(Data::Position<int>(0, 0, 0), Data::Position<int>(1, 1, 1)));
@@ -38,8 +38,8 @@ const std::map<std::string, std::function<void()>> Tests::FILEIO_GRID_CSV_LOADER
 			GRID.setCellState(Data::Position<int>(1, 1, 0), 6);
 			GRID.setCellState(Data::Position<int>(1, 1, 1), 7);
 			GRID.updateAllCells();
-			FileIO::GridCSVLoader().save(PATH, GRID);
-			Data::Grid test = FileIO::GridCSVLoader().load(PATH);
+			FileIO::CSVLoader<Data::Grid>().save(PATH, GRID);
+			Data::Grid test = FileIO::CSVLoader<Data::Grid>().load(PATH);
 			TestFramework::assertEqual(test, GRID);
 		}
 	}

@@ -84,6 +84,8 @@ $(document).ready(function(){initNavTree('class_file_i_o_1_1_grid_c_s_v_loader.h
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_file_i_o_1_1_grid_c_s_v_loader-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FileIO::GridCSVLoader Class Reference</div>  </div>
@@ -111,6 +113,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad008f0b1292d470601667ba14197814e inherit pub_methods_class_file_i_o_1_1_file_loader"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o_1_1_file_loader.html#ad008f0b1292d470601667ba14197814e">~FileLoader</a> ()=default</td></tr>
 <tr class="separator:ad008f0b1292d470601667ba14197814e inherit pub_methods_class_file_i_o_1_1_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a79a31e9f502f32be084f3c6547eb1c3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a79a31e9f502f32be084f3c6547eb1c3c">formatError</a> (std::ifstream &amp;file, const std::string &amp;part, const char expect, const char test)</td></tr>
+<tr class="separator:a79a31e9f502f32be084f3c6547eb1c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a3363c4ea3adf9f02d75b24cc6698177c"><td class="memItemLeft" align="right" valign="top">static const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a3363c4ea3adf9f02d75b24cc6698177c">EXT</a> = &quot;csv&quot;</td></tr>
+<tr class="separator:a3363c4ea3adf9f02d75b24cc6698177c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a78fddef6bff2641b9457636444e78a"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o_1_1_grid_c_s_v_loader.html#a5a78fddef6bff2641b9457636444e78a">SEP</a> = ','</td></tr>
+<tr class="separator:a5a78fddef6bff2641b9457636444e78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d57a655d2b657638a485a79f942a6d"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file_i_o_1_1_grid_c_s_v_loader.html#ac4d57a655d2b657638a485a79f942a6d">END</a> = '\n'</td></tr>
+<tr class="separator:ac4d57a655d2b657638a485a79f942a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_class_file_i_o_1_1_file_loader"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_file_i_o_1_1_file_loader')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_file_i_o_1_1_file_loader.html">FileIO::FileLoader&lt; Data::Grid &gt;</a></td></tr>
@@ -118,6 +134,69 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a8337f1bae8a3421c94320eb4636593fd inherit pro_methods_class_file_i_o_1_1_file_loader"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a79a31e9f502f32be084f3c6547eb1c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a31e9f502f32be084f3c6547eb1c3c">&#9670;&nbsp;</a></span>formatError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GridCSVLoader::formatError </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>part</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>expect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>test</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check last file read for format errors </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The input file stream that was recently read from </td></tr>
+    <tr><td class="paramname">part</td><td>The name of the part that was recently read </td></tr>
+    <tr><td class="paramname">expect</td><td>The expected separator character </td></tr>
+    <tr><td class="paramname">test</td><td>The read separator character </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>The most recent read failed or the wrong separator was read </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7812d9370e359060fe50497b202a4f39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7812d9370e359060fe50497b202a4f39">&#9670;&nbsp;</a></span>load()</h2>
 
@@ -155,7 +234,6 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>\fixme Incorrectly skips over expected newline character</p>
 
 <p>Implements <a class="el" href="class_file_i_o_1_1_file_loader.html#a9827c6e40b37e01f27a8bce700d6d358">FileIO::FileLoader&lt; Data::Grid &gt;</a>.</p>
 
@@ -209,6 +287,76 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="class_file_i_o_1_1_file_loader.html#a22b411be6bb7005c437bfb555c2562bd">FileIO::FileLoader&lt; Data::Grid &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac4d57a655d2b657638a485a79f942a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d57a655d2b657638a485a79f942a6d">&#9670;&nbsp;</a></span>END</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char GridCSVLoader::END = '\n'</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The exppected record ender </p>
+
+</div>
+</div>
+<a id="a3363c4ea3adf9f02d75b24cc6698177c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3363c4ea3adf9f02d75b24cc6698177c">&#9670;&nbsp;</a></span>EXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string GridCSVLoader::EXT = &quot;csv&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The expected file extension </p>
+
+</div>
+</div>
+<a id="a5a78fddef6bff2641b9457636444e78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a78fddef6bff2641b9457636444e78a">&#9670;&nbsp;</a></span>SEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char GridCSVLoader::SEP = ','</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The expected value separator </p>
 
 </div>
 </div>

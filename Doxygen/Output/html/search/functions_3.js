@@ -1,18 +1,4 @@
 var searchData=
 [
-  ['getalpha_129',['getAlpha',['../class_data_1_1_colour.html#a505199ea29e082b746700d8bfb8a077c',1,'Data::Colour']]],
-  ['getblue_130',['getBlue',['../class_data_1_1_colour.html#afde4f3be0417f1acf8d74d8ccc730d5f',1,'Data::Colour']]],
-  ['getbounds_131',['getBounds',['../class_data_1_1_grid.html#a5e754dd39f053a9b412335c1ed39bdb7',1,'Data::Grid']]],
-  ['getcellstate_132',['getCellState',['../class_data_1_1_grid.html#a4084c894a7eeb12db3518fa87dfe8cb5',1,'Data::Grid']]],
-  ['getgreen_133',['getGreen',['../class_data_1_1_colour.html#aaa6ca7f5f84b18b8e63c1eaf06222ac9',1,'Data::Colour']]],
-  ['getmax_134',['getMax',['../class_data_1_1_bounds.html#abc25272bf24acd8c074f7d1e54ae3d29',1,'Data::Bounds']]],
-  ['getmin_135',['getMin',['../class_data_1_1_bounds.html#ae78705a28a89cdba1059422888faaedc',1,'Data::Bounds']]],
-  ['getposition_136',['getPosition',['../class_data_1_1_cell.html#a3d088cf591e80bb712de166653d6d3ad',1,'Data::Cell']]],
-  ['getred_137',['getRed',['../class_data_1_1_colour.html#a8e3fe6c42cba8ad165abc2b39761a9a1',1,'Data::Colour']]],
-  ['getstate_138',['getState',['../class_data_1_1_cell.html#ac57d2c4fa4ec7339ac1b5498490bb913',1,'Data::Cell']]],
-  ['getvalue_139',['getValue',['../class_data_1_1_cell_state.html#a5c08c53515bc86e81492a855b60265c6',1,'Data::CellState']]],
-  ['getx_140',['getX',['../class_data_1_1_position.html#a59be87ee955a1234b27656c817e3fee0',1,'Data::Position']]],
-  ['gety_141',['getY',['../class_data_1_1_position.html#a0e89d2457b7bd85bf362c15b6425547f',1,'Data::Position']]],
-  ['getz_142',['getZ',['../class_data_1_1_position.html#a8b03cfc1104c46d408d902ab9b3c9b5f',1,'Data::Position']]],
-  ['grid_143',['Grid',['../class_data_1_1_grid.html#a623b8ea2d2973b476dde04ce88f94aaf',1,'Data::Grid']]]
+  ['formaterror_145',['formatError',['../class_file_i_o_1_1_c_s_v_loader.html#acba16966752c2a77e93af640bad7e755',1,'FileIO::CSVLoader']]]
 ];

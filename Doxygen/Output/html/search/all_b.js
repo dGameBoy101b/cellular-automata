@@ -1,21 +1,14 @@
 var searchData=
 [
-  ['save_66',['save',['../class_file_i_o_1_1_colour_table_c_s_v_loader.html#aa57483049e3aeeb8968ea2fa18522c08',1,'FileIO::ColourTableCSVLoader::save()'],['../class_file_i_o_1_1_file_loader.html#a22b411be6bb7005c437bfb555c2562bd',1,'FileIO::FileLoader::save()'],['../class_file_i_o_1_1_grid_c_s_v_loader.html#a00abad00fbc545cee787a17e9c306786',1,'FileIO::GridCSVLoader::save()']]],
-  ['setalpha_67',['setAlpha',['../class_data_1_1_colour.html#a5a11d1f855ab85c72e2d24836b4d3081',1,'Data::Colour']]],
-  ['setblue_68',['setBlue',['../class_data_1_1_colour.html#ace3943b4b767d9a00f9d8e46ec8c7f43',1,'Data::Colour']]],
-  ['setcellstate_69',['setCellState',['../class_data_1_1_grid.html#a6ac68d88cb56c3b40c8e31f37d524bb8',1,'Data::Grid']]],
-  ['setgreen_70',['setGreen',['../class_data_1_1_colour.html#a8cf40f9548378e79fb111da69985b0af',1,'Data::Colour']]],
-  ['setmax_71',['setMax',['../class_data_1_1_bounds.html#a5d0b72e5514bde757a5f104ea9558643',1,'Data::Bounds']]],
-  ['setmaxbound_72',['setMaxBound',['../class_data_1_1_grid.html#a48a85573104b19ec7f1c8b61f83c66a3',1,'Data::Grid']]],
-  ['setmin_73',['setMin',['../class_data_1_1_bounds.html#a343f79043f47c439d6c8b6779c1a3151',1,'Data::Bounds']]],
-  ['setminbound_74',['setMinBound',['../class_data_1_1_grid.html#a95f3c1b89edb8d0fe3aa342a8d6c47f3',1,'Data::Grid']]],
-  ['setminmax_75',['setMinMax',['../class_data_1_1_bounds.html#aa4aa55358f9476113de27f32128e820e',1,'Data::Bounds']]],
-  ['setminmaxbounds_76',['setMinMaxBounds',['../class_data_1_1_grid.html#a457fea54f71c5e1b1c7ef52508b1b329',1,'Data::Grid']]],
-  ['setposition_77',['setPosition',['../class_data_1_1_cell.html#a46c467973384263fa7cd22f17d7cb349',1,'Data::Cell']]],
-  ['setred_78',['setRed',['../class_data_1_1_colour.html#a40518b97f37cf207351fb4547779467d',1,'Data::Colour']]],
-  ['setstate_79',['setState',['../class_data_1_1_cell.html#a9c1f0a4e218e7c71c3408d87f16bb0f3',1,'Data::Cell']]],
-  ['setvalue_80',['setValue',['../class_data_1_1_cell_state.html#a74e01863b280c4a90efe16d5fa0e5074',1,'Data::CellState']]],
-  ['setx_81',['setX',['../class_data_1_1_position.html#ae12c5352ed8a731fedb74b3f7c94d274',1,'Data::Position']]],
-  ['sety_82',['setY',['../class_data_1_1_position.html#a8616a31f0d87387904952ea00b51c61f',1,'Data::Position']]],
-  ['setz_83',['setZ',['../class_data_1_1_position.html#aebae35eaba1494726575ec9b86bb7407',1,'Data::Position']]]
+  ['operator_21_3d_58',['operator!=',['../class_data_1_1_bounds.html#a9a6d62fae0645c0121d1291d9f844e2d',1,'Data::Bounds::operator!=()'],['../class_data_1_1_cell.html#abf4ed20e08a46ff76dd68f9ed7151dfd',1,'Data::Cell::operator!=()'],['../class_data_1_1_cell_state.html#a32e9f3010bcfd2e1b05f3a7a03866128',1,'Data::CellState::operator!=()'],['../class_data_1_1_colour.html#a98c9e8a9919e8c4091b09af0e06eac7d',1,'Data::Colour::operator!=()'],['../class_data_1_1_grid.html#a030e909c1dc26fe93b0278c9604de30c',1,'Data::Grid::operator!=()'],['../class_data_1_1_position.html#aca74b0f99c34c6d633eadee72e2dd861',1,'Data::Position::operator!=()']]],
+  ['operator_2a_59',['operator*',['../class_data_1_1_position.html#a3c4e1d33173e5c2607b003c6ce08b36a',1,'Data::Position']]],
+  ['operator_2a_3d_60',['operator*=',['../class_data_1_1_position.html#a1b25addc76dd3aadacac42e7882323e3',1,'Data::Position']]],
+  ['operator_2b_61',['operator+',['../class_data_1_1_position.html#a2241cef8ccb42447843470ee29f8296e',1,'Data::Position']]],
+  ['operator_2b_3d_62',['operator+=',['../class_data_1_1_position.html#a9a16c54668be938a7b2f4a5647033688',1,'Data::Position']]],
+  ['operator_2d_63',['operator-',['../class_data_1_1_position.html#a0d1488717ecc6ea4480c4667fb8e925a',1,'Data::Position::operator-(const Position&lt; numT &gt; &amp;other) const'],['../class_data_1_1_position.html#a5a9a57d9186fb1e9dde9c5799ecc15b5',1,'Data::Position::operator-() const']]],
+  ['operator_2d_3d_64',['operator-=',['../class_data_1_1_position.html#a7c8758fd35a431319cd621507247aeb0',1,'Data::Position']]],
+  ['operator_2f_65',['operator/',['../class_data_1_1_position.html#ab9d7e000f85ad8fe578e8dfaf49cee7b',1,'Data::Position']]],
+  ['operator_2f_3d_66',['operator/=',['../class_data_1_1_position.html#a1c68dd5458d94214886b57c65eabf9da',1,'Data::Position']]],
+  ['operator_3c_3c_67',['operator&lt;&lt;',['../class_data_1_1_cell.html#a656aaebc2d03bd2d76bebd7d3d0d4cbf',1,'Data::Cell::operator&lt;&lt;()'],['../namespace_data.html#af8e63b39439c296ab72e982a7ddde52c',1,'Data::operator&lt;&lt;(std::ostream &amp;output, const Bounds&lt; numT &gt; &amp;bounds)'],['../namespace_data.html#ad0fd56456d1c34448a3a406d1c07e391',1,'Data::operator&lt;&lt;(std::ostream &amp;output, const Cell &amp;cell)'],['../namespace_data.html#af59b4688d970f90842be293277c47b95',1,'Data::operator&lt;&lt;(std::ostream &amp;output, const CellState &amp;state)'],['../namespace_data.html#adadae6dea70199a50353d1e7b672bc4b',1,'Data::operator&lt;&lt;(std::ostream &amp;output, const Colour &amp;col)'],['../namespace_data.html#a375facfa0825d2fd12d5d7305ed9abcb',1,'Data::operator&lt;&lt;(std::ostream &amp;output, const Grid &amp;grid)'],['../namespace_data.html#a173df4b28e9f724e72d9bff4c8376971',1,'Data::operator&lt;&lt;(std::ostream &amp;output, const Position&lt; numT &gt; &amp;obj)']]],
+  ['operator_3d_3d_68',['operator==',['../class_data_1_1_bounds.html#a03a5643bdfa8edaf04e81787bcdad241',1,'Data::Bounds::operator==()'],['../class_data_1_1_cell.html#aea60edfcaabd317250e371f98b1e3f3c',1,'Data::Cell::operator==()'],['../class_data_1_1_cell_state.html#acd1e813bfe690927b1607600bdd06b5c',1,'Data::CellState::operator==()'],['../class_data_1_1_colour.html#a15ac10d520f70d95d80d9f588c4a9429',1,'Data::Colour::operator==()'],['../class_data_1_1_grid.html#a117dcdf5a4c74bb6e51e9ae7344fca47',1,'Data::Grid::operator==()'],['../class_data_1_1_position.html#a398433c999b98ef5c8f6a7b4de0f49b1',1,'Data::Position::operator==()']]]
 ];

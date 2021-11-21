@@ -4,50 +4,10 @@
 #include <stdexcept>
 #include <sstream>
 
-#include <iostream>
-
 using namespace FileIO;
 
-const std::string GridCSVLoader::EXT = "csv";
-const char GridCSVLoader::SEP = ',';
-const char GridCSVLoader::END = '\n';
-
-void GridCSVLoader::formatError(std::ifstream& file, const std::string& part, const char expect, const char test)
+template<> Data::Grid CSVLoader<Data::Grid>::load(std::ifstream& file)
 {
-    std::stringstream error;
-    if (file.bad())
-	{
-		error << "Bad read of " << part;
-		throw std::runtime_error(error.str());
-	}
-	if (file.fail() && file.eof())
-	{
-		file.clear(std::ios_base::iostate::_S_eofbit);
-	}
-    if (file.fail())
-	{
-		error << "Failed to read " << part;
-		throw std::runtime_error(error.str());
-	}
-    if (test != expect || file.eof())
-	{
-		error << "Expected \'" << expect << "\' after " << part << " instead of \'";
-		if (file.eof())
-		{
-			error << "EOF";
-		}
-		else
-		{
-			error << test;
-		}
-		error << '\'';
-		throw std::runtime_error(error.str());
-	}
-}
-
-Data::Grid GridCSVLoader::load(const std::string& path)
-{
-    std::ifstream file;
     Data::Grid grid;
     Data::Position<int> pos;
     Data::Cell cell;
@@ -55,77 +15,50 @@ Data::Grid GridCSVLoader::load(const std::string& path)
     unsigned int s;
     char c;
 
-    if (!this->checkExtension(path, GridCSVLoader::EXT))
-    {
-        throw std::invalid_argument("Unexpected file extension");
-    }
-
-    file.open(path, std::ios::in);
-    if (!file.is_open())
-    {
-        throw std::invalid_argument("File not readable");
-    }
-
     file >> x >> c;
-    std::cout << x << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "minimum bound x", GridCSVLoader::SEP, c);
+    this->formatError(file, "minimum bound x", CSVLoader::SEP, c);
     file >> y >> c;
-    std::cout << y << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "minimum bound y", GridCSVLoader::SEP, c);
+    this->formatError(file, "minimum bound y", CSVLoader::SEP, c);
     file >> z >> c;
-    std::cout << z << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "minimum bound z", GridCSVLoader::SEP, c);
+    this->formatError(file, "minimum bound z", CSVLoader::SEP, c);
 	pos = Data::Position<int>(x, y, z);
     file >> x >> c;
-    std::cout << x << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "maximum bound x", GridCSVLoader::SEP, c);
+    this->formatError(file, "maximum bound x", CSVLoader::SEP, c);
     file >> y >> c;
-    std::cout << y << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "maximum bound y", GridCSVLoader::SEP, c);
+    this->formatError(file, "maximum bound y", CSVLoader::SEP, c);
     file >> z >> c;
-    std::cout << z << '\'' << c << '\'' << std::endl;
-    this->formatError(file, "maximum bound z", GridCSVLoader::END, c); ///\fixme GridCSVLoader::load incorrectly skips over expected newline character
+    this->formatError(file, "maximum bound z", CSVLoader::END, c);
 
     grid = Data::Grid(Data::Bounds<int>(pos, Data::Position<int>(x, y, z)));
     while (file.good())
     {
 		file >> x >> c;
-		this->formatError(file, "cell x", GridCSVLoader::SEP, c);
+		if (file.eof())
+		{
+			break;
+		}
+		this->formatError(file, "cell x", CSVLoader::SEP, c);
 		file >> y >> c;
-		this->formatError(file, "cell y", GridCSVLoader::SEP, c);
+		this->formatError(file, "cell y", CSVLoader::SEP, c);
 		file >> z >> c;
-		this->formatError(file, "cell z", GridCSVLoader::SEP, c);
+		this->formatError(file, "cell z", CSVLoader::SEP, c);
 		file >> s >> c;
-		this->formatError(file, "cell state", GridCSVLoader::END, c);
+		this->formatError(file, "cell state", CSVLoader::END, c);
 		grid.setCellState(Data::Position<int>(x, y, z), s);
     }
 
-    file.close();
     grid.updateAllCells();
     return grid;
 }
 
-void GridCSVLoader::save(const std::string& path, const Data::Grid& grid)
+template<> void CSVLoader<Data::Grid>::save(std::ofstream& file, const Data::Grid& grid)
 {
-    std::ofstream file;
-
-    if (!this->checkExtension(path, GridCSVLoader::EXT))
-    {
-        throw std::invalid_argument("Unexpected file extension");
-    }
-
-    file.open(path, std::ios::out | std::ios::trunc);
-    if (!file.is_open())
-    {
-        throw std::invalid_argument("File not writable");
-    }
-
-    file << grid.getBounds().getMin().getX() << GridCSVLoader::SEP
-    << grid.getBounds().getMin().getY() << GridCSVLoader::SEP
-    << grid.getBounds().getMin().getZ() << GridCSVLoader::SEP
-    << grid.getBounds().getMax().getX() << GridCSVLoader::SEP
-    << grid.getBounds().getMax().getY() << GridCSVLoader::SEP
-    << grid.getBounds().getMax().getZ() << GridCSVLoader::END;
+    file << grid.getBounds().getMin().getX() << CSVLoader::SEP
+    << grid.getBounds().getMin().getY() << CSVLoader::SEP
+    << grid.getBounds().getMin().getZ() << CSVLoader::SEP
+    << grid.getBounds().getMax().getX() << CSVLoader::SEP
+    << grid.getBounds().getMax().getY() << CSVLoader::SEP
+    << grid.getBounds().getMax().getZ() << CSVLoader::END;
 
     for (int x = grid.getBounds().getMin().getX(); x <= grid.getBounds().getMax().getX(); x++)
     {
@@ -135,13 +68,12 @@ void GridCSVLoader::save(const std::string& path, const Data::Grid& grid)
             {
                 if (grid.getCellState(Data::Position<int>(x, y, z)) > 0)
                 {
-                    file << x << GridCSVLoader::SEP
-					<< y << GridCSVLoader::SEP
-                    << z << GridCSVLoader::SEP
-                    << grid.getCellState(Data::Position<int>(x, y, z)) << GridCSVLoader::END;
+                    file << x << CSVLoader::SEP
+					<< y << CSVLoader::SEP
+                    << z << CSVLoader::SEP
+                    << grid.getCellState(Data::Position<int>(x, y, z)) << CSVLoader::END;
                 }
             }
         }
     }
-    file.close();
 }

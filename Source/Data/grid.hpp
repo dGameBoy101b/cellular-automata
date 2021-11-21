@@ -78,15 +78,9 @@ namespace Data
 		*/
 		Grid intersection(const Position<int>& min, const Position<int>& max) const;
 	private:
-		/**
-		 * @brief The cells contained in this Grid.
-		 *
-		 */
-		std::vector<CellState> cells;
-		/**
-		 * @brief The minimum bounds of this Grid.
-		 *
-		 */
+		/** The cells contained in this Grid */
+		std::vector<CellState> cells; //\note A more advanced compression method to store over a million cells will be useful
+		/** The minimum bounds of this Grid */
 		Bounds<int> bounds;
 		/** Map the given position to an index in the cells vector
 		\param pos The position to convert
