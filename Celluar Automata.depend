@@ -73,32 +73,34 @@
 1637149152 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour.hpp
 	<ostream>
 
-1637310438 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.cpp
+1637467832 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.cpp
 	"grid.hpp"
 	<stdexcept>
 
-1637430987 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.hpp
+1637475838 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.hpp
 	"position.hpp"
 	"cell.hpp"
 	"cell_state.hpp"
-	"bounds.hpp"
+	"bounds_position.hpp"
 	<vector>
 
-1637435415 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.cpp
+1637472482 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.cpp
 	"colour_table_csv_loader.hpp"
 
-1637435430 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.hpp
+1637472465 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.hpp
 	"csv_loader.hpp"
-	"../Data/colour.hpp"
+	"../Data/colour_table.hpp"
 	<vector>
 	<string>
 
 1637435227 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\file_loader.hpp
 	<string>
 
-1637434160 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.cpp
+1637470053 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.cpp
 	"grid_csv_loader.hpp"
-	"../Data/Bounds.hpp"
+	"../Data/bounds.hpp"
+	"../Data/position_bounds.hpp"
+	"../Data/position.hpp"
 	<fstream>
 	<stdexcept>
 	<sstream>
@@ -178,17 +180,21 @@
 	<sstream>
 	<string>
 
-1637261152 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
+1637475781 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
 	"test_manager.hpp"
 	"test_factory.hpp"
 	<iostream>
-	"Tests/data_position_tests.hpp"
+	"Tests/data_position_int_tests.hpp"
+	"Tests/data_position_float_tests.hpp"
 	"Tests/data_colour_tests.hpp"
+	"Tests/data_colour_table_tests.hpp"
 	"Tests/data_cell_state_tests.hpp"
 	"Tests/data_cell_tests.hpp"
-	"Tests/data_bounds_tests.hpp"
+	"Tests/data_bounds_position_int_tests.hpp"
+	"Tests/data_bounds_position_float_tests.hpp"
 	"Tests/data_grid_tests.hpp"
 	"Tests/fileio_grid_csv_loader_tests.hpp"
+	"Tests/fileio_colour_table_csv_loader_tests.hpp"
 
 1637044351 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.hpp
 	"unit_test.hpp"
@@ -266,7 +272,7 @@
 	<string>
 	<functional>
 
-1637310501 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_grid_tests.cpp
+1637470315 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_grid_tests.cpp
 	"data_grid_tests.hpp"
 	"../assertion.hpp"
 	"../../Source/Data/grid.hpp"
@@ -276,7 +282,7 @@
 	<string>
 	<functional>
 
-1637434194 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio_grid_csv_loader_tests.cpp
+1637472961 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio_grid_csv_loader_tests.cpp
 	"fileio_grid_csv_loader_tests.hpp"
 	"../assertion.hpp"
 	"../../Source/FileIO/grid_csv_loader.hpp"
@@ -287,7 +293,7 @@
 1637310348 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.cpp
 	"cell_state.hpp"
 
-1637302281 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds.hpp
+1637468617 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds.hpp
 	<ostream>
 	<stdexcept>
 	"position.hpp"
@@ -307,10 +313,11 @@
 	<string>
 	<functional>
 
-1637304258 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_tests.cpp
+1637470241 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_tests.cpp
 	"data_bounds_tests.hpp"
 	"../assertion.hpp"
-	"../../Source/Data/Bounds.hpp"
+	"../../Source/Data/bounds.hpp"
+	"../../Source/Data/position_bounds.hpp"
 
 1637435197 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\csv_loader.hpp
 	"file_loader.hpp"
@@ -318,4 +325,84 @@
 	<fstream>
 	<stdexcept>
 	<sstream>
+
+1637474104 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\position_bounds.hpp
+	"bounds.hpp"
+	"position.hpp"
+
+1637474136 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour_table.cpp
+	"colour_table.hpp"
+
+1637471922 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour_table.hpp
+	"colour.hpp"
+	<unordered_map>
+	<unordered_set>
+
+1637472927 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio_colour_table_csv_loader_tests.cpp
+	"fileio_colour_table_csv_loader_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/FileIO/colour_table_csv_loader.hpp"
+
+1637465324 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio_colour_table_csv_loader_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637474577 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_position_int_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637475291 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_position_float_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637475291 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_position_int_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637475060 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_position_float_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1637475327 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_position_float_tests.cpp
+	"data_bounds_position_float_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/Data/bounds_position.hpp"
+
+1637474104 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds_position.hpp
+	"bounds.hpp"
+	"position.hpp"
+
+1637475264 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_bounds_position_int_tests.cpp
+	"data_bounds_position_int_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/Data/bounds_position.hpp"
+
+1637474363 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_position_float_tests.cpp
+	"data_position_float_tests.hpp"
+	<utility>
+	<initializer_list>
+	"../assertion.hpp"
+	"../../Source/Data/position.hpp"
+
+1637474564 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_position_int_tests.cpp
+	"data_position_int_tests.hpp"
+	<utility>
+	<initializer_list>
+	"../assertion.hpp"
+	"../../Source/Data/position.hpp"
+
+1637475616 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_colour_table_tests.cpp
+	"data_colour_table_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/Data/colour_table.hpp"
+
+1637475522 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data_colour_table_tests.hpp
+	<map>
+	<string>
+	<functional>
 

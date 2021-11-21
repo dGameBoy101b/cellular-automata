@@ -15,20 +15,10 @@ const std::map<std::string, std::function<void()>> Tests::FILEIO_GRID_CSV_LOADER
 		}
 	},
 	{
-		"FileIO::CSVLoader<Data::Grid> Save and Load Large",
-		[]{
-			const Data::Grid GRID = Data::Grid(Data::Bounds<int>(Data::Position<int>(-100, -101, -102), Data::Position<int>(103, 104, 105)));
-			const std::string PATH = "big_test_grid.csv";
-			FileIO::CSVLoader<Data::Grid>().save(PATH, GRID);
-			Data::Grid test = FileIO::CSVLoader<Data::Grid>().load(PATH);
-			TestFramework::assertEqual(test, GRID);
-		}
-	},
-	{
-		"FileIO::CSVLoader<Data::Grid> Save and Load Non-Homogeneous",
+		"FileIO::CSVLoader<Data::Grid> Save and Load Mixed",
 		[]{
 			const std::string PATH = "mixed_test_grid.csv";
-			Data::Grid GRID = Data::Grid(Data::Bounds<int>(Data::Position<int>(0, 0, 0), Data::Position<int>(1, 1, 1)));
+			Data::Grid GRID = Data::Grid(Data::Bounds<Data::Position<int>>(Data::Position<int>(0, 0, 0), Data::Position<int>(1, 1, 1)));
 			GRID.setCellState(Data::Position<int>(0, 0, 0), 0);
 			GRID.setCellState(Data::Position<int>(0, 0, 1), 1);
 			GRID.setCellState(Data::Position<int>(0, 1, 0), 2);

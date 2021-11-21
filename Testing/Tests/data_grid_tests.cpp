@@ -10,14 +10,14 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 		"Data::Grid Default Constructor",
 		[]{
 			Data::Grid test = Data::Grid();
-			TestFramework::assertEqual(test.getBounds(), Data::Bounds<int>());
+			TestFramework::assertEqual(test.getBounds(), Data::Bounds<Data::Position<int>>());
 			TestFramework::assertEqual(test.getCellState(Data::Position<int>()), 0u);
 		}
 	},
 	{
 		"Data::Grid Initialiser Constructor",
 		[]{
-			const Data::Bounds<int> BOUNDS = Data::Bounds<int>(Data::Position<int>(-4, 7, 23), Data::Position<int>(5, 7, 31));
+			const Data::Bounds<Data::Position<int>> BOUNDS = Data::Bounds<Data::Position<int>>(Data::Position<int>(-4, 7, 23), Data::Position<int>(5, 7, 31));
 			Data::Grid test = Data::Grid(BOUNDS);
 			TestFramework::assertEqual(test.getBounds(), BOUNDS);
 		}
@@ -103,7 +103,7 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 	{
 		"Data::Grid Cell Updating",
 		[]{
-			const Data::Bounds<int> BOUNDS = Data::Bounds<int>(Data::Position<int>(-3, -3, -3), Data::Position<int>(3, 3, 3));
+			const Data::Bounds<Data::Position<int>> BOUNDS = Data::Bounds<Data::Position<int>>(Data::Position<int>(-3, -3, -3), Data::Position<int>(3, 3, 3));
 			const Data::Position<int> POS1 = Data::Position<int>(2, -1, 0);
 			const unsigned int STATE1 = 3;
 			const Data::Position<int> POS2 = Data::Position<int>(-3, 3, 2);
@@ -124,7 +124,7 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 	{
 		"Data::Grid Equality",
 		[]{
-			const Data::Bounds<int> BOUNDS = Data::Bounds<int>(Data::Position<int>(2, -34, 7), Data::Position<int>(4, -23, 10));
+			const Data::Bounds<Data::Position<int>> BOUNDS = Data::Bounds<Data::Position<int>>(Data::Position<int>(2, -34, 7), Data::Position<int>(4, -23, 10));
 			TestFramework::assertEqual(Data::Grid(), Data::Grid());
 			TestFramework::assertEqual(Data::Grid(BOUNDS), Data::Grid(BOUNDS));
 		}
@@ -137,8 +137,8 @@ const std::map<std::string, std::function<void()>> Tests::DATA_GRID_TESTS =
 			Data::Grid test = Data::Grid();
 			test.setCellState(Data::Position<int>(), 3);
 			test.updateAllCells();
-			TestFramework::assertNotEqual(Data::Grid(), Data::Grid(Data::Bounds<int>(MIN, MAX)));
-			TestFramework::assertNotEqual(Data::Grid(Data::Bounds<int>(MIN, MAX)), Data::Grid(Data::Bounds<int>(MIN + 1, MAX + 1)));
+			TestFramework::assertNotEqual(Data::Grid(), Data::Grid(Data::Bounds<Data::Position<int>>(MIN, MAX)));
+			TestFramework::assertNotEqual(Data::Grid(Data::Bounds<Data::Position<int>>(MIN, MAX)), Data::Grid(Data::Bounds<Data::Position<int>>(MIN + 1, MAX + 1)));
 			TestFramework::assertNotEqual(Data::Grid(), test);
 		}
 	}

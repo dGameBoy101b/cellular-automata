@@ -2,33 +2,44 @@
 
 using namespace FileIO;
 
-template<> std::vector<Data::Colour> CSVLoader<std::vector<Data::Colour>>::load(std::ifstream& file)
+template<> Data::ColourTable CSVLoader<Data::ColourTable>::load(std::ifstream& file)
 {
 	float r, g, b, a;
 	char c;
-	std::vector<Data::Colour> table = std::vector<Data::Colour>();
+	Data::ColourTable table = {};
+	unsigned int state;
 	while (file.good())
 	{
+		file >> state >> c;
+		if (file.eof())
+		{
+			break;
+		}
+		this->formatError(file, "state", CSVLoader::SEP, c);
 		file >> r >> c;
-		this->formatError(file, "red component", CSVLoader::SEP, c);
+		this->formatError(file, "red colour component", CSVLoader::SEP, c);
 		file >> g >> c;
-		this->formatError(file, "green component", CSVLoader::SEP, c);
+		this->formatError(file, "green colour component", CSVLoader::SEP, c);
 		file >> b >> c;
-		this->formatError(file, "blue component", CSVLoader::SEP, c);
+		this->formatError(file, "blue colour component", CSVLoader::SEP, c);
 		file >> a >> c;
-		this->formatError(file, "alpha component", CSVLoader::SEP, c);
-		table.push_back(Data::Colour(r, g, b, a));
+		this->formatError(file, "alpha colour component", CSVLoader::END, c);
+		table.setColour(state, Data::Colour(r, g, b, a));
 	}
 	return table;
 }
 
-template<> void CSVLoader<std::vector<Data::Colour>>::save(std::ofstream& file, const std::vector<Data::Colour>& table)
+template<> void CSVLoader<Data::ColourTable>::save(std::ofstream& file, const Data::ColourTable& table)
 {
-	for (auto it = table.cbegin(); it != table.cend(); ++it)
+	std::unordered_set<unsigned int> states = table.getStates();
+	Data::Colour colour;
+	for (auto it = states.cbegin(); it != states.cend(); ++it)
 	{
-		file << it->getRed() << CSVLoader::SEP
-		<< it->getGreen() << CSVLoader::SEP
-		<< it->getBlue() << CSVLoader::SEP
-		<< it->getAlpha() << CSVLoader::END;
+		colour = table.getColour(*it);
+		file << *it << CSVLoader::SEP
+		<< colour.getRed() << CSVLoader::SEP
+		<< colour.getGreen() << CSVLoader::SEP
+		<< colour.getBlue() << CSVLoader::SEP
+		<< colour.getAlpha() << CSVLoader::END;
 	}
 }

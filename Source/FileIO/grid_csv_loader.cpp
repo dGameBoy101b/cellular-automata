@@ -1,5 +1,4 @@
 #include "grid_csv_loader.hpp"
-#include "../Data/Bounds.hpp"
 #include <fstream>
 #include <stdexcept>
 #include <sstream>
@@ -29,7 +28,7 @@ template<> Data::Grid CSVLoader<Data::Grid>::load(std::ifstream& file)
     file >> z >> c;
     this->formatError(file, "maximum bound z", CSVLoader::END, c);
 
-    grid = Data::Grid(Data::Bounds<int>(pos, Data::Position<int>(x, y, z)));
+    grid = Data::Grid(Data::Bounds<Data::Position<int>>(pos, Data::Position<int>(x, y, z)));
     while (file.good())
     {
 		file >> x >> c;

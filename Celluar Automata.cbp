@@ -83,12 +83,15 @@
 			</Target>
 		</Build>
 		<Unit filename="Source/Data/bounds.hpp" />
+		<Unit filename="Source/Data/bounds_position.hpp" />
 		<Unit filename="Source/Data/cell.cpp" />
 		<Unit filename="Source/Data/cell.hpp" />
 		<Unit filename="Source/Data/cell_state.cpp" />
 		<Unit filename="Source/Data/cell_state.hpp" />
 		<Unit filename="Source/Data/colour.cpp" />
 		<Unit filename="Source/Data/colour.hpp" />
+		<Unit filename="Source/Data/colour_table.cpp" />
+		<Unit filename="Source/Data/colour_table.hpp" />
 		<Unit filename="Source/Data/grid.cpp" />
 		<Unit filename="Source/Data/grid.hpp" />
 		<Unit filename="Source/Data/position.hpp" />
@@ -98,16 +101,21 @@
 		<Unit filename="Source/FileIO/file_loader.hpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.cpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.hpp" />
-		<Unit filename="Source/FileIO/rule_file.cpp" />
 		<Unit filename="Source/FileIO/rule_file.h" />
 		<Unit filename="Source/main.cpp">
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_bounds_tests.cpp">
+		<Unit filename="Testing/Tests/data_bounds_position_float_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_bounds_tests.hpp">
+		<Unit filename="Testing/Tests/data_bounds_position_float_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_bounds_position_int_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_bounds_position_int_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/data_cell_state_tests.cpp">
@@ -122,6 +130,12 @@
 		<Unit filename="Testing/Tests/data_cell_tests.hpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="Testing/Tests/data_colour_table_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_colour_table_tests.hpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="Testing/Tests/data_colour_tests.cpp">
 			<Option target="Test" />
 		</Unit>
@@ -134,10 +148,22 @@
 		<Unit filename="Testing/Tests/data_grid_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_position_tests.cpp">
+		<Unit filename="Testing/Tests/data_position_float_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_position_tests.hpp">
+		<Unit filename="Testing/Tests/data_position_float_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_position_int_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/data_position_int_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/fileio_colour_table_csv_loader_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/fileio_colour_table_csv_loader_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.cpp">

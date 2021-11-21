@@ -1,6 +1,6 @@
 #pragma once
 #include "csv_loader.hpp"
-#include "../Data/colour.hpp"
+#include "../Data/colour_table.hpp"
 #include <vector>
 #include <string>
 
@@ -11,10 +11,10 @@ namespace FileIO
 	\return The loaded colour table
 	\throw std::runtime_error Malformed data was encountered
 	*/
-	template<> std::vector<Data::Colour> CSVLoader<std::vector<Data::Colour>>::load(std::ifstream& file);
+	template<> Data::ColourTable CSVLoader<Data::ColourTable>::load(std::ifstream& file);
 	/** Save the given colour table to the given open CSV file
 	\param file The open CSV file to save to
 	\param table The colour table to save
 	*/
-	template<> void CSVLoader<std::vector<Data::Colour>>::save(std::ofstream& file, const std::vector<Data::Colour>& table);
+	template<> void CSVLoader<Data::ColourTable>::save(std::ofstream& file, const Data::ColourTable& table);
 }

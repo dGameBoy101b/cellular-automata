@@ -3,7 +3,7 @@
 #include "position.hpp"
 #include "cell.hpp"
 #include "cell_state.hpp"
-#include "bounds.hpp"
+#include "bounds_position.hpp"
 #include <vector>
 
 namespace Data
@@ -14,11 +14,11 @@ namespace Data
 		/** Construct a new Grid object with the given bounds.
 		\param bounds The bounds of this Grid.
 		 */
-		Grid(const Bounds<int>& bounds = Bounds<int>());
+		Grid(const Bounds<Position<int>>& bounds = Bounds<Position<int>>());
 		/** Get the bounds of this Grid
 		\return The bounds of this Grid
 		*/
-		const Bounds<int>& getBounds() const;
+		const Bounds<Position<int>>& getBounds() const;
 		/** Set the minimum bounds of this Grid.
 		\param min The Position of the new minimum bound of this Grid.
 		\throw std::invalid_argument A component of the given minimum is greater than the corresponding maximum component
@@ -81,7 +81,7 @@ namespace Data
 		/** The cells contained in this Grid */
 		std::vector<CellState> cells; //\note A more advanced compression method to store over a million cells will be useful
 		/** The minimum bounds of this Grid */
-		Bounds<int> bounds;
+		Bounds<Position<int>> bounds;
 		/** Map the given position to an index in the cells vector
 		\param pos The position to convert
 		\throw std::invalid_argument The given position is not within the bounds of this Grid

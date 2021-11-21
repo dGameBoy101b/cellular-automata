@@ -3,7 +3,7 @@
 
 using namespace Data;
 
-Grid::Grid(const Bounds<int>& bounds)
+Grid::Grid(const Bounds<Position<int>>& bounds)
 {
 	this->bounds = bounds;
     this->cells = std::vector<CellState>();
@@ -21,7 +21,7 @@ Grid::Grid(const Bounds<int>& bounds)
 	}
 }
 
-const Bounds<int>& Grid::getBounds() const
+const Bounds<Position<int>>& Grid::getBounds() const
 {
     return this->bounds;
 }
@@ -38,9 +38,9 @@ void Grid::setMaxBound(const Position<int>& max)
 
 void Grid::setMinMaxBounds(const Position<int>& min, const Position<int>& max)
 {
-	Bounds<int> bounds = Bounds<int>(min, max);
+	Bounds<Position<int>> bounds = Bounds<Position<int>>(min, max);
 	bool copy = this->bounds.doesOverlap(bounds);
-	Bounds<int> copy_bounds;
+	Bounds<Position<int>> copy_bounds;
 	if (copy)
 	{
 		copy_bounds = this->bounds.intersectWith(bounds);
