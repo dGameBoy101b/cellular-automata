@@ -40,7 +40,7 @@ namespace Data
 		*/
 		bool operator!=(const ColourTable& other) const;
 	private:
-		/** Every colour in this table mapped by index */
+		/** Every colour in this table mapped by state */
 		std::unordered_map<unsigned int, Data::Colour> colours;
 	};
 	/** ColourTable formatted stream insertion

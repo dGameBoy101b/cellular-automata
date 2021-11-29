@@ -19,7 +19,15 @@ const Colour& ColourTable::getColour(unsigned int state) const
 
 void ColourTable::setColour(unsigned int state, const Colour& colour)
 {
-	this->colours.insert({state, colour});
+	auto existing = this->colours.find(state);
+	if (existing == this->colours.end())
+	{
+		this->colours.insert({state, colour});
+	}
+	else
+	{
+		existing->second = colour;
+	}
 }
 
 const std::unordered_set<unsigned int> ColourTable::getStates() const

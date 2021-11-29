@@ -9,9 +9,5 @@ var dir_17c64a1afdd6bdb81711992c5d76bad8 =
       [ "FileLoader", "class_file_i_o_1_1_file_loader.html", "class_file_i_o_1_1_file_loader" ]
     ] ],
     [ "grid_csv_loader.cpp", "grid__csv__loader_8cpp.html", null ],
-    [ "grid_csv_loader.hpp", "grid__csv__loader_8hpp.html", null ],
-    [ "rule_file.cpp", "rule__file_8cpp.html", null ],
-    [ "rule_file.h", "rule__file_8h.html", [
-      [ "RuleFile", "class_file_i_o_1_1_rule_file.html", null ]
-    ] ]
+    [ "grid_csv_loader.hpp", "grid__csv__loader_8hpp.html", null ]
 ];

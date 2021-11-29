@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['unionwith_97',['unionWith',['../class_data_1_1_bounds.html#a66deb155c36d4c8cbc1a2641c56d1e5e',1,'Data::Bounds']]],
-  ['updateallcells_98',['updateAllCells',['../class_data_1_1_grid.html#a5826fabfa1528b229fb746af670c8390',1,'Data::Grid']]],
-  ['updatestate_99',['updateState',['../class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e',1,'Data::Cell']]],
-  ['updatevalue_100',['updateValue',['../class_data_1_1_cell_state.html#ac8fa93c70e474bd6eaccb72c371b8a47',1,'Data::CellState']]]
+  ['unionwith_104',['unionWith',['../class_data_1_1_bounds.html#a9b36648321857636850a32468e22f19d',1,'Data::Bounds::unionWith()'],['../class_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html#a507284960eba603fad0e5e739badc03c',1,'Data::Bounds&lt; Position&lt; NumU &gt; &gt;::unionWith()']]],
+  ['updateallcells_105',['updateAllCells',['../class_data_1_1_grid.html#a5826fabfa1528b229fb746af670c8390',1,'Data::Grid']]],
+  ['updatestate_106',['updateState',['../class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e',1,'Data::Cell']]],
+  ['updatevalue_107',['updateValue',['../class_data_1_1_cell_state.html#ac8fa93c70e474bd6eaccb72c371b8a47',1,'Data::CellState']]]
 ];
