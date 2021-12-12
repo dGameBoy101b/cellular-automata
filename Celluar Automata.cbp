@@ -3,39 +3,24 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="Cellular Automata" />
-		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option extended_obj_names="1" />
 		<Build>
 			<Target title="Debug">
 				<Option output="./Builds/Debug/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="Builds/Debug" />
 				<Option object_output="Builds/Debug/" />
 				<Option deps_output="./Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add option="-DWIN32" />
 					<Add option="-D_DEBUG" />
 					<Add option="-D_CONSOLE" />
-					<Add option="-Wall" />
-					<Add directory="dependencies/freeglut_x86-windows/include/" />
-					<Add directory="$(IncludePath)/" />
 				</Compiler>
 				<Linker>
-					<Add library="winmm.lib" />
-					<Add library="comctl32.lib" />
-					<Add library="kernel32.lib" />
-					<Add library="user32.lib" />
-					<Add library="gdi32.lib" />
-					<Add library="winspool.lib" />
-					<Add library="comdlg32.lib" />
-					<Add library="advapi32.lib" />
-					<Add library="shell32.lib" />
-					<Add library="ole32.lib" />
-					<Add library="oleaut32.lib" />
-					<Add library="uuid.lib" />
-					<Add library="odbc32.lib" />
-					<Add library="odbccp32.lib" />
 					<Add directory="dependencies/freeglut_x86-windows/lib/" />
 					<Add directory="dependencies/freeglut_x86-windows/debug/lib/" />
 					<Add directory="$(LibraryPath)/" />
@@ -43,33 +28,18 @@
 			</Target>
 			<Target title="Release">
 				<Option output="./Builds/Release/Cellular Automata" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="Builds/Release" />
 				<Option object_output="Builds/Release/" />
 				<Option deps_output="./Release/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-Wall" />
 					<Add option="-DWIN32" />
 					<Add option="-DNDEBUG" />
 					<Add option="-D_CONSOLE" />
-					<Add option="-Wall" />
-					<Add directory="dependencies/freeglut_x86-windows/include/" />
-					<Add directory="$(IncludePath)/" />
 				</Compiler>
 				<Linker>
-					<Add library="winmm.lib" />
-					<Add library="comctl32.lib" />
-					<Add library="kernel32.lib" />
-					<Add library="user32.lib" />
-					<Add library="gdi32.lib" />
-					<Add library="winspool.lib" />
-					<Add library="comdlg32.lib" />
-					<Add library="advapi32.lib" />
-					<Add library="shell32.lib" />
-					<Add library="ole32.lib" />
-					<Add library="oleaut32.lib" />
-					<Add library="uuid.lib" />
-					<Add library="odbc32.lib" />
-					<Add library="odbccp32.lib" />
 					<Add directory="dependencies/freeglut_x86-windows/lib/" />
 					<Add directory="dependencies/freeglut_x86-windows/debug/lib/" />
 					<Add directory="$(LibraryPath)/" />
@@ -77,11 +47,23 @@
 			</Target>
 			<Target title="Test">
 				<Option output="./Builds/Test/Celluar Automata" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="Builds/Test" />
 				<Option object_output="Builds/Test/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
 		</Build>
+		<Compiler>
+			<Add directory="Libraries/SDL2-2.0.16/i686-w64-mingw32/include" />
+		</Compiler>
+		<Linker>
+			<Add library="Libraries\SDL2-2.0.16\i686-w64-mingw32\lib\libSDL2.dll.a" />
+			<Add library="Libraries\SDL2-2.0.16\i686-w64-mingw32\lib\libSDL2main.a" />
+			<Add directory="Libraries/SDL2-2.0.16/i686-w64-mingw32/lib" />
+		</Linker>
+		<ExtraCommands>
+			<Add before='$CMD_CP &quot;$TO_NATIVE_PATH{$(PROJECT_DIR)/Libraries/SDL2-2.0.16/i686-w64-mingw32/bin/SDL2.dll}&quot; &quot;$TO_NATIVE_PATH{$(PROJECT_DIR)/$(TARGET_OUTPUT_DIR)}&quot;' />
+		</ExtraCommands>
 		<Unit filename="Source/Data/bounds.hpp" />
 		<Unit filename="Source/Data/bounds_position.hpp" />
 		<Unit filename="Source/Data/cell.cpp" />
@@ -101,7 +83,6 @@
 		<Unit filename="Source/FileIO/file_loader.hpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.cpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.hpp" />
-		<Unit filename="Source/FileIO/rule_file.h" />
 		<Unit filename="Source/main.cpp">
 			<Option target="Debug" />
 			<Option target="Release" />
