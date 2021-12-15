@@ -83,6 +83,8 @@
 		<Unit filename="Source/FileIO/file_loader.hpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.cpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.hpp" />
+		<Unit filename="Source/SDL/Video/window.cpp" />
+		<Unit filename="Source/SDL/Video/window.hpp" />
 		<Unit filename="Source/main.cpp">
 			<Option target="Debug" />
 			<Option target="Release" />
@@ -151,6 +153,12 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_window_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_window_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/assertion.cpp">

@@ -177,7 +177,7 @@
 	<sstream>
 	<string>
 
-1637475781 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
+1639356796 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
 	"test_manager.hpp"
 	"test_factory.hpp"
 	<iostream>
@@ -192,6 +192,7 @@
 	"Tests/data_grid_tests.hpp"
 	"Tests/fileio_grid_csv_loader_tests.hpp"
 	"Tests/fileio_colour_table_csv_loader_tests.hpp"
+	"Tests/sdl_window_tests.hpp"
 
 1637044351 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.hpp
 	"unit_test.hpp"
@@ -403,9 +404,11 @@
 	<string>
 	<functional>
 
-1639319601 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\main.cpp
-	"SDL2/sdl.h"
+1639537603 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\main.cpp
+	"SDL2/SDL.h"
+	"SDL/window.hpp"
 	<iostream>
+	<stdexcept>
 
 1628610834 c:\users\rhysm\onedrive\documents\c++\cellular-automata\libraries\sdl2-2.0.16\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -778,4 +781,35 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+
+1639539633 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\window.cpp
+	"window.hpp"
+	<stdexcept>
+
+1639539311 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\window.hpp
+	<string>
+	"SDL2/SDL_video.h"
+	"../Data/position.hpp"
+	"../Data/bounds_position.hpp"
+
+1639539807 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_window_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1639541491 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_window_tests.cpp
+	"sdl_window_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/SDL/Video/window.hpp"
+	"SDL2/SDL.h"
+
+1639541928 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.cpp
+	"window.hpp"
+	<stdexcept>
+
+1639541937 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.hpp
+	<string>
+	"SDL2/SDL_video.h"
+	"../../Data/position.hpp"
+	"../../Data/bounds_position.hpp"
 
