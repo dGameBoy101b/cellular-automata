@@ -88,10 +88,10 @@ namespace Data
 		*/
 		unsigned int calcIndex(const Position<int>& pos) const;
 	};
-	/** Grid formatted stream insertion
-	\param output The output stream to insert into
-	\param grid The grid to insert
-	\return The given output stream
-	*/
-	std::ostream& operator<<(std::ostream& output, const Grid& grid);
 }
+/** Grid formatted stream insertion
+\param output The output stream to insert into
+\param grid The grid to insert
+\return The given output stream
+*/
+std::ostream& operator<<(std::ostream& output, const Data::Grid& grid);

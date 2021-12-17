@@ -50,12 +50,5 @@ namespace TestFramework
 		\param output The output stream to write to
 		*/
 		void printSuffix(std::ostream& output) const;
-		friend std::ostream& operator<<(std::ostream& output, const UnitTest& test);
 	};
-	/** UnitTest formatted stream insertion
-	\param output The output stream to insert into
-	\param test The UnitTest to insert
-	\return The given output stream
-	*/
-	std::ostream& operator<<(std::ostream& output, const UnitTest& test);
 }

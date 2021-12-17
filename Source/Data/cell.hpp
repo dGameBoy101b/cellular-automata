@@ -68,12 +68,11 @@ namespace Data
 		 *
 		 */
 		CellState state;
-		friend std::ostream& operator<<(std::ostream& output, const Cell& cell);
 	};
-	/** Cell formatted stream insertion
-	\param output The output stream to insert into
-	\param cell The cell to insert
-	\return The given output stream
-	*/
-	std::ostream& operator<<(std::ostream& output, const Cell& cell);
 }
+/** Cell formatted stream insertion
+\param output The output stream to insert into
+\param cell The cell to insert
+\return The given output stream
+*/
+std::ostream& operator<<(std::ostream& output, const Data::Cell& cell);

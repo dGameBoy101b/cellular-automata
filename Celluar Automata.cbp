@@ -83,6 +83,14 @@
 		<Unit filename="Source/FileIO/file_loader.hpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.cpp" />
 		<Unit filename="Source/FileIO/grid_csv_loader.hpp" />
+		<Unit filename="Source/SDL/Events/event.cpp" />
+		<Unit filename="Source/SDL/Events/event.hpp" />
+		<Unit filename="Source/SDL/Events/event_queue.cpp" />
+		<Unit filename="Source/SDL/Events/event_queue.hpp" />
+		<Unit filename="Source/SDL/Events/keyboard_event.cpp" />
+		<Unit filename="Source/SDL/Events/keyboard_event.hpp" />
+		<Unit filename="Source/SDL/Events/quit_event.cpp" />
+		<Unit filename="Source/SDL/Events/quit_event.hpp" />
 		<Unit filename="Source/SDL/Video/window.cpp" />
 		<Unit filename="Source/SDL/Video/window.hpp" />
 		<Unit filename="Source/main.cpp">
@@ -153,6 +161,30 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_event_queue_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_event_queue_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_event_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_event_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_keyboard_event_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_keyboard_event_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_quit_event_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_quit_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/sdl_window_tests.cpp">

@@ -50,7 +50,7 @@ bool ColourTable::operator!=(const ColourTable& other) const
 	return !(*this == other);
 }
 
-std::ostream& Data::operator<<(std::ostream& output, const ColourTable& table)
+std::ostream& operator<<(std::ostream& output, const Data::ColourTable& table)
 {
 	std::unordered_set<unsigned int> states = table.getStates();
 	unsigned int len = states.size();

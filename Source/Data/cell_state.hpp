@@ -39,10 +39,10 @@ namespace Data
 		/** The next value */
 		unsigned int next_value;
 	};
-	/** CellState formatted stream insertion
-	\param output The output stream to insert into
-	\param state The CellState to insert
-	\return The given output stream
-	*/
-	std::ostream& operator<<(std::ostream& output, const CellState& state);
 }
+/** CellState formatted stream insertion
+\param output The output stream to insert into
+\param state The CellState to insert
+\return The given output stream
+*/
+std::ostream& operator<<(std::ostream& output, const Data::CellState& state);

@@ -79,13 +79,16 @@ namespace Data
 		/** The maximum point */
 		NumT max;
 	};
-	/** Bounds formetted stream insertion
-	\param output The output stream to insert into
-	\param bounds The Bounds to insert
-	\return The given output stream
-	*/
-	template<class NumT> std::ostream& operator<<(std::ostream& output, const Bounds<NumT>& bounds);
+}
+/** Bounds formetted stream insertion
+\param output The output stream to insert into
+\param bounds The Bounds to insert
+\return The given output stream
+*/
+template<class NumT> std::ostream& operator<<(std::ostream& output, const Data::Bounds<NumT>& bounds);
 
+namespace Data
+{
 	template<class NumT> Bounds<NumT>::Bounds(const NumT& min, const NumT& max)
 	{
 		this->setMinMax(min, max);
@@ -159,9 +162,9 @@ namespace Data
 	{
 		return !(*this == other);
 	}
+}
 
-	template<class NumT> std::ostream& operator<<(std::ostream& output, const Bounds<NumT>& bounds)
-	{
-		return output << bounds.getMin() << ".." << bounds.getMax();
-	}
+template<class NumT> std::ostream& operator<<(std::ostream& output, const Data::Bounds<NumT>& bounds)
+{
+	return output << bounds.getMin() << ".." << bounds.getMax();
 }

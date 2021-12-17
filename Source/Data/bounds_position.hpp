@@ -76,13 +76,16 @@ namespace Data
 		Position<NumU> min;
 		Position<NumU> max;
 	};
-	/** Bounds formetted stream insertion
-	\param output The output stream to insert into
-	\param bounds The Bounds to insert
-	\return The given output stream
-	*/
-	template<class NumU> std::ostream& operator<<(std::ostream& output, const Bounds<Position<NumU>>& bounds);
+}
+/** Bounds formetted stream insertion
+\param output The output stream to insert into
+\param bounds The Bounds to insert
+\return The given output stream
+*/
+template<class NumU> std::ostream& operator<<(std::ostream& output, const Data::Bounds<Data::Position<NumU>>& bounds);
 
+namespace Data
+{
 	template<> template<class NumU> void Bounds<Position<NumU>>::setMinMax(const Position<NumU>& min, const Position<NumU>& max)
 	{
 		if (min.getX() > max.getX())
@@ -180,9 +183,9 @@ namespace Data
 	{
 		return !(*this == other);
 	}
+}
 
-	template<class NumU> std::ostream& operator<<(std::ostream& output, const Bounds<Position<NumU>>& bounds)
-	{
-		return output << bounds.getMin() << ".." << bounds.getMax();
-	}
+template<class NumU> std::ostream& operator<<(std::ostream& output, const Data::Bounds<Data::Position<NumU>>& bounds)
+{
+	return output << bounds.getMin() << ".." << bounds.getMax();
 }

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['unionwith_210',['unionWith',['../class_data_1_1_bounds.html#a9b36648321857636850a32468e22f19d',1,'Data::Bounds::unionWith()'],['../class_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html#a507284960eba603fad0e5e739badc03c',1,'Data::Bounds&lt; Position&lt; NumU &gt; &gt;::unionWith()']]],
-  ['updateallcells_211',['updateAllCells',['../class_data_1_1_grid.html#a5826fabfa1528b229fb746af670c8390',1,'Data::Grid']]],
-  ['updatestate_212',['updateState',['../class_data_1_1_cell.html#a06a70a8a8a4844b55b7a744fa69be37e',1,'Data::Cell']]],
-  ['updatevalue_213',['updateValue',['../class_data_1_1_cell_state.html#ac8fa93c70e474bd6eaccb72c371b8a47',1,'Data::CellState']]]
+  ['main_295',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
+  ['maximise_296',['maximise',['../class_s_d_l_1_1_video_1_1_window.html#ac1cbb7f816e8c42ee1a1db3c642b96f4',1,'SDL::Video::Window']]],
+  ['minimise_297',['minimise',['../class_s_d_l_1_1_video_1_1_window.html#a5a3e7adefdf9a0edb8db1fb2abe0f356',1,'SDL::Video::Window']]]
 ];

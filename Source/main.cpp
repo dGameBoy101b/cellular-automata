@@ -1,6 +1,10 @@
 #define SDL_MAIN_HANDLED
 #include "SDL2/SDL.h"
 #include "SDL/Video/window.hpp"
+#include "SDL/Events/event_queue.hpp"
+#include "SDL/Events/event.hpp"
+#include "SDL/Events/quit_event.hpp"
+#include "SDL/Events/keyboard_event.hpp"
 #include <iostream>
 #include <stdexcept>
 
@@ -8,10 +12,11 @@
 \param event The event to process
 \return True if the application should now exit
 */
-bool shouldExit(const SDL_Event& event)
+bool shouldExit(const SDL::Events::Event& event)
 {
-	return event.type == SDL_QUIT
-		|| (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE);
+	return event.getType() == SDL_QUIT
+		|| (event.getType() == SDL_KEYDOWN
+			&& SDL::Events::KeyboardEvent(event).getKey() == SDLK_ESCAPE);
 }
 
 int main(int argc, char** argv)
@@ -37,11 +42,20 @@ int main(int argc, char** argv)
 		return -1;
 	}
 
-	SDL_Event event;
+	SDL::Events::Event event;
 	while (true)
 	{
-		if (SDL_PollEvent(&event) == 1)
+		if (SDL::Events::isEventQueued())
 		{
+			try
+			{
+				event = SDL::Events::pollNextEvent();
+			}
+			catch (const std::exception& x)
+			{
+				std::cout << x.what() << std::endl;
+				continue;
+			}
 			if (shouldExit(event))
 			{
 				std::cout << "Exiting..." << std::endl;

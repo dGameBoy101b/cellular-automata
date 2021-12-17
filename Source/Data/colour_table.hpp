@@ -43,10 +43,10 @@ namespace Data
 		/** Every colour in this table mapped by state */
 		std::unordered_map<unsigned int, Data::Colour> colours;
 	};
-	/** ColourTable formatted stream insertion
-	\param output The output stream to insert into
-	\param table The ColourTable to insert
-	\return The given output stream
-	*/
-	std::ostream& operator<<(std::ostream& output, const ColourTable& table);
 }
+/** ColourTable formatted stream insertion
+\param output The output stream to insert into
+\param table The ColourTable to insert
+\return The given output stream
+*/
+std::ostream& operator<<(std::ostream& output, const Data::ColourTable& table);

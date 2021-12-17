@@ -33,7 +33,7 @@ bool CellState::operator!=(const CellState& other) const
 	return !(*this == other);
 }
 
-std::ostream& Data::operator<<(std::ostream& output, const CellState& state)
+std::ostream& operator<<(std::ostream& output, const Data::CellState& state)
 {
 	return output << state.getValue();
 }

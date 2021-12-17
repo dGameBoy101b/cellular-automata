@@ -129,7 +129,7 @@ bool Grid::operator!=(const Grid& other) const
 	return !(*this == other);
 }
 
-std::ostream& Data::operator<<(std::ostream& output, const Grid& grid)
+std::ostream& operator<<(std::ostream& output, const Grid& grid)
 {
 	output << '{' << grid.getBounds() << ":\n";
 	Position<int> pos;

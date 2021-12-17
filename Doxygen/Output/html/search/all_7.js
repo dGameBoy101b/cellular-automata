@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['intersection_57',['intersection',['../class_data_1_1_grid.html#a88775e3390b84d73a56a5e4e6693c078',1,'Data::Grid']]],
-  ['intersectwith_58',['intersectWith',['../class_data_1_1_bounds.html#aea9622599d20243891c5b04a262b0786',1,'Data::Bounds::intersectWith()'],['../class_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html#ae5fd5a9ce551f57a4688aece36880425',1,'Data::Bounds&lt; Position&lt; NumU &gt; &gt;::intersectWith()']]],
-  ['iswithin_59',['isWithin',['../class_data_1_1_bounds.html#a2b7412258d2822235d70159a9090585d',1,'Data::Bounds::isWithin()'],['../class_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html#ac9efd1cec4acb442b4ed5a7184bda044',1,'Data::Bounds&lt; Position&lt; NumU &gt; &gt;::isWithin()']]]
+  ['hasborder_83',['hasBorder',['../class_s_d_l_1_1_video_1_1_window.html#ab49908425edf0f884799ae5515d5e8c2',1,'SDL::Video::Window']]],
+  ['hasflag_84',['hasFlag',['../class_s_d_l_1_1_video_1_1_window.html#adf83ae58574ddec20f361fe154ea4888',1,'SDL::Video::Window']]],
+  ['hasgrabbedkeyboard_85',['hasGrabbedKeyboard',['../class_s_d_l_1_1_video_1_1_window.html#a3805e8951ba66b19e449a5fd943190b3',1,'SDL::Video::Window']]],
+  ['hasgrabbedmouse_86',['hasGrabbedMouse',['../class_s_d_l_1_1_video_1_1_window.html#a7b4443f7724392a7cff6bcc16670d0a9',1,'SDL::Video::Window']]],
+  ['hide_87',['hide',['../class_s_d_l_1_1_video_1_1_window.html#a4626829d3cb9d01285f739d2bbc69b74',1,'SDL::Video::Window']]]
 ];

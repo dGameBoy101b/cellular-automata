@@ -83,10 +83,3 @@ const std::string& UnitTest::getErrorMessage() const
 		throw std::domain_error("Passed or not run test does not have error");
 	}
 }
-
-std::ostream& TestFramework::operator<<(std::ostream& output, const UnitTest& test)
-{
-	test.printPrefix(output);
-	test.printSuffix(output);
-	return output;
-}

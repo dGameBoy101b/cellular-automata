@@ -83,17 +83,48 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
+<div class="textblock"><code>#include &quot;SDL2/SDL.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="window_8hpp_source.html">SDL/Video/window.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="event__queue_8hpp_source.html">SDL/Events/event_queue.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="event_8hpp_source.html">SDL/Events/event.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="quit__event_8hpp_source.html">SDL/Events/quit_event.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="keyboard__event_8hpp_source.html">SDL/Events/keyboard_event.hpp</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a51f528deaaeb973f417b46a2ec36f850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a51f528deaaeb973f417b46a2ec36f850">SDL_MAIN_HANDLED</a></td></tr>
+<tr class="separator:a51f528deaaeb973f417b46a2ec36f850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:afff53ce873f8fde147d692911ebf1275"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afff53ce873f8fde147d692911ebf1275">shouldExit</a> (const <a class="el" href="class_s_d_l_1_1_events_1_1_event.html">SDL::Events::Event</a> &amp;event)</td></tr>
+<tr class="separator:afff53ce873f8fde147d692911ebf1275"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a51f528deaaeb973f417b46a2ec36f850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f528deaaeb973f417b46a2ec36f850">&#9670;&nbsp;</a></span>SDL_MAIN_HANDLED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MAIN_HANDLED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
@@ -120,6 +151,31 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="afff53ce873f8fde147d692911ebf1275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afff53ce873f8fde147d692911ebf1275">&#9670;&nbsp;</a></span>shouldExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool shouldExit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_s_d_l_1_1_events_1_1_event.html">SDL::Events::Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the given event should close the application </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The event to process </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the application should now exit </dd></dl>
 
 </div>
 </div>

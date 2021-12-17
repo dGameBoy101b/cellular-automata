@@ -101,7 +101,7 @@ bool Colour::operator!=(const Colour& other) const
 	return !(*this == other);
 }
 
-std::ostream& Data::operator<<(std::ostream& output, const Colour& col)
+std::ostream& operator<<(std::ostream& output, const Data::Colour& col)
 {
 	return output << '(' << col.getRed() << "r," << col.getGreen() << "g," << col.getBlue() << "b," << col.getAlpha() << "a)";
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_111',['z',['../class_data_1_1_position.html#a3222d3c8322685e8e2a279bea3a25f11',1,'Data::Position']]]
+  ['value_171',['value',['../class_data_1_1_cell_state.html#a0623f20d83163ce39759058efaf8be9c',1,'Data::CellState']]]
 ];

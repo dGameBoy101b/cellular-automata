@@ -72,10 +72,10 @@ namespace Data
         /** The float alpha component between 0 and 1. */
         float a;
     };
-    /** Colour formatted stream insertion
-    \param output The output stream to insert into
-    \param col The colour to insert
-    \return The given output stream
-    */
-    std::ostream& operator<<(std::ostream& output, const Colour& col);
 }
+/** Colour formatted stream insertion
+\param output The output stream to insert into
+\param col The colour to insert
+\return The given output stream
+*/
+std::ostream& operator<<(std::ostream& output, const Data::Colour& col);

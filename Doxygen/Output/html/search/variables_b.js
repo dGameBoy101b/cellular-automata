@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_231',['x',['../class_data_1_1_position.html#a660496d95a14d07aea2183157701e702',1,'Data::Position']]]
+  ['window_371',['window',['../class_s_d_l_1_1_video_1_1_window.html#a6edb37a7c65f8764ce6588f124782e87',1,'SDL::Video::Window']]]
 ];

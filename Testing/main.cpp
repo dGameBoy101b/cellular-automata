@@ -13,6 +13,10 @@
 #include "Tests/fileio_grid_csv_loader_tests.hpp"
 #include "Tests/fileio_colour_table_csv_loader_tests.hpp"
 #include "Tests/sdl_window_tests.hpp"
+#include "Tests/sdl_events_quit_event_tests.hpp"
+#include "Tests/sdl_events_keyboard_event_tests.hpp"
+#include "Tests/sdl_events_event_queue_tests.hpp"
+#include "Tests/sdl_events_event_tests.hpp"
 
 using namespace TestFramework;
 
@@ -34,6 +38,10 @@ int main()
 	TestFactory(Tests::FILEIO_COLOUR_TABLE_CSV_LOADER_TESTS).addTests(tests);
 
 	TestFactory(Tests::SDL_WINDOW_TESTS).addTests(tests);
+	TestFactory(Tests::SDL_EVENTS_QUIT_EVENT_TESTS).addTests(tests);
+	TestFactory(Tests::SDL_EVENTS_KEYBOARD_EVENT_TESTS).addTests(tests);
+	TestFactory(Tests::SDL_EVENTS_EVENT_QUEUE_TESTS).addTests(tests);
+	TestFactory(Tests::SDL_EVENTS_EVENT_TESTS).addTests(tests);
 
 	tests.runAll(std::cout);
 	return 0;

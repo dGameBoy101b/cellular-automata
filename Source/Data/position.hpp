@@ -141,13 +141,16 @@ namespace Data
 		 */
 		numT z;
 	};
-	/** Position formatted stream insertion
-	\param output The output stream to insert into
-	\param obj The position object to insert
-	\return The given output stream
-	*/
-	template<class numT> std::ostream& operator<<(std::ostream& output, const Position<numT>& obj);
+}
+/** Position formatted stream insertion
+\param output The output stream to insert into
+\param obj The position object to insert
+\return The given output stream
+*/
+template<class numT> std::ostream& operator<<(std::ostream& output, const Data::Position<numT>& obj);
 
+namespace Data
+{
 	template<class numT> Position<numT>::Position(const numT& x, const numT& y, const numT& z)
 	{
 		this->x = x;
@@ -248,9 +251,9 @@ namespace Data
 	{
 		*this = *this / other;
 	}
+}
 
-	template<class numT> std::ostream& operator<<(std::ostream& output, const Position<numT>& obj)
-	{
-		return output << '(' << obj.getX() << ',' << obj.getY() << ',' << obj.getZ() << ')';
-	}
+template<class numT> std::ostream& operator<<(std::ostream& output, const Data::Position<numT>& obj)
+{
+	return output << '(' << obj.getX() << ',' << obj.getY() << ',' << obj.getZ() << ')';
 }
