@@ -171,13 +171,13 @@
 1637053809 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\assertion.cpp
 	"assertion.hpp"
 
-1637305272 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\assertion.hpp
+1640083927 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\assertion.hpp
 	<exception>
 	<functional>
 	<sstream>
 	<string>
 
-1639755588 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
+1639924952 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
 	"test_manager.hpp"
 	"test_factory.hpp"
 	<iostream>
@@ -197,6 +197,7 @@
 	"Tests/sdl_events_keyboard_event_tests.hpp"
 	"Tests/sdl_events_event_queue_tests.hpp"
 	"Tests/sdl_events_event_tests.hpp"
+	"Tests/sdl_events_mouse_button_event_tests.hpp"
 
 1637044351 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.hpp
 	"unit_test.hpp"
@@ -822,10 +823,11 @@
 	"../../Data/position.hpp"
 	"../../Data/bounds_position.hpp"
 
-1639757496 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.cpp
+1639925460 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.cpp
 	"event.hpp"
 	"quit_event.hpp"
 	"keyboard_event.hpp"
+	"mouse_button_event.hpp"
 	<stdexcept>
 
 1639757341 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.hpp
@@ -900,11 +902,33 @@
 	<string>
 	<functional>
 
-1639757089 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_events_event_tests.cpp
+1639757539 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_events_event_tests.cpp
 	"sdl_events_event_tests.hpp"
 	"../assertion.hpp"
 	"../../Source/SDL/Events/event.hpp"
 	<ctime>
 	"../../Source/SDL/Events/quit_event.hpp"
 	"../../Source/SDL/Events/keyboard_event.hpp"
+
+1640083918 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_button_event.cpp
+	"mouse_button_event.hpp"
+	<ctime>
+	<stdexcept>
+
+1640081446 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_button_event.hpp
+	"event.hpp"
+	"../../Data/position.hpp"
+	"SDL2/SDL_mouse.h"
+
+1639924753 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_events_mouse_button_event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640083098 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_events_mouse_button_event_tests.cpp
+	"sdl_events_mouse_button_event_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/SDL/Events/mouse_button_event.hpp"
+	<ctime>
+	"../../Source/SDL/Events/quit_event.hpp"
 

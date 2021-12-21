@@ -6,7 +6,6 @@
 #include "../../Source/SDL/Events/keyboard_event.hpp"
 
 const std::map<std::string, std::function<void()>> Tests::SDL_EVENTS_EVENT_TESTS = {
-	///\todo Create SDL::Events::Event unit tests
 	{
 		"SDL::Events::Event Default Constructor",
 		[]{

@@ -89,6 +89,8 @@
 		<Unit filename="Source/SDL/Events/event_queue.hpp" />
 		<Unit filename="Source/SDL/Events/keyboard_event.cpp" />
 		<Unit filename="Source/SDL/Events/keyboard_event.hpp" />
+		<Unit filename="Source/SDL/Events/mouse_button_event.cpp" />
+		<Unit filename="Source/SDL/Events/mouse_button_event.hpp" />
 		<Unit filename="Source/SDL/Events/quit_event.cpp" />
 		<Unit filename="Source/SDL/Events/quit_event.hpp" />
 		<Unit filename="Source/SDL/Video/window.cpp" />
@@ -179,6 +181,12 @@
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/sdl_events_keyboard_event_tests.hpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_mouse_button_event_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/sdl_events_mouse_button_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/Tests/sdl_events_quit_event_tests.cpp">
