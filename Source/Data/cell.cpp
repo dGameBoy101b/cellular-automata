@@ -1,6 +1,6 @@
 #include "cell.hpp"
 
-using namespace Data;
+using namespace CellularAutomata::Data;
 
 Cell::Cell(const Position<int>& pos, unsigned int state)
 {
@@ -33,7 +33,7 @@ void Cell::updateState()
     this->state.updateValue();
 }
 
-std::ostream& operator<<(std::ostream& output, const Data::Cell& cell)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::Data::Cell& cell)
 {
 	return output << '{' << cell.getPosition() << ',' << cell.getState() << '}';
 }

@@ -1,7 +1,7 @@
 #include "window.hpp"
 #include <stdexcept>
 
-using namespace SDL::Video;
+using namespace CellularAutomata::SDL::Video;
 
 Window::Window(SDL_Window* window)
 {
@@ -13,7 +13,7 @@ SDL_Window* Window::getWindow() const
 	return this->window;
 }
 
-Window::Window(const Data::Position<int>& size, const std::string& title, const Data::Position<int>& position, const uint32_t& flags)
+Window::Window(const CellularAutomata::Data::Position<int>& size, const std::string& title, const CellularAutomata::Data::Position<int>& position, const uint32_t& flags)
 {
 	this->window = nullptr;
 	this->create(size, title, position, flags);
@@ -27,7 +27,7 @@ Window::~Window()
 	}
 }
 
-void Window::create(const Data::Position<int>& size, const std::string& title, const Data::Position<int>& position, const uint32_t& flags)
+void Window::create(const CellularAutomata::Data::Position<int>& size, const std::string& title, const CellularAutomata::Data::Position<int>& position, const uint32_t& flags)
 {
 	if (this->window != nullptr)
 	{
@@ -104,44 +104,44 @@ void Window::setTitle(const std::string& title)
 	SDL_SetWindowTitle(this->window, title.c_str());
 }
 
-Data::Position<int> Window::getPosition() const
+CellularAutomata::Data::Position<int> Window::getPosition() const
 {
 	this->existCheck();
 	int x, y;
 	SDL_GetWindowPosition(this->window, &x, &y);
-	return Data::Position<int>(x, y);
+	return CellularAutomata::Data::Position<int>(x, y);
 }
 
-void Window::setPosition(const Data::Position<int>& position)
+void Window::setPosition(const CellularAutomata::Data::Position<int>& position)
 {
 	this->existCheck();
 	SDL_SetWindowPosition(this->window, position.getX(), position.getY());
 }
 
-Data::Position<int> Window::getSize() const
+CellularAutomata::Data::Position<int> Window::getSize() const
 {
 	this->existCheck();
 	int width, height;
 	SDL_GetWindowSize(this->window, &width, &height);
-	return Data::Position<int>(width, height);
+	return CellularAutomata::Data::Position<int>(width, height);
 }
 
-void Window::setSize(const Data::Position<int>& size)
+void Window::setSize(const CellularAutomata::Data::Position<int>& size)
 {
 	this->existCheck();
 	SDL_SetWindowSize(this->window, size.getX(), size.getY());
 }
 
-Data::Bounds<Data::Position<int>> Window::getSizeBounds() const
+CellularAutomata::Data::Bounds<CellularAutomata::Data::Position<int>> Window::getSizeBounds() const
 {
 	this->existCheck();
 	int min_width, min_height, max_width, max_height;
 	SDL_GetWindowMinimumSize(this->window, &min_width, &min_height);
 	SDL_GetWindowMaximumSize(this->window, &max_width, &max_height);
-	return Data::Bounds<Data::Position<int>>({min_width, min_height}, {max_width, max_height});
+	return CellularAutomata::Data::Bounds<CellularAutomata::Data::Position<int>>({min_width, min_height}, {max_width, max_height});
 }
 
-void Window::setSizeBounds(const Data::Bounds<Data::Position<int>>& bounds)
+void Window::setSizeBounds(const CellularAutomata::Data::Bounds<CellularAutomata::Data::Position<int>>& bounds)
 {
 	this->existCheck();
 	SDL_SetWindowMinimumSize(this->window, bounds.getMin().getX(), bounds.getMin().getY());

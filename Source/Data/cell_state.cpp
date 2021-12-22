@@ -1,6 +1,6 @@
 #include "cell_state.hpp"
 
-using namespace Data;
+using namespace CellularAutomata::Data;
 
 CellState::CellState(unsigned int val)
 {
@@ -33,7 +33,7 @@ bool CellState::operator!=(const CellState& other) const
 	return !(*this == other);
 }
 
-std::ostream& operator<<(std::ostream& output, const Data::CellState& state)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::Data::CellState& state)
 {
 	return output << state.getValue();
 }

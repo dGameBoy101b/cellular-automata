@@ -2,7 +2,7 @@
 #include <ctime>
 #include <stdexcept>
 
-using namespace SDL::Events;
+using namespace CellularAutomata::SDL::Events;
 
 MouseWheelEvent::MouseWheelEvent(const Data::Position<int32_t>& velocity, bool is_touch, bool is_flipped)
 {
@@ -32,7 +32,7 @@ MouseWheelEvent::MouseWheelEvent(const Event& event)
 	}
 }
 
-Data::Position<int32_t> MouseWheelEvent::getVelocity() const
+CellularAutomata::Data::Position<int32_t> MouseWheelEvent::getVelocity() const
 {
 	return Data::Position<int32_t>(this->event.wheel.x, this->event.wheel.y);
 }
@@ -57,7 +57,7 @@ bool MouseWheelEvent::operator!=(const MouseWheelEvent& other) const
 	return !(*this == other);
 }
 
-std::ostream& operator<<(std::ostream& output, const SDL::Events::MouseWheelEvent& event)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::SDL::Events::MouseWheelEvent& event)
 {
 	return output << "Mouse Wheel: " << event.getVelocity();
 }

@@ -1,44 +1,47 @@
 #pragma once
 #include <string>
 
-namespace FileIO
+namespace CellularAutomata
 {
-	/** File Loader template
-	\param <ReturnT> The data type this file loader handles
-	*/
-	template <class ReturnT> class FileLoader
+	namespace FileIO
 	{
-	public:
-		/** Load data from a file.
-		\param path The string path of the file to load the data from.
-		\return The loaded data.
-		\throw std::invalid_argument The given path could not be read.
+		/** File Loader template
+		\param <ReturnT> The data type this file loader handles
 		*/
-		virtual ReturnT load(const std::string& path) = 0;
-		/** Save data to a file.
-		\param path The string path of the file to save the data to.
-		\param data The data to save.
-		\throw std::invalid_argument The given path could not be writen to
-		 */
-		virtual void save(const std::string& path, const ReturnT& data) = 0;
-		virtual ~FileLoader<ReturnT>() = default;
-	protected:
-		/** Check the extension of the given path.
-		\param path The string path to check the extension of.
-		\param ext The correct extention
-		\return True if the given path is valid, false otherwise.
-		*/
-		bool checkExtension(const std::string& path, const std::string& ext);
-	};
-
-	template <class ReturnT> bool FileLoader<ReturnT>::checkExtension(const std::string& path, const std::string& ext)
-	{
-		if (path.size() < ext.size())
+		template <class ReturnT> class FileLoader
 		{
-			return false;
+		public:
+			/** Load data from a file.
+			\param path The string path of the file to load the data from.
+			\return The loaded data.
+			\throw std::invalid_argument The given path could not be read.
+			*/
+			virtual ReturnT load(const std::string& path) = 0;
+			/** Save data to a file.
+			\param path The string path of the file to save the data to.
+			\param data The data to save.
+			\throw std::invalid_argument The given path could not be writen to
+			 */
+			virtual void save(const std::string& path, const ReturnT& data) = 0;
+			virtual ~FileLoader<ReturnT>() = default;
+		protected:
+			/** Check the extension of the given path.
+			\param path The string path to check the extension of.
+			\param ext The correct extention
+			\return True if the given path is valid, false otherwise.
+			*/
+			bool checkExtension(const std::string& path, const std::string& ext);
+		};
+
+		template <class ReturnT> bool FileLoader<ReturnT>::checkExtension(const std::string& path, const std::string& ext)
+		{
+			if (path.size() < ext.size())
+			{
+				return false;
+			}
+			std::string::size_type index = path.rfind('.');
+			return index == std::string::npos ? false
+			: path.substr(index + 1).compare(ext) == 0;
 		}
-		std::string::size_type index = path.rfind('.');
-		return index == std::string::npos ? false
-		: path.substr(index + 1).compare(ext) == 0;
 	}
 }

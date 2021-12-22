@@ -1,7 +1,7 @@
 #include "colour.hpp"
 #include <stdexcept>
 
-using namespace Data;
+using namespace CellularAutomata::Data;
 
 Colour::Colour(float r, float g, float b, float a)
 {
@@ -101,7 +101,7 @@ bool Colour::operator!=(const Colour& other) const
 	return !(*this == other);
 }
 
-std::ostream& operator<<(std::ostream& output, const Data::Colour& col)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::Data::Colour& col)
 {
 	return output << '(' << col.getRed() << "r," << col.getGreen() << "g," << col.getBlue() << "b," << col.getAlpha() << "a)";
 }

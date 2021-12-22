@@ -2,7 +2,7 @@
 #include <ctime>
 #include <stdexcept>
 
-using namespace SDL::Events;
+using namespace CellularAutomata::SDL::Events;
 
 MouseButtonEvent::MouseButtonEvent(const uint8_t& button, const bool& is_down, const Data::Position<int32_t>& position, bool is_touch)
 {
@@ -56,7 +56,7 @@ bool MouseButtonEvent::isDown() const
 	return this->event.type == SDL_MOUSEBUTTONDOWN;
 }
 
-Data::Position<int32_t> MouseButtonEvent::getPosition() const
+CellularAutomata::Data::Position<int32_t> MouseButtonEvent::getPosition() const
 {
 	return Data::Position<int32_t>(this->event.button.x, this->event.button.y);
 }
@@ -78,7 +78,7 @@ bool MouseButtonEvent::operator!=(const MouseButtonEvent& other) const
 	return !(*this == other);
 }
 
-std::ostream& operator<<(std::ostream& output, const SDL::Events::MouseButtonEvent& event)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::SDL::Events::MouseButtonEvent& event)
 {
 	output << "Mouse " << (event.isDown() ? "Down" : "Up") << ": ";
 	switch(event.getButton())

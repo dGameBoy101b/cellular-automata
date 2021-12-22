@@ -55,54 +55,54 @@
 
 1636619770 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\main.cpp
 
-1639650280 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.cpp
+1640178533 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.cpp
 	"cell.hpp"
 
-1639650308 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.hpp
+1640178515 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell.hpp
 	"position.hpp"
 	"cell_state.hpp"
 
-1639650452 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\position.hpp
+1640178492 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\position.hpp
 	<cmath>
 	<ostream>
 
-1639650399 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour.cpp
+1640178581 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour.cpp
 	"colour.hpp"
 	<stdexcept>
 
-1639650462 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour.hpp
+1640178562 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour.hpp
 	<ostream>
 
-1639650120 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.cpp
+1640178815 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.cpp
 	"grid.hpp"
 	<stdexcept>
 
-1639650108 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.hpp
+1640178794 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\grid.hpp
 	"position.hpp"
 	"cell.hpp"
 	"cell_state.hpp"
 	"bounds_position.hpp"
 	<vector>
 
-1637472482 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.cpp
+1640178877 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.cpp
 	"colour_table_csv_loader.hpp"
 
-1637472465 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.hpp
+1640178219 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\colour_table_csv_loader.hpp
 	"csv_loader.hpp"
 	"../Data/colour_table.hpp"
 	<vector>
 	<string>
 
-1637435227 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\file_loader.hpp
+1640178180 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\file_loader.hpp
 	<string>
 
-1637475860 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.cpp
+1640178903 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.cpp
 	"grid_csv_loader.hpp"
 	<fstream>
 	<stdexcept>
 	<sstream>
 
-1637434064 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.hpp
+1640178238 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\grid_csv_loader.hpp
 	"../Data/grid.hpp"
 	"csv_loader.hpp"
 
@@ -177,28 +177,28 @@
 	<sstream>
 	<string>
 
-1640163784 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
+1640183669 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\main.cpp
 	"test_manager.hpp"
 	"test_factory.hpp"
 	<iostream>
-	"Tests/data_position_int_tests.hpp"
-	"Tests/data_position_float_tests.hpp"
-	"Tests/data_colour_tests.hpp"
-	"Tests/data_colour_table_tests.hpp"
-	"Tests/data_cell_state_tests.hpp"
-	"Tests/data_cell_tests.hpp"
-	"Tests/data_bounds_position_int_tests.hpp"
-	"Tests/data_bounds_position_float_tests.hpp"
-	"Tests/data_grid_tests.hpp"
-	"Tests/fileio_grid_csv_loader_tests.hpp"
-	"Tests/fileio_colour_table_csv_loader_tests.hpp"
-	"Tests/sdl_window_tests.hpp"
-	"Tests/sdl_events_quit_event_tests.hpp"
-	"Tests/sdl_events_keyboard_event_tests.hpp"
-	"Tests/sdl_events_event_queue_tests.hpp"
-	"Tests/sdl_events_event_tests.hpp"
-	"Tests/sdl_events_mouse_button_event_tests.hpp"
-	"Tests/sdl_events_mouse_wheel_event_tests.hpp"
+	"Tests/Data/position_int_tests.hpp"
+	"Tests/Data/position_float_tests.hpp"
+	"Tests/Data/colour_tests.hpp"
+	"Tests/Data/colour_table_tests.hpp"
+	"Tests/Data/cell_state_tests.hpp"
+	"Tests/Data/cell_tests.hpp"
+	"Tests/Data/bounds_position_int_tests.hpp"
+	"Tests/Data/bounds_position_float_tests.hpp"
+	"Tests/Data/grid_tests.hpp"
+	"Tests/FileIO/grid_csv_loader_tests.hpp"
+	"Tests/FileIO/colour_table_csv_loader_tests.hpp"
+	"Tests/SDL/Video/window_tests.hpp"
+	"Tests/SDL/Events/quit_event_tests.hpp"
+	"Tests/SDL/Events/keyboard_event_tests.hpp"
+	"Tests/SDL/Events/event_queue_tests.hpp"
+	"Tests/SDL/Events/event_tests.hpp"
+	"Tests/SDL/Events/mouse_button_event_tests.hpp"
+	"Tests/SDL/Events/mouse_wheel_event_tests.hpp"
 
 1637044351 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\test_manager.hpp
 	"unit_test.hpp"
@@ -291,13 +291,13 @@
 	"../assertion.hpp"
 	"../../Source/FileIO/grid_csv_loader.hpp"
 
-1639650230 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.hpp
+1640178504 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.hpp
 	<ostream>
 
-1639650426 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.cpp
+1640178552 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\cell_state.cpp
 	"cell_state.hpp"
 
-1639649867 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds.hpp
+1640178648 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds.hpp
 	<ostream>
 	<stdexcept>
 	"position.hpp"
@@ -323,7 +323,7 @@
 	"../../Source/Data/bounds.hpp"
 	"../../Source/Data/position_bounds.hpp"
 
-1637435197 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\csv_loader.hpp
+1640178200 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\fileio\csv_loader.hpp
 	"file_loader.hpp"
 	<string>
 	<fstream>
@@ -334,10 +334,10 @@
 	"bounds.hpp"
 	"position.hpp"
 
-1639649945 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour_table.cpp
+1640178619 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour_table.cpp
 	"colour_table.hpp"
 
-1639649944 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour_table.hpp
+1640178595 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\colour_table.hpp
 	"colour.hpp"
 	<unordered_map>
 	<unordered_set>
@@ -377,7 +377,7 @@
 	"../assertion.hpp"
 	"../../Source/Data/bounds_position.hpp"
 
-1639650160 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds_position.hpp
+1640178779 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\data\bounds_position.hpp
 	"bounds.hpp"
 	"position.hpp"
 
@@ -814,17 +814,17 @@
 	"SDL2/SDL.h"
 	<vector>
 
-1639541928 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.cpp
+1640183460 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.cpp
 	"window.hpp"
 	<stdexcept>
 
-1639541937 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.hpp
+1640183447 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.hpp
 	<string>
 	"SDL2/SDL_video.h"
 	"../../Data/position.hpp"
 	"../../Data/bounds_position.hpp"
 
-1640162330 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.cpp
+1640178960 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.cpp
 	"event.hpp"
 	"quit_event.hpp"
 	"keyboard_event.hpp"
@@ -832,33 +832,33 @@
 	"mouse_wheel_event.hpp"
 	<stdexcept>
 
-1639757341 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.hpp
+1640178912 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event.hpp
 	"SDL2/sdl_events.h"
 	<ostream>
 
-1639750128 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\quit_event.hpp
+1640178919 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\quit_event.hpp
 	"event.hpp"
 	<ostream>
 
-1639751788 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\quit_event.cpp
+1640179058 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\quit_event.cpp
 	"quit_event.hpp"
 	<ctime>
 	<stdexcept>
 
-1639753987 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event_queue.cpp
+1640178971 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event_queue.cpp
 	"event_queue.hpp"
 	<stdexcept>
 
-1639753993 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event_queue.hpp
+1640178319 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\event_queue.hpp
 	"SDL2/SDL_events.h"
 	"event.hpp"
 
-1639749186 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\keyboard_event.hpp
+1640178928 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\keyboard_event.hpp
 	"event.hpp"
 	"SDL2/SDL_events.h"
 	<ostream>
 
-1639749765 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\keyboard_event.cpp
+1640178978 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\keyboard_event.cpp
 	"keyboard_event.hpp"
 	<ctime>
 	<stdexcept>
@@ -912,12 +912,12 @@
 	"../../Source/SDL/Events/quit_event.hpp"
 	"../../Source/SDL/Events/keyboard_event.hpp"
 
-1640083918 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_button_event.cpp
+1640179005 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_button_event.cpp
 	"mouse_button_event.hpp"
 	<ctime>
 	<stdexcept>
 
-1640081446 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_button_event.hpp
+1640178934 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_button_event.hpp
 	"event.hpp"
 	"../../Data/position.hpp"
 	"SDL2/SDL_mouse.h"
@@ -934,16 +934,237 @@
 	<ctime>
 	"../../Source/SDL/Events/quit_event.hpp"
 
-1640165953 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_wheel_event.hpp
+1640178941 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_wheel_event.hpp
 	"event.hpp"
-	"../../Data/position.hpp"
+	"Source/Data/position.hpp"
 
-1640163421 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_wheel_event.cpp
+1640179052 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_wheel_event.cpp
 	"mouse_wheel_event.hpp"
 	<ctime>
 	<stdexcept>
 
 1640163733 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_events_mouse_wheel_event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640166389 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl_events_mouse_wheel_event_tests.cpp
+	"sdl_events_mouse_wheel_event_tests.hpp"
+	"../assertion.hpp"
+	"../../Source/SDL/Events/mouse_wheel_event.hpp"
+	<ctime>
+	"../../Source/SDL/Events/quit_event.hpp"
+
+1640179034 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_motion_event.cpp
+	"mouse_motion_event.hpp"
+	<ctime>
+	<stdexcept>
+
+1640179014 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\events\mouse_motion_event.hpp
+	"event.hpp"
+	"../../Data/position.hpp"
+
+1640176262 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\data_bounds_position_float_tests.cpp
+	"data_bounds_position_float_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/bounds_position.hpp"
+
+1637475060 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\data_bounds_position_float_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640179657 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\bounds_position_float_tests.cpp
+	"bounds_position_float_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/bounds_position.hpp"
+
+1640176460 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\bounds_position_float_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640180438 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\bounds_position_int_tests.cpp
+	"bounds_position_int_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/bounds_position.hpp"
+
+1640176455 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\bounds_position_int_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640180737 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\cell_state_tests.cpp
+	"cell_state_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/cell_state.hpp"
+
+1640176447 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\cell_state_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640180915 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\cell_tests.cpp
+	"cell_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/cell.hpp"
+
+1640176441 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\cell_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640181086 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\colour_table_tests.cpp
+	"colour_table_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/colour_table.hpp"
+
+1640176485 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\colour_table_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640181277 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\colour_tests.cpp
+	"colour_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/colour.hpp"
+
+1640176514 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\colour_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640181669 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\grid_tests.cpp
+	"grid_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/grid.hpp"
+
+1640176562 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\grid_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640181897 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\position_float_tests.cpp
+	"position_float_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/position.hpp"
+
+1640176590 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\position_float_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640182143 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\position_int_tests.cpp
+	"position_int_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/Data/position.hpp"
+
+1640176611 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\data\position_int_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640182291 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio\colour_table_csv_loader_tests.cpp
+	"colour_table_csv_loader_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/FileIO/colour_table_csv_loader.hpp"
+
+1640176641 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio\colour_table_csv_loader_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640182435 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio\grid_csv_loader_tests.cpp
+	"grid_csv_loader_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/FileIO/grid_csv_loader.hpp"
+
+1640176667 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\fileio\grid_csv_loader_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640182766 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\event_queue_tests.cpp
+	"event_queue_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/SDL/Events/event_queue.hpp"
+	"Source/SDL/Events/quit_event.hpp"
+	"SDL2/SDL.h"
+
+1640175690 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\event_queue_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640182859 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\event_tests.cpp
+	"event_tests.hpp"
+	"Testing/assertion.hpp"
+	<ctime>
+	"Source/SDL/Events/event.hpp"
+	"Source/SDL/Events/quit_event.hpp"
+	"Source/SDL/Events/keyboard_event.hpp"
+
+1640175828 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640182925 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\keyboard_event_tests.cpp
+	"keyboard_event_tests.hpp"
+	"Testing/assertion.hpp"
+	<ctime>
+	"Source/SDL/Events/keyboard_event.hpp"
+	"Source/SDL/Events/quit_event.hpp"
+
+1640176729 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\keyboard_event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640183039 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\mouse_button_event_tests.cpp
+	"mouse_button_event_tests.hpp"
+	"Testing/assertion.hpp"
+	<ctime>
+	"Source/SDL/Events/mouse_button_event.hpp"
+	"Source/SDL/Events/quit_event.hpp"
+
+1640176002 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\mouse_button_event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640183840 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\mouse_wheel_event_tests.cpp
+	"mouse_wheel_event_tests.hpp"
+	"Testing/assertion.hpp"
+	<ctime>
+	"Source/SDL/Events/mouse_wheel_event.hpp"
+	"Source/SDL/Events/quit_event.hpp"
+
+1640183219 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\mouse_wheel_event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640183308 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\quit_event_tests.cpp
+	"quit_event_tests.hpp"
+	"Testing/assertion.hpp"
+	<ctime>
+	"Source/SDL/Events/quit_event.hpp"
+	"Source/SDL/Events/keyboard_event.hpp"
+
+1640183254 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\events\quit_event_tests.hpp
+	<map>
+	<string>
+	<functional>
+
+1640183493 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\video\window_tests.cpp
+	"window_tests.hpp"
+	"Testing/assertion.hpp"
+	"Source/SDL/Video/window.hpp"
+	"SDL2/SDL.h"
+	<vector>
+
+1640175495 c:\users\rhysm\onedrive\documents\c++\cellular-automata\testing\tests\sdl\video\window_tests.hpp
 	<map>
 	<string>
 	<functional>

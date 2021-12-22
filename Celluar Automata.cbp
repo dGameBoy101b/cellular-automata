@@ -55,6 +55,7 @@
 		</Build>
 		<Compiler>
 			<Add directory="Libraries/SDL2-2.0.16/i686-w64-mingw32/include" />
+			<Add directory="." />
 		</Compiler>
 		<Linker>
 			<Add library="Libraries\SDL2-2.0.16\i686-w64-mingw32\lib\libSDL2.dll.a" />
@@ -91,6 +92,8 @@
 		<Unit filename="Source/SDL/Events/keyboard_event.hpp" />
 		<Unit filename="Source/SDL/Events/mouse_button_event.cpp" />
 		<Unit filename="Source/SDL/Events/mouse_button_event.hpp" />
+		<Unit filename="Source/SDL/Events/mouse_motion_event.cpp" />
+		<Unit filename="Source/SDL/Events/mouse_motion_event.hpp" />
 		<Unit filename="Source/SDL/Events/mouse_wheel_event.cpp" />
 		<Unit filename="Source/SDL/Events/mouse_wheel_event.hpp" />
 		<Unit filename="Source/SDL/Events/quit_event.cpp" />
@@ -101,112 +104,112 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_bounds_position_float_tests.cpp">
+		<Unit filename="Testing/Tests/Data/bounds_position_float_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_bounds_position_float_tests.hpp">
+		<Unit filename="Testing/Tests/Data/bounds_position_float_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_bounds_position_int_tests.cpp">
+		<Unit filename="Testing/Tests/Data/bounds_position_int_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_bounds_position_int_tests.hpp">
+		<Unit filename="Testing/Tests/Data/bounds_position_int_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_cell_state_tests.cpp">
+		<Unit filename="Testing/Tests/Data/cell_state_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_cell_state_tests.hpp">
+		<Unit filename="Testing/Tests/Data/cell_state_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_cell_tests.cpp">
+		<Unit filename="Testing/Tests/Data/cell_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_cell_tests.hpp">
+		<Unit filename="Testing/Tests/Data/cell_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_colour_table_tests.cpp">
+		<Unit filename="Testing/Tests/Data/colour_table_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_colour_table_tests.hpp">
+		<Unit filename="Testing/Tests/Data/colour_table_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_colour_tests.cpp">
+		<Unit filename="Testing/Tests/Data/colour_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_colour_tests.hpp">
+		<Unit filename="Testing/Tests/Data/colour_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_grid_tests.cpp">
+		<Unit filename="Testing/Tests/Data/grid_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_grid_tests.hpp">
+		<Unit filename="Testing/Tests/Data/grid_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_position_float_tests.cpp">
+		<Unit filename="Testing/Tests/Data/position_float_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_position_float_tests.hpp">
+		<Unit filename="Testing/Tests/Data/position_float_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_position_int_tests.cpp">
+		<Unit filename="Testing/Tests/Data/position_int_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/data_position_int_tests.hpp">
+		<Unit filename="Testing/Tests/Data/position_int_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/fileio_colour_table_csv_loader_tests.cpp">
+		<Unit filename="Testing/Tests/FileIO/colour_table_csv_loader_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/fileio_colour_table_csv_loader_tests.hpp">
+		<Unit filename="Testing/Tests/FileIO/colour_table_csv_loader_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.cpp">
+		<Unit filename="Testing/Tests/FileIO/grid_csv_loader_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/fileio_grid_csv_loader_tests.hpp">
+		<Unit filename="Testing/Tests/FileIO/grid_csv_loader_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_event_queue_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Events/event_queue_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_event_queue_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Events/event_queue_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_event_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Events/event_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_event_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Events/event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_keyboard_event_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Events/keyboard_event_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_keyboard_event_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Events/keyboard_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_mouse_button_event_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Events/mouse_button_event_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_mouse_button_event_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Events/mouse_button_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_mouse_wheel_event_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Events/mouse_wheel_event_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_mouse_wheel_event_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Events/mouse_wheel_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_quit_event_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Events/quit_event_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_events_quit_event_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Events/quit_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_window_tests.cpp">
+		<Unit filename="Testing/Tests/SDL/Video/window_tests.cpp">
 			<Option target="Test" />
 		</Unit>
-		<Unit filename="Testing/Tests/sdl_window_tests.hpp">
+		<Unit filename="Testing/Tests/SDL/Video/window_tests.hpp">
 			<Option target="Test" />
 		</Unit>
 		<Unit filename="Testing/assertion.cpp">

@@ -1,8 +1,8 @@
 #include "colour_table_csv_loader.hpp"
 
-using namespace FileIO;
+using namespace CellularAutomata::FileIO;
 
-template<> Data::ColourTable CSVLoader<Data::ColourTable>::load(std::ifstream& file)
+template<> CellularAutomata::Data::ColourTable CSVLoader<CellularAutomata::Data::ColourTable>::load(std::ifstream& file)
 {
 	float r, g, b, a;
 	char c;
@@ -29,7 +29,7 @@ template<> Data::ColourTable CSVLoader<Data::ColourTable>::load(std::ifstream& f
 	return table;
 }
 
-template<> void CSVLoader<Data::ColourTable>::save(std::ofstream& file, const Data::ColourTable& table)
+template<> void CSVLoader<CellularAutomata::Data::ColourTable>::save(std::ofstream& file, const CellularAutomata::Data::ColourTable& table)
 {
 	std::unordered_set<unsigned int> states = table.getStates();
 	Data::Colour colour;

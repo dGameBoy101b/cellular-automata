@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include <sstream>
 
-using namespace FileIO;
+using namespace CellularAutomata::FileIO;
 
-template<> Data::Grid CSVLoader<Data::Grid>::load(std::ifstream& file)
+template<> CellularAutomata::Data::Grid CSVLoader<CellularAutomata::Data::Grid>::load(std::ifstream& file)
 {
     Data::Grid grid;
     Data::Position<int> pos;
@@ -50,7 +50,7 @@ template<> Data::Grid CSVLoader<Data::Grid>::load(std::ifstream& file)
     return grid;
 }
 
-template<> void CSVLoader<Data::Grid>::save(std::ofstream& file, const Data::Grid& grid)
+template<> void CSVLoader<CellularAutomata::Data::Grid>::save(std::ofstream& file, const CellularAutomata::Data::Grid& grid)
 {
     file << grid.getBounds().getMin().getX() << CSVLoader::SEP
     << grid.getBounds().getMin().getY() << CSVLoader::SEP

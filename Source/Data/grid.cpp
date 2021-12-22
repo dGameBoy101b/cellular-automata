@@ -1,7 +1,7 @@
 #include "grid.hpp"
 #include <stdexcept>
 
-using namespace Data;
+using namespace CellularAutomata::Data;
 
 Grid::Grid(const Bounds<Position<int>>& bounds)
 {

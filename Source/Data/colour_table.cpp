@@ -1,6 +1,6 @@
 #include "colour_table.hpp"
 
-using namespace Data;
+using namespace CellularAutomata::Data;
 
 ColourTable::ColourTable(const std::unordered_map<unsigned int, Colour>& colours)
 {
@@ -50,7 +50,7 @@ bool ColourTable::operator!=(const ColourTable& other) const
 	return !(*this == other);
 }
 
-std::ostream& operator<<(std::ostream& output, const Data::ColourTable& table)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::Data::ColourTable& table)
 {
 	std::unordered_set<unsigned int> states = table.getStates();
 	unsigned int len = states.size();

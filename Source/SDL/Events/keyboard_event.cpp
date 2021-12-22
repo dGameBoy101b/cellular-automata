@@ -2,7 +2,7 @@
 #include <ctime>
 #include <stdexcept>
 
-using namespace SDL::Events;
+using namespace CellularAutomata::SDL::Events;
 
 KeyboardEvent::KeyboardEvent(const Event& event)
 {

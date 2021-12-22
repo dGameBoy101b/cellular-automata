@@ -1,7 +1,7 @@
 #include "event_queue.hpp"
 #include <stdexcept>
 
-using namespace SDL;
+using namespace CellularAutomata::SDL;
 
 bool Events::isEventQueued()
 {

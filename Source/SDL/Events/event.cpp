@@ -5,7 +5,7 @@
 #include "mouse_wheel_event.hpp"
 #include <stdexcept>
 
-using namespace SDL::Events;
+using namespace CellularAutomata::SDL::Events;
 
 Event::Event(const SDL_Event& event)
 {
@@ -72,23 +72,23 @@ bool Event::operator!=(const Event& other) const
 	return !(*this == other);
 }
 
-std::ostream& operator<<(std::ostream& output, const SDL::Events::Event& event)
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::SDL::Events::Event& event)
 {
 	switch (event.getType())
 	{
 	case SDL_QUIT:
-		return output << SDL::Events::QuitEvent(event);
+		return output << CellularAutomata::SDL::Events::QuitEvent(event);
 	case SDL_KEYDOWN:
 	case SDL_KEYUP:
-		return output << SDL::Events::KeyboardEvent(event);
+		return output << CellularAutomata::SDL::Events::KeyboardEvent(event);
 	case SDL_FIRSTEVENT:
 	case SDL_LASTEVENT:
 		return output << "None Event";
 	case SDL_MOUSEBUTTONDOWN:
 	case SDL_MOUSEBUTTONUP:
-		return output << SDL::Events::MouseButtonEvent(event);
+		return output << CellularAutomata::SDL::Events::MouseButtonEvent(event);
 	case SDL_MOUSEWHEEL:
-		return output << SDL::Events::MouseWheelEvent(event);
+		return output << CellularAutomata::SDL::Events::MouseWheelEvent(event);
 	default:
 		std::domain_error("Unrecognised event type");
 	}
