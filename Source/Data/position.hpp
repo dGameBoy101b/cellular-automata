@@ -8,137 +8,100 @@ namespace Data
 	template<class numT> class Position
 	{
 	public:
-		/**
-		 * @brief Initialise a new Position object.
-		 *
-		 * @param x The numT position along the x axis.
-		 * @param y The numT position along the y axis.
-		 * @param z The numT position along the z axis.
-		 */
+		/** Initialise a new Position object.
+		\param x The numT position along the x axis.
+		\param y The numT position along the y axis.
+		\param z The numT position along the z axis.
+		*/
 		Position(const numT& x = numT(), const numT& y = numT(), const numT& z = numT());
 		/** Copy constructor
-		\param <numU> The number type of the given Position
 		\param other The other Position to copy
 		*/
 		template<class numU> Position(const Position<numU>& other);
-		/**
-		 * @brief Get the x coordinate.
-		 *
-		 * @return The numT position along the x axis.
-		 */
+		/** Get the x coordinate.
+		\return The numT position along the x axis.
+		*/
 		const numT& getX() const;
-		/**
-		 * @brief Get the y coordinate.
-		 *
-		 * @return The numT position along the y axis.
-		 */
+		/** Get the y coordinate.
+		\return The numT position along the y axis.
+		*/
 		const numT& getY() const;
-		/**
-		 * @brief Get the z coordinate.
-		 *
-		 * @return The numT position along the z axis.
-		 */
+		/** Get the z coordinate.
+		\return The numT position along the z axis.
+		*/
 		const numT& getZ() const;
-		/**
-		 * @brief Set the x coordinate.
-		 *
-		 * @param x The new numT x coordinate.
-		 */
+		/** Set the x coordinate.
+		\param x The new numT x coordinate.
+		*/
 		void setX(const numT& x);
-		/**
-		 * @brief Set the y coordinate.
-		 *
-		 * @param y The new numT y coordinate.
-		 */
+		/** Set the y coordinate.
+		\param y The new numT y coordinate.
+		*/
 		void setY(const numT& y);
-		/**
-		 * @brief Set the z coordinate.
-		 *
-		 * @param z The new numT z coordinate.
-		 */
+		/** Set the z coordinate.
+		\param z The new numT z coordinate.
+		*/
 		void setZ(const numT& z);
-		/**
-		 * @brief Equality comparison.
-		 *
-		 * @param other The other Position to compare this Position with
-		 * @return true If the positions on each axis are equal.
-		 * @return false If any pair of coordinates are not equal.
-		 */
+		/** Equality comparison.
+		\param other The other Position to compare this Position with
+		\return true If the positions on each axis are equal.
+		\return false If any pair of coordinates are not equal.
+		*/
 		bool operator==(const Position<numT>& other) const;
-		/**
-		 * @brief Inequality comparison.
-		 *
-		 * @param other The other Position to compare this Position with
-		 * @return true If the positions on each axis not equal.
-		 * @return false If any pair of coordinates are equal.
-		 */
+		/** Inequality comparison.
+		\param other The other Position to compare this Position with
+		\return true If the positions on each axis not equal.
+		\return false If any pair of coordinates are equal.
+		*/
 		bool operator!=(const Position<numT>& other) const;
-		/**
-		 * @brief Add this Positon to the given Position.
-		 * @param other The Position to add to this Position.
-		 * @return The Position sum of this Position and the given Position.
-		 */
+		/** Add this Positon to the given Position.
+		\param other The Position to add to this Position.
+		\return The Position sum of this Position and the given Position.
+		*/
 		const Position<numT> operator+(const Position<numT>& other) const;
-		/**
-		 * @brief Multiply each component of this Position by the given number.
-		 * @param other The number to multiply each component of this Position by.
-		 * @return This Position scaled by the given number.
-		 */
+		/** Multiply each component of this Position by the given number.
+		\param other The number to multiply each component of this Position by.
+		\return This Position scaled by the given number.
+		*/
 		const Position<numT> operator*(const numT& other) const;
-		/**
-		 * @brief Subtract the given Position from this Position.
-		 * @param other The Positon to subtract from this Position.
-		 * @return The difference between this Position and the given Position.
-		 */
+		/** Subtract the given Position from this Position.
+		\param other The Positon to subtract from this Position.
+		\return The difference between this Position and the given Position.
+		*/
 		const Position<numT> operator-(const Position<numT>& other) const;
-		/**
-		 * @brief Multiply this Position by -1.
-		 * @return This Position multipled by -1.
-		 */
+		/** Multiply this Position by -1.
+		\return This Position multipled by -1.
+		*/
 		const Position<numT> operator-() const;
-		/**
-		 * @brief Divide each coponent of this Position by the given number.
-		 * @param other The number to divide each component of this Position by.
-		 * @return This Position scaled by the inverse of the given number.
-		 * @throw Exceptions::DivideByZero The given number is zero.
-		 */
+		/** Divide each coponent of this Position by the given number.
+		\param other The number to divide each component of this Position by.
+		\return This Position scaled by the inverse of the given number.
+		\throw Exceptions::DivideByZero The given number is zero.
+		*/
 		const Position<numT> operator/(const numT& other) const;
-		/**
-		 * @brief Add the given Position to this Position.
-		 * @param other The Position to add to this Position.
-		 */
+		/** Add the given Position to this Position.
+		\param other The Position to add to this Position.
+		*/
 		void operator+=(const Position<numT>& other);
-		/**
-		 * @brief Multiply each component of this Position by a given number.
-		 * @param other The number to multiply each component of this Position by.
-		 */
+		/** Multiply each component of this Position by a given number.
+		\param other The number to multiply each component of this Position by.
+		*/
 		void operator*=(const numT& other);
-		/**
-		 * @brief Subtract the given Position from this Position.
-		 * @param other The Position to subtract from this Position.
-		 */
+		/** Subtract the given Position from this Position.
+		\param other The Position to subtract from this Position.
+		*/
 		void operator-=(const Position<numT>& other);
-		/**
-		 * @brief Divide each component of this Position by the given number.
-		 * @param other The number to divide each component of this Position by.
-		 * @throw Exceptions::DivideByZero The given number is zero.
-		 */
+		/** Divide each component of this Position by the given number.
+		\param other The number to divide each component of this Position by.
+		\throw Exceptions::DivideByZero The given number is zero.
+		*/
 		void operator/=(const numT& other);
 	private:
-		/**
-		 * @brief The integer x coordinate of this Position.
-		 *
-		 */
+		/** The x coordinate */
 		numT x;
-		/**
-		 * @brief The integer y coordinate of this Position.
-		 *
-		 */
+		/** The y coordinate */
 		numT y;
-		/**
-		 * @brief The integer z coordinate of this Position.
-		 *
-		 */
+		/** The z coordinate */
 		numT z;
 	};
 }

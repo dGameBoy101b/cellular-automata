@@ -18,6 +18,7 @@
 #include "Tests/sdl_events_event_queue_tests.hpp"
 #include "Tests/sdl_events_event_tests.hpp"
 #include "Tests/sdl_events_mouse_button_event_tests.hpp"
+#include "Tests/sdl_events_mouse_wheel_event_tests.hpp"
 
 using namespace TestFramework;
 
@@ -44,6 +45,7 @@ int main()
 	TestFactory(Tests::SDL_EVENTS_EVENT_QUEUE_TESTS).addTests(tests);
 	TestFactory(Tests::SDL_EVENTS_EVENT_TESTS).addTests(tests);
 	TestFactory(Tests::SDL_EVENTS_MOUSE_BUTTON_EVENT_TESTS).addTests(tests);
+	TestFactory(Tests::SDL_EVENTS_MOUSE_WHEEL_EVENT_TESTS).addTests(tests);
 
 	tests.runAll(std::cout);
 	return 0;

@@ -2,6 +2,7 @@
 #include "quit_event.hpp"
 #include "keyboard_event.hpp"
 #include "mouse_button_event.hpp"
+#include "mouse_wheel_event.hpp"
 #include <stdexcept>
 
 using namespace SDL::Events;
@@ -33,6 +34,8 @@ uint32_t Event::getTimestamp() const
 	case SDL_MOUSEBUTTONDOWN:
 	case SDL_MOUSEBUTTONUP:
 		return this->event.button.timestamp;
+	case SDL_MOUSEWHEEL:
+		return this->event.wheel.timestamp;
 	default:
 		throw std::domain_error("Unrecognised event type");
 	}
@@ -57,6 +60,8 @@ bool Event::operator==(const Event& other) const
 	case SDL_MOUSEBUTTONDOWN:
 	case SDL_MOUSEBUTTONUP:
 		return MouseButtonEvent(*this) == MouseButtonEvent(other);
+	case SDL_MOUSEWHEEL:
+		return MouseWheelEvent(*this) == MouseWheelEvent(other);
 	default:
 		throw std::domain_error("Unrecognised event type");
 	}
@@ -82,6 +87,8 @@ std::ostream& operator<<(std::ostream& output, const SDL::Events::Event& event)
 	case SDL_MOUSEBUTTONDOWN:
 	case SDL_MOUSEBUTTONUP:
 		return output << SDL::Events::MouseButtonEvent(event);
+	case SDL_MOUSEWHEEL:
+		return output << SDL::Events::MouseWheelEvent(event);
 	default:
 		std::domain_error("Unrecognised event type");
 	}

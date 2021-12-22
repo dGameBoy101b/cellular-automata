@@ -9,6 +9,8 @@ var hierarchy =
     [ "Data::ColourTable", "class_data_1_1_colour_table.html", null ],
     [ "SDL::Events::Event", "class_s_d_l_1_1_events_1_1_event.html", [
       [ "SDL::Events::KeyboardEvent", "class_s_d_l_1_1_events_1_1_keyboard_event.html", null ],
+      [ "SDL::Events::MouseButtonEvent", "class_s_d_l_1_1_events_1_1_mouse_button_event.html", null ],
+      [ "SDL::Events::MouseWheelEvent", "class_s_d_l_1_1_events_1_1_mouse_wheel_event.html", null ],
       [ "SDL::Events::QuitEvent", "class_s_d_l_1_1_events_1_1_quit_event.html", null ]
     ] ],
     [ "FileIO::FileLoader< ReturnT >", "class_file_i_o_1_1_file_loader.html", [

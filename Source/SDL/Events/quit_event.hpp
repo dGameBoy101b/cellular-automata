@@ -24,12 +24,12 @@ namespace SDL
 			\param other The other QuitEvent to compare to this
 			\return True
 			*/
-			bool operator==(const QuitEvent& event) const;
+			bool operator==(const QuitEvent& other) const;
 			/** Not equals comparison
 			\param other The other QuiteEvent to compare to this
 			\return False
 			*/
-			bool operator!=(const QuitEvent& event) const;
+			bool operator!=(const QuitEvent& other) const;
 		};
 	}
 }

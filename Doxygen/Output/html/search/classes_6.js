@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['position_193',['Position',['../class_data_1_1_position.html',1,'Data']]],
-  ['position_3c_20int_20_3e_194',['Position&lt; int &gt;',['../class_data_1_1_position.html',1,'Data']]],
-  ['position_3c_20numu_20_3e_195',['Position&lt; NumU &gt;',['../class_data_1_1_position.html',1,'Data']]]
+  ['mousebuttonevent_203',['MouseButtonEvent',['../class_s_d_l_1_1_events_1_1_mouse_button_event.html',1,'SDL::Events']]],
+  ['mousewheelevent_204',['MouseWheelEvent',['../class_s_d_l_1_1_events_1_1_mouse_wheel_event.html',1,'SDL::Events']]]
 ];
