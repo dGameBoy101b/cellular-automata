@@ -147,20 +147,28 @@ namespace CellularAutomata
 				\throw std::domain_error The window does not exist
 				*/
 				void restore();
-				/** Fullscreen mode getter
-				\return 0 when the window is not fullscreen
-				\return SDL_WINDOW_FULLSCREEN when the window is truely fullscreen
-				\return SDL_WINDOW_FULLSCREEN_DESKTOP when the window is just the size of the desktop
+				/** Check if the window is fullscreen
+				\return True when the window is fullscreen
+				\return False when the window is not fullscreen
 				\throw std::domain_error The window does not exist
 				*/
-				uint32_t getFullscreen() const;
-				/** Fullscreen mode setter
-				\param mode The fullscreen mode to use: 0 for windowed, SDL_WINDOW_FULLSCREEN for true fullscreen, SDL_WINDOW_FULLSCREEN_DESKTOP for desktop size fullscreen
-				\throw std::domain_erorr The window does not exist
-				\throw std::invalid_argument The given mode is invalid
+				bool isFullscreen() const;
+				/** Enter fullscreen mode
+				\param use_true Whether true fullscreen should be used (defaults to false)
+				\throw std::domain_error The window does not exist
 				\throw std::runtime_error Failed to set fullscreen mode
 				*/
-				void setFullscreen(const uint32_t& mode);
+				void enterFullscreen(const bool use_true = false);
+				/** Exit fullscreen mode
+				\throw std::domain_error The window does not exist
+				\throw std::runtime_error Failed to set fullscreen mode
+				*/
+				void exitFullscreen();
+				/** Toggle fullscreen mode
+				\throw std::domain_error The window does not exist
+				\throw std::runtime_error Failed to set fullscreen mode
+				*/
+				void toggleFullscreen();
 				/** Check if the window has grabbed the mouse
 				\return True when the mouse is constrained to the window
 				\return False when the mouse is not constrained to the window

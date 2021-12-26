@@ -45,16 +45,15 @@ bool shouldToggleFullscreen(const SDL::Events::Event& event)
 /** Toggle between fullscreen for the main window */
 void toggleFullscreen()
 {
-	if (main_window.getFullscreen() == SDL_WINDOW_FULLSCREEN_DESKTOP)
+	if (main_window.isFullscreen())
 	{
 		std::cout << "Exiting fullscreen..." << std::endl;
-		main_window.setFullscreen(0);
 	}
 	else
 	{
 		std::cout << "Entering fullscreen..." << std::endl;
-		main_window.setFullscreen(SDL_WINDOW_FULLSCREEN_DESKTOP);
 	}
+	main_window.toggleFullscreen();
 }
 
 int main(int argc, char** argv)

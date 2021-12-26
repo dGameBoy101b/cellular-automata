@@ -411,7 +411,7 @@
 	<string>
 	<functional>
 
-1639749668 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\main.cpp
+1640520364 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\main.cpp
 	"SDL2/SDL.h"
 	"SDL/Video/window.hpp"
 	"SDL/Events/event_queue.hpp"
@@ -420,6 +420,7 @@
 	"SDL/Events/keyboard_event.hpp"
 	<iostream>
 	<stdexcept>
+	<cstdlib>
 
 1628610834 c:\users\rhysm\onedrive\documents\c++\cellular-automata\libraries\sdl2-2.0.16\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -815,11 +816,11 @@
 	"SDL2/SDL.h"
 	<vector>
 
-1640183460 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.cpp
+1640520242 source:c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.cpp
 	"window.hpp"
 	<stdexcept>
 
-1640183447 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.hpp
+1640520554 c:\users\rhysm\onedrive\documents\c++\cellular-automata\source\sdl\video\window.hpp
 	<string>
 	"SDL2/SDL_video.h"
 	"../../Data/position.hpp"

@@ -145,16 +145,18 @@ const std::map<std::string, std::function<void()>> Tests::SDL::Video::WINDOW_TES
 		}
 	},
 	{
-		"SDL::Video::Window Fullscreen Setter",
+		"SDL::Video::Window Fullscreen",
 		[]{
 			SDL_Init(SDL_INIT_VIDEO);
 			Window test = {{300, 300}, "Fullscreen Test"};
-			test.setFullscreen(SDL_WINDOW_FULLSCREEN);
-			TestFramework::assertEqual(test.getFullscreen(), (uint32_t)SDL_WINDOW_FULLSCREEN);
-			test.setFullscreen(SDL_WINDOW_FULLSCREEN_DESKTOP);
-			TestFramework::assertEqual(test.getFullscreen(), (uint32_t)SDL_WINDOW_FULLSCREEN_DESKTOP);
-			test.setFullscreen(0u);
-			TestFramework::assertEqual(test.getFullscreen(), 0u);
+			test.enterFullscreen(true);
+			TestFramework::assertEqual(test.isFullscreen(), true);
+			test.exitFullscreen();
+			TestFramework::assertEqual(test.isFullscreen(), false);
+			test.toggleFullscreen();
+			TestFramework::assertEqual(test.isFullscreen(), true);
+			test.toggleFullscreen();
+			TestFramework::assertEqual(test.isFullscreen(), false);
 			SDL_Quit();
 		}
 	},

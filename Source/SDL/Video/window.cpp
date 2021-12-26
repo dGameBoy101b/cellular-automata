@@ -212,27 +212,43 @@ void Window::restore()
 	SDL_RestoreWindow(this->window);
 }
 
-uint32_t Window::getFullscreen() const
+bool Window::isFullscreen() const
 {
 	this->existCheck();
-	return SDL_GetWindowFlags(this->window) & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP);
+	return (SDL_GetWindowFlags(this->window) & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP)) > 0;
 }
 
-void Window::setFullscreen(const uint32_t& mode)
+void Window::enterFullscreen(const bool use_true)
 {
-	this->existCheck();
-	switch (mode)
+	if (!this->isFullscreen())
 	{
-	case SDL_WINDOW_FULLSCREEN:
-	case SDL_WINDOW_FULLSCREEN_DESKTOP:
-	case 0u:
-		if (SDL_SetWindowFullscreen(this->window, mode) != 0)
+		if (SDL_SetWindowFullscreen(this->window, use_true ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_FULLSCREEN_DESKTOP) != 0)
 		{
 			throw std::runtime_error(SDL_GetError());
 		}
-		break;
-	default:
-		throw std::invalid_argument("Invalid fulscreen mode");
+	}
+}
+
+void Window::exitFullscreen()
+{
+	if (this->isFullscreen())
+	{
+		if (SDL_SetWindowFullscreen(this->window, 0) != 0)
+		{
+			throw std::runtime_error(SDL_GetError());
+		}
+	}
+}
+
+void Window::toggleFullscreen()
+{
+	if (this->isFullscreen())
+	{
+		this->exitFullscreen();
+	}
+	else
+	{
+		this->enterFullscreen();
 	}
 }
 
