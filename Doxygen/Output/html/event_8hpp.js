@@ -1,5 +1,5 @@
 var event_8hpp =
 [
-    [ "Event", "class_s_d_l_1_1_events_1_1_event.html", "class_s_d_l_1_1_events_1_1_event" ],
-    [ "operator<<", "event_8hpp.html#ae4d0007886cd4a7c7053fe7f98b5eeb5", null ]
+    [ "Event", "class_cellular_automata_1_1_s_d_l_1_1_events_1_1_event.html", "class_cellular_automata_1_1_s_d_l_1_1_events_1_1_event" ],
+    [ "operator<<", "event_8hpp.html#ab4b7a701f34b669461600a2f05b3c7e6", null ]
 ];

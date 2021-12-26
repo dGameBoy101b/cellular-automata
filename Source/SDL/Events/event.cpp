@@ -3,6 +3,7 @@
 #include "keyboard_event.hpp"
 #include "mouse_button_event.hpp"
 #include "mouse_wheel_event.hpp"
+#include "mouse_motion_event.hpp"
 #include <stdexcept>
 
 using namespace CellularAutomata::SDL::Events;
@@ -36,6 +37,8 @@ uint32_t Event::getTimestamp() const
 		return this->event.button.timestamp;
 	case SDL_MOUSEWHEEL:
 		return this->event.wheel.timestamp;
+	case SDL_MOUSEMOTION:
+		return this->event.motion.timestamp;
 	default:
 		throw std::domain_error("Unrecognised event type");
 	}
@@ -56,12 +59,14 @@ bool Event::operator==(const Event& other) const
 		return KeyboardEvent(*this) == KeyboardEvent(other);
 	case SDL_FIRSTEVENT:
 	case SDL_LASTEVENT:
-		return true;
+		return other.getType() == this->getType();
 	case SDL_MOUSEBUTTONDOWN:
 	case SDL_MOUSEBUTTONUP:
 		return MouseButtonEvent(*this) == MouseButtonEvent(other);
 	case SDL_MOUSEWHEEL:
 		return MouseWheelEvent(*this) == MouseWheelEvent(other);
+	case SDL_MOUSEMOTION:
+		return MouseMotionEvent(*this) == MouseMotionEvent(other);
 	default:
 		throw std::domain_error("Unrecognised event type");
 	}
@@ -77,18 +82,21 @@ std::ostream& operator<<(std::ostream& output, const CellularAutomata::SDL::Even
 	switch (event.getType())
 	{
 	case SDL_QUIT:
-		return output << CellularAutomata::SDL::Events::QuitEvent(event);
+		return output << QuitEvent(event);
 	case SDL_KEYDOWN:
 	case SDL_KEYUP:
-		return output << CellularAutomata::SDL::Events::KeyboardEvent(event);
+		return output << KeyboardEvent(event);
 	case SDL_FIRSTEVENT:
+		return output << "First Event";
 	case SDL_LASTEVENT:
-		return output << "None Event";
+		return output << "Last Event";
 	case SDL_MOUSEBUTTONDOWN:
 	case SDL_MOUSEBUTTONUP:
-		return output << CellularAutomata::SDL::Events::MouseButtonEvent(event);
+		return output << MouseButtonEvent(event);
 	case SDL_MOUSEWHEEL:
-		return output << CellularAutomata::SDL::Events::MouseWheelEvent(event);
+		return output << MouseWheelEvent(event);
+	case SDL_MOUSEMOTION:
+		return output << MouseMotionEvent(event);
 	default:
 		std::domain_error("Unrecognised event type");
 	}

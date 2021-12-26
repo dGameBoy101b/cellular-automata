@@ -194,6 +194,12 @@
 		<Unit filename="Testing/Tests/SDL/Events/mouse_button_event_tests.hpp">
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="Testing/Tests/SDL/Events/mouse_motion_event_tests.cpp">
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="Testing/Tests/SDL/Events/mouse_motion_event_tests.hpp">
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="Testing/Tests/SDL/Events/mouse_wheel_event_tests.cpp">
 			<Option target="Test" />
 		</Unit>

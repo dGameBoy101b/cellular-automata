@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['cells_379',['cells',['../class_data_1_1_grid.html#ade0cc8f375fd35c9ffa44b7b83d4a5b1',1,'Data::Grid']]],
-  ['colours_380',['colours',['../class_data_1_1_colour_table.html#a078de627a74ccf5b8e3ecffaf1d45ae3',1,'Data::ColourTable']]]
+  ['cells_388',['cells',['../class_cellular_automata_1_1_data_1_1_grid.html#a58f4d58dd59d6a5a56d559cb1d40c993',1,'CellularAutomata::Data::Grid']]],
+  ['colours_389',['colours',['../class_cellular_automata_1_1_data_1_1_colour_table.html#aacc9ddcce53eef137368172912f65aeb',1,'CellularAutomata::Data::ColourTable']]]
 ];

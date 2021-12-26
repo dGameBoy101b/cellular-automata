@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['b_2',['b',['../class_data_1_1_colour.html#ad8673c3d6b5e2454609e96f2ee6bad56',1,'Data::Colour']]],
-  ['bounds_3',['Bounds',['../class_data_1_1_bounds.html',1,'Data::Bounds&lt; NumT &gt;'],['../class_data_1_1_bounds.html#abd675a0a3917913dac3e16448c9e90cc',1,'Data::Bounds::Bounds()'],['../class_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html#ae7f77e0733b112d1a98f7f77e6214900',1,'Data::Bounds&lt; Position&lt; NumU &gt; &gt;::Bounds()'],['../class_data_1_1_grid.html#a33718ffa3c3999d5d250b3039fdd4459',1,'Data::Grid::bounds()']]],
+  ['b_2',['b',['../class_cellular_automata_1_1_data_1_1_colour.html#a1ce1a6a819ca4d9422824788bb1aa9b2',1,'CellularAutomata::Data::Colour']]],
+  ['bounds_3',['Bounds',['../class_cellular_automata_1_1_data_1_1_bounds.html',1,'CellularAutomata::Data::Bounds&lt; NumT &gt;'],['../class_cellular_automata_1_1_data_1_1_bounds.html#a4f6f23af2cb2343f161aa075fdb92829',1,'CellularAutomata::Data::Bounds::Bounds()'],['../class_cellular_automata_1_1_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html#aacaa183a911c875456e8109d78013a15',1,'CellularAutomata::Data::Bounds&lt; Position&lt; NumU &gt; &gt;::Bounds()'],['../class_cellular_automata_1_1_data_1_1_grid.html#aed4274f3d77289bff8c9222c585a29da',1,'CellularAutomata::Data::Grid::bounds()']]],
   ['bounds_2ehpp_4',['bounds.hpp',['../bounds_8hpp.html',1,'']]],
-  ['bounds_3c_20data_3a_3aposition_3c_20int_20_3e_20_3e_5',['Bounds&lt; Data::Position&lt; int &gt; &gt;',['../class_data_1_1_bounds.html',1,'Data']]],
-  ['bounds_3c_20position_3c_20numu_20_3e_20_3e_6',['Bounds&lt; Position&lt; NumU &gt; &gt;',['../class_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html',1,'Data']]],
+  ['bounds_3c_20cellularautomata_3a_3adata_3a_3aposition_3c_20int_20_3e_20_3e_5',['Bounds&lt; CellularAutomata::Data::Position&lt; int &gt; &gt;',['../class_cellular_automata_1_1_data_1_1_bounds.html',1,'CellularAutomata::Data']]],
+  ['bounds_3c_20position_3c_20numu_20_3e_20_3e_6',['Bounds&lt; Position&lt; NumU &gt; &gt;',['../class_cellular_automata_1_1_data_1_1_bounds_3_01_position_3_01_num_u_01_4_01_4.html',1,'CellularAutomata::Data']]],
   ['bounds_5fposition_2ehpp_7',['bounds_position.hpp',['../bounds__position_8hpp.html',1,'']]]
 ];

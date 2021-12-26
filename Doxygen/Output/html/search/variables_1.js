@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['b_377',['b',['../class_data_1_1_colour.html#ad8673c3d6b5e2454609e96f2ee6bad56',1,'Data::Colour']]],
-  ['bounds_378',['bounds',['../class_data_1_1_grid.html#a33718ffa3c3999d5d250b3039fdd4459',1,'Data::Grid']]]
+  ['b_386',['b',['../class_cellular_automata_1_1_data_1_1_colour.html#a1ce1a6a819ca4d9422824788bb1aa9b2',1,'CellularAutomata::Data::Colour']]],
+  ['bounds_387',['bounds',['../class_cellular_automata_1_1_data_1_1_grid.html#aed4274f3d77289bff8c9222c585a29da',1,'CellularAutomata::Data::Grid']]]
 ];
