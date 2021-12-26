@@ -98,6 +98,6 @@ std::ostream& operator<<(std::ostream& output, const CellularAutomata::SDL::Even
 	case SDL_MOUSEMOTION:
 		return output << MouseMotionEvent(event);
 	default:
-		std::domain_error("Unrecognised event type");
+		throw std::domain_error("Unrecognised event type");
 	}
 }

@@ -7,16 +7,54 @@
 #include "SDL/Events/keyboard_event.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <cstdlib>
+
+using namespace CellularAutomata;
+
+/** The main window */
+SDL::Video::Window main_window;
 
 /** Check if the given event should close the application
 \param event The event to process
 \return True if the application should now exit
 */
-bool shouldExit(const SDL::Events::Event& event)
+bool shouldQuit(const SDL::Events::Event& event)
 {
 	return event.getType() == SDL_QUIT
 		|| (event.getType() == SDL_KEYDOWN
 			&& SDL::Events::KeyboardEvent(event).getKey() == SDLK_ESCAPE);
+}
+
+/** Quit the application */
+void quit()
+{
+	std::cout << "Exiting..." << std::endl;
+	SDL_Quit();
+	exit(EXIT_SUCCESS);
+}
+
+/** Check if the given event should trigger a fullscreen toggle
+\param event The event to check
+\return True when the application should now toggle it fullscreen
+*/
+bool shouldToggleFullscreen(const SDL::Events::Event& event)
+{
+	return (event.getType() == SDL_KEYDOWN && SDL::Events::KeyboardEvent(event).getKey() == SDLK_f);
+}
+
+/** Toggle between fullscreen for the main window */
+void toggleFullscreen()
+{
+	if (main_window.getFullscreen() == SDL_WINDOW_FULLSCREEN_DESKTOP)
+	{
+		std::cout << "Exiting fullscreen..." << std::endl;
+		main_window.setFullscreen(0);
+	}
+	else
+	{
+		std::cout << "Entering fullscreen..." << std::endl;
+		main_window.setFullscreen(SDL_WINDOW_FULLSCREEN_DESKTOP);
+	}
 }
 
 int main(int argc, char** argv)
@@ -30,7 +68,6 @@ int main(int argc, char** argv)
 		return error;
 	}
 
-	SDL::Video::Window main_window;
 	try
 	{
 		main_window.create({1280, 720}, "Cellular Automata", {SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED}, SDL_WINDOW_MAXIMIZED | SDL_WINDOW_RESIZABLE);
@@ -56,11 +93,13 @@ int main(int argc, char** argv)
 				std::cout << x.what() << std::endl;
 				continue;
 			}
-			if (shouldExit(event))
+			if (shouldQuit(event))
 			{
-				std::cout << "Exiting..." << std::endl;
-				SDL_Quit();
-				return 0;
+				quit();
+			}
+			if (shouldToggleFullscreen(event))
+			{
+				toggleFullscreen();
 			}
 		}
 	}
