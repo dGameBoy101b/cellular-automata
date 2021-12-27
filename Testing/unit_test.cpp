@@ -33,6 +33,11 @@ void UnitTest::run(std::ostream*const output)
 		this->status = TestStatus::Error;
 		this->error_message = x.what();
 	}
+	catch (...)
+	{
+		this->status = TestStatus::Error;
+		this->error_message = "Unknown error";
+	}
 	if (output != nullptr)
 	{
 		this->printSuffix(*output);

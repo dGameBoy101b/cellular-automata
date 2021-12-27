@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_190',['y',['../class_cellular_automata_1_1_data_1_1_position.html#a3023a5a0ca918381d1814ba8171e9177',1,'CellularAutomata::Data::Position']]]
+  ['x_195',['x',['../class_cellular_automata_1_1_data_1_1_position.html#a879b24d271eb834095f360f3dfd82e02',1,'CellularAutomata::Data::Position']]]
 ];

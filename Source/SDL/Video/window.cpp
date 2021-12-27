@@ -8,6 +8,26 @@ Window::Window(SDL_Window* window)
 	this->window = window;
 }
 
+Window::Window(uint32_t id)
+{
+	this->window = SDL_GetWindowFromID(id);
+	if (this->window == nullptr)
+	{
+		throw std::invalid_argument(SDL_GetError());
+	}
+}
+
+uint32_t Window::getID() const
+{
+	this->existCheck();
+	uint32_t res = SDL_GetWindowID(this->window);
+	if (res == 0)
+	{
+		throw std::runtime_error(SDL_GetError());
+	}
+	return res;
+}
+
 SDL_Window* Window::getWindow() const
 {
 	return this->window;
@@ -21,7 +41,7 @@ Window::Window(const CellularAutomata::Data::Position<int>& size, const std::str
 
 Window::~Window()
 {
-	if (this->window != nullptr)
+	if (this->doesExist())
 	{
 		this->destroy();
 	}
@@ -42,12 +62,13 @@ void Window::create(const CellularAutomata::Data::Position<int>& size, const std
 
 bool Window::doesExist() const
 {
-	return this->window != nullptr;
+	return this->window != nullptr
+	&& SDL_GetWindowID(this->window) != 0;
 }
 
 void Window::existCheck() const
 {
-	if (this->window == nullptr)
+	if (!this->doesExist())
 	{
 		throw std::domain_error("Window does not exist");
 	}
@@ -220,6 +241,7 @@ bool Window::isFullscreen() const
 
 void Window::enterFullscreen(const bool use_true)
 {
+	this->existCheck();
 	if (!this->isFullscreen())
 	{
 		if (SDL_SetWindowFullscreen(this->window, use_true ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_FULLSCREEN_DESKTOP) != 0)
@@ -231,6 +253,7 @@ void Window::enterFullscreen(const bool use_true)
 
 void Window::exitFullscreen()
 {
+	this->existCheck();
 	if (this->isFullscreen())
 	{
 		if (SDL_SetWindowFullscreen(this->window, 0) != 0)
@@ -242,6 +265,7 @@ void Window::exitFullscreen()
 
 void Window::toggleFullscreen()
 {
+	this->existCheck();
 	if (this->isFullscreen())
 	{
 		this->exitFullscreen();
@@ -321,4 +345,25 @@ void Window::disableResizing()
 {
 	this->existCheck();
 	SDL_SetWindowResizable(this->window, SDL_FALSE);
+}
+
+bool Window::operator==(const Window& other) const
+{
+	return this->doesExist() == other.doesExist()
+	&& (!this->doesExist() || this->getID() == other.getID());
+}
+
+bool Window::operator!=(const Window& other) const
+{
+	return !(*this == other);
+}
+
+std::ostream& operator<<(std::ostream& output, const Window& window)
+{
+	output << "Window: ";
+	if (window.doesExist())
+	{
+		return output << window.getID() << " \"" << window.getTitle() << "\"";
+	}
+	return output << "None";
 }

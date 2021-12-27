@@ -56,6 +56,16 @@ const std::map<std::string, std::function<void()>> Tests::SDL::Video::WINDOW_TES
 		}
 	},
 	{
+		"SDL::Video::Window Lookup Constructor",
+		[]{
+			SDL_Init(SDL_INIT_VIDEO);
+			const Window WINDOW = {{900, 300}, "Lookup Test"};
+			Window test = {WINDOW.getID()};
+			TestFramework::assertEqual(test.getID(), WINDOW.getID());
+			SDL_Quit();
+		}
+	},
+	{
 		"SDL::Video::Window Flash",
 		[]{
 			SDL_Init(SDL_INIT_VIDEO);
@@ -201,6 +211,30 @@ const std::map<std::string, std::function<void()>> Tests::SDL::Video::WINDOW_TES
             TestFramework::assertEqual(test.isResizable(), true);
             test.disableResizing();
             TestFramework::assertEqual(test.isResizable(), false);
+            SDL_Quit();
+		}
+	},
+	{
+		"SDL::Video::Window Equals Comparison",
+		[]{
+            SDL_Init(SDL_INIT_VIDEO);
+			const Window WINDOW = {{900, 300}, "Window Equals Test"};
+			const Window COPY_WINDOW = {WINDOW};
+			const Window WRAP_WINDOW = {WINDOW.getWindow()};
+			const Window ID_WINDOW = {WINDOW.getID()};
+			TestFramework::assertEqual(COPY_WINDOW, WINDOW);
+			TestFramework::assertEqual(WRAP_WINDOW, WINDOW);
+			TestFramework::assertEqual(ID_WINDOW, WINDOW);
+            SDL_Quit();
+		}
+	},
+	{
+		"SDL::Video::Window Not Equals Comparison",
+		[]{
+            SDL_Init(SDL_INIT_VIDEO);
+			const Window WINDOW = {{900, 300}, "Window Not Equals Test"};
+			const Window PARAM_WINDOW = {WINDOW.getSize(), WINDOW.getTitle()};
+			TestFramework::assertNotEqual(WINDOW, PARAM_WINDOW);
             SDL_Quit();
 		}
 	}

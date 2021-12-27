@@ -1,4 +1,4 @@
-#pragma ince
+#pragma once
 #include <map>
 #include <string>
 #include <functional>

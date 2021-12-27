@@ -17,6 +17,11 @@ namespace CellularAutomata
 				\param window The window to wrap
 				*/
 				Window(SDL_Window* window = nullptr);
+				/** Lookup constructor
+				\param id The window id to lookup
+				\throw std::invalid_argument A window with the given id does not exist
+				*/
+				Window(uint32_t id);
 				/** Calls SDL_CreateWindow to construct a window
 				\param size The requested window width and height
 				\param title The title of the new window (defaults to empty)
@@ -55,6 +60,12 @@ namespace CellularAutomata
 				\throw std::domain_error The window does not exist
 				*/
 				bool hasFlag(const SDL_WindowFlags& flag) const;
+				/** ID getter
+				\return The id of this window
+				\throw std::domain_error The window does not exist
+				\throw std::runtime_error Failed to fetch window id
+				*/
+				uint32_t getID() const;
 				/** Flash the window once to get the user's attention
 				\throw std::domain_error The window does not exist
 				\throw std::runtime_error The flash operation could not be done
@@ -225,6 +236,18 @@ namespace CellularAutomata
 				\throw std::domain_error The window does not exist
 				*/
 				void disableResizing();
+				/** Equals comparison
+				\param other The other window to compare with
+				\return True when the given window refers to the same window
+				\return False when the given window refers to a different window
+				*/
+				bool operator==(const Window& other) const;
+				/** Not equals comparison
+				\param other The other window to compare with
+				\return True when the given window refers to a different window
+				\return False when the given window refers to the same window
+				*/
+				bool operator!=(const Window& other) const;
 			private:
 				/** The SDL window this wraps */
 				SDL_Window* window;
@@ -236,3 +259,9 @@ namespace CellularAutomata
 		}
 	}
 }
+/** Window stream insertion
+\param output The output stream to insert into
+\param window The window to insert
+\return The given output stream
+*/
+std::ostream& operator<<(std::ostream& output, const CellularAutomata::SDL::Video::Window& window);

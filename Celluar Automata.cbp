@@ -51,6 +51,14 @@
 				<Option object_output="Builds/Test/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-pg" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-pg -lgmon" />
+				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
@@ -98,6 +106,7 @@
 		<Unit filename="Source/SDL/Events/mouse_wheel_event.hpp" />
 		<Unit filename="Source/SDL/Events/quit_event.cpp" />
 		<Unit filename="Source/SDL/Events/quit_event.hpp" />
+		<Unit filename="Source/SDL/Events/window_shown_event.hpp" />
 		<Unit filename="Source/SDL/Video/window.cpp" />
 		<Unit filename="Source/SDL/Video/window.hpp" />
 		<Unit filename="Source/main.cpp">

@@ -1,3 +1,4 @@
+#define SDL_MAIN_HANDLED
 #include "test_manager.hpp"
 #include "test_factory.hpp"
 #include <iostream>
